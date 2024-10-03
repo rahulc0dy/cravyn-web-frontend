@@ -22,7 +22,7 @@ const Footer = () => {
                     <p>Follow and Support Us</p>
                 </div>
                 <div class="social_icon">
-                    <div class="social codepen"><Link href="#"><Image src="\assets\images\CodePen.svg" width={20} height={20}/></Link></div>
+                    <div class="social whatsapp"><Link href="#"><Image src="\assets\images\whatsapp.svg" width={20} height={20}/></Link></div>
                     <div class="social facebook"><Link href="#"><Image src="\assets\images\Facebook.svg" width={20} height={20}/></Link></div>
                     <div class="social github"><Link href="#"><Image src="\assets\images\Github.svg" width={20} height={20}/></Link></div>
                     <div class="social insta"><Link href="#"><Image src="\assets\images\Instagram.svg" width={20} height={20}/></Link>
