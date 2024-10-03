@@ -46,18 +46,51 @@ h3{
 }
 
 .social_icon{
+    display:flex;
     padding-bottom: 15%;
+    gap:5%;
 }
 
-.social_icon{
-    display:flex;
-    gap:5%;
+.social_icon .social{
+    padding:3% 4%;
+    background-color: #343434;
+    border-radius:20%;
+}
+
+.codepen:hover{
+    background-color: #000;
+    transition: 0.5s ease;
+}
+
+.facebook:hover{
+    background-color: #1877F2;
+    transition: 0.5s ease;
+}
+
+.github:hover{
+    background-color: #000;
+    transition: 0.5s ease;
+}
+
+.insta:hover {
+    background-image: linear-gradient(120deg,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+    transition: 0.5s ease;
+}
+
+
+.linkedin:hover {
+    background-color: #0077B5;
+    transition: 0.5s ease;
 }
 
 .name{
     padding-top: 5%;
     display:flex;
     gap:3%;
+}
+
+.tag h2{
+    padding-bottom: 4%;
 }
 
 .description{

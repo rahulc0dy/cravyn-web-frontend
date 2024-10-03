@@ -9,7 +9,11 @@ const Footer = () => {
             <div class="left">
                 <div class="name">
                 <Image class="cu" src="\assets\images\CUlogo.svg" width={60} height={60}></Image>
-                <h2>CRAVYN</h2>
+                <div class="tag">
+                    <h2>CRAVYN</h2>
+                    <p>Crave.Click.Delivered.</p>
+                </div>
+                
                 </div>
                 <div class="desc">
                     <p class="description">A Software Engineering Project by Group 3 of Computer Science and Engineering,Univeristy of Calcutta</p>
@@ -18,11 +22,12 @@ const Footer = () => {
                     <p>Follow and Support Us</p>
                 </div>
                 <div class="social_icon">
-                    <Link href="#"><Image src="\assets\images\CodePen.svg" width={20} height={20}/></Link>
-                    <Link href="#"><Image src="\assets\images\Facebook.svg" width={20} height={20}/></Link>
-                    <Link href="#"><Image src="\assets\images\Github.svg" width={20} height={20}/></Link>
-                    <Link href="#"><Image src="\assets\images\Instagram.svg" width={20} height={20}/></Link>
-                    <Link href="#"><Image src="\assets\images\LinkedIn.svg" width={20} height={20}/></Link>    
+                    <div class="social codepen"><Link href="#"><Image src="\assets\images\CodePen.svg" width={20} height={20}/></Link></div>
+                    <div class="social facebook"><Link href="#"><Image src="\assets\images\Facebook.svg" width={20} height={20}/></Link></div>
+                    <div class="social github"><Link href="#"><Image src="\assets\images\Github.svg" width={20} height={20}/></Link></div>
+                    <div class="social insta"><Link href="#"><Image src="\assets\images\Instagram.svg" width={20} height={20}/></Link>
+                    </div>
+                    <div class="social linkedin"><Link href="#"><Image src="\assets\images\LinkedIn.svg" width={20} height={20}/></Link></div>   
                 </div>
                 <div class="app">
                     <h3>Get Our Mobile App</h3>
@@ -81,7 +86,7 @@ const Footer = () => {
                     <span><Image src="\assets\images\watch.svg" width={20} height={20}></Image></span>
                     <span>Mon-Fri 10.00am-5.00pm</span>
                 </div>
-                <h3 class="copyright">© 2024 Copyright Group3</h3>
+                <h3 class="copyright">© 2024 Copyright Group 3</h3>
             </div>
 
         </div>
