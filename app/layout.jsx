@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Inter, Quicksand } from "next/font/google";
 import "@styles/globals.css";
 
 /*const geistSans = localFont({
@@ -7,7 +8,7 @@ import "@styles/globals.css";
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "@fonts/GeistMonoVF.woff",
+  src: "../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });*/
