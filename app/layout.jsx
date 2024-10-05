@@ -2,8 +2,8 @@ import localFont from "next/font/local";
 import { Inter, Quicksand } from "next/font/google";
 import "@styles/globals.css";
 
-const geistSans = localFont({
-  src: "../public/fonts/GeistVF.woff",
+/*const geistSans = localFont({
+  src: "@fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
@@ -11,10 +11,7 @@ const geistMono = localFont({
   src: "../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-});
+});*/
 
 export const metadata = {
   title: "Create Next App",
@@ -24,7 +21,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${quicksand.className} antialiased`}>{children}</body>
+      <body
+       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
