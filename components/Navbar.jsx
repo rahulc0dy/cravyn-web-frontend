@@ -4,11 +4,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import HomeNav from "@components/HomeNav";
 
 const Navbar = () => {
   const path = usePathname();
 
-  if (path == "/") return null;
+  if (path == "/") return <HomeNav />;
 
   return (
     <nav className="navbar">
