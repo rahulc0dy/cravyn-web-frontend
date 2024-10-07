@@ -3,5 +3,7 @@
   "bracketSpacing": true,
   "tabWidth": 2,
   "useTabs": false,
-  "semi": true
+  "semi": true,
+  "endOfLine": "crlf",
+  "insertFinalNewline": true
 }
