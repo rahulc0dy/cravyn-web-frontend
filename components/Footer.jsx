@@ -5,9 +5,9 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className=" w-100 py-9 text-white bg-primary-grey flex flex-row justify-center">
-      <div className="max-w-screen-2xl grid-cols-1 sm:grid-cols-2 grid md:grid-cols-4 justify-between gap-x-24 gap-y-10">
+      <div className="max-w-screen-2xl px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:px-0 justify-between gap-x-24 gap-y-10">
         <div className="flex flex-col justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Image
               className="cu opacity-75"
               src="/assets/icons/CUlogo.svg"
@@ -24,8 +24,8 @@ const Footer = () => {
 
           <p className=" text-xl font-medium">Follow and Support Us</p>
 
-          <div className="flex gap-5">
-            <div className="social whatsapp">
+          <div className="flex flex-wrap gap-5 py-3 md:py-0">
+            <div className="social">
               <Link href="#">
                 <svg
                   width="25"
@@ -58,7 +58,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social facebook">
+            <div className="social">
               <Link href="#">
                 <svg
                   width="25"
@@ -77,26 +77,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social github">
-              <Link href="#">
-                <svg
-                  width="25"
-                  height="25"
-                  viewBox="0 0 35 34"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M19 2H14.5C12.5109 2 10.6032 2.79018 9.1967 4.1967C7.79018 5.60322 7 7.51088 7 9.5V14H2.5V20H7V32H13V20H17.5L19 14H13V9.5C13 9.10218 13.158 8.72064 13.4393 8.43934C13.7206 8.15804 14.1022 8 14.5 8H19V2Z"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="social insta">
+            <div className="social">
               <Link href="#">
                 <svg
                   width="25"
@@ -115,13 +96,52 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social linkedin">
+            <div className="social">
               <Link href="#">
-                <svg width="25" height="25" viewBox="0 0 25 25">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_182_256)">
+                    <path
+                      d="M45.0799 12.84C44.8423 11.8908 44.3585 11.0211 43.6772 10.3188C42.996 9.61648 42.1414 9.10637 41.1999 8.84C37.7599 8 23.9999 8 23.9999 8C23.9999 8 10.2399 8 6.79992 8.92C5.85842 9.18637 5.00388 9.69648 4.32262 10.3988C3.64135 11.1011 3.1575 11.9708 2.91992 12.92C2.29035 16.4111 1.98239 19.9526 1.99992 23.5C1.97748 27.0741 2.28546 30.6426 2.91992 34.16C3.18184 35.0797 3.67654 35.9163 4.35621 36.589C5.03589 37.2616 5.87756 37.7476 6.79992 38C10.2399 38.92 23.9999 38.92 23.9999 38.92C23.9999 38.92 37.7599 38.92 41.1999 38C42.1414 37.7336 42.996 37.2235 43.6772 36.5212C44.3585 35.8189 44.8423 34.9492 45.0799 34C45.7046 30.5352 46.0126 27.0207 45.9999 23.5C46.0224 19.9259 45.7144 16.3574 45.0799 12.84Z"
+                      stroke="white"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M19.4999 30.04L30.9999 23.5L19.4999 16.96V30.04Z"
+                      stroke="white"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_182_256">
+                      <rect width="48" height="48" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </Link>
+            </div>
+            <div className="social">
+              <Link href="#">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 35 34"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
-                    d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"
+                    d="M19 2H14.5C12.5109 2 10.6032 2.79018 9.1967 4.1967C7.79018 5.60322 7 7.51088 7 9.5V14H2.5V20H7V32H13V20H17.5L19 14H13V9.5C13 9.10218 13.158 8.72064 13.4393 8.43934C13.7206 8.15804 14.1022 8 14.5 8H19V2Z"
                     stroke="white"
-                    strokeWidth="1.6"
+                    strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -162,7 +182,9 @@ const Footer = () => {
               width={20}
               height={20}
             ></Image>
-            <span>University of Calcutta,Technology Campus,Kolkata,700016</span>
+            <span>
+              University of Calcutta, Technology Campus, Kolkata, 700016
+            </span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <Image src="/assets/icons/phone.svg" width={20} height={20}></Image>
@@ -213,21 +235,21 @@ const Footer = () => {
           <div className="flex gap-3 items-center">
             <span>
               <Image
-                src="/assets/images/Image 18.png"
+                src="/assets/images/mastercard.png"
                 width={40}
                 height={40}
               ></Image>
             </span>
             <span>
               <Image
-                src="/assets/images/Image 19.png"
+                src="/assets/images/visa.png"
                 width={40}
                 height={40}
               ></Image>
             </span>
             <span>
               <Image
-                src="/assets/images/Image 20.png"
+                src="/assets/images/paypal.png"
                 width={60}
                 height={40}
               ></Image>
