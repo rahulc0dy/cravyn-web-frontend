@@ -1,8 +1,15 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const path = usePathname();
+
+  if (path == "/") return null;
+
   return (
     <nav className="navbar">
       <div className="nav-div">

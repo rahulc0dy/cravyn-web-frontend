@@ -116,9 +116,9 @@ const Footer = () => {
                     <path
                       d="M19.4999 30.04L30.9999 23.5L19.4999 16.96V30.04Z"
                       stroke="white"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </g>
                   <defs>
