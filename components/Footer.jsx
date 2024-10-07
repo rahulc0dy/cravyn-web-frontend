@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className=" w-100 py-9 text-white bg-primary-grey flex flex-row justify-center">
-      <div className="max-w-screen-2xl px-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 md:px-0 justify-between gap-x-24 gap-y-10">
+      <div className="max-w-screen-2xl px-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 2xl:px-0 justify-between gap-x-24 gap-y-10">
         <div className="flex flex-col justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <Image
