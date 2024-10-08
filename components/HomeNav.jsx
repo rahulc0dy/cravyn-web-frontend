@@ -4,11 +4,11 @@ import Link from "next/link";
 const HomeNav = () => {
   return (
     <nav className="w-full">
-      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5  flex flex-wrap justify-between items-center gap-8">
+      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5  flex flex-wrap flex-col md:flex-row justify-between items-center gap-8">
         <div>
           <h1 className="font-black text-primary-grey text-2xl">CRAVYN</h1>
         </div>
-        <div className="flex gap-10 text-lg font-bold text-grey-dark-2">
+        <div className="flex md:flex-row flex-col gap-10 text-lg font-bold text-grey-dark-2">
           <Link
             className=" hover:scale-110 transition-all hover:text-primary-grey"
             href="#"
@@ -58,7 +58,7 @@ const HomeNav = () => {
             </svg>
           </Link>
         </div>
-        <div className="w-50 flex gap-7 font-semibold">
+        <div className="w-50 flex md:flex-row flex-col gap-7 font-semibold">
           <Link
             className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110  hover:bg-opacity-65 hover:shadow-lg transition-all"
             href="#"
@@ -67,8 +67,8 @@ const HomeNav = () => {
             <p>Sign Up</p>
           </Link>
           <Link
-            href="#"
-            className="w-[9rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110  hover:bg-opacity-85 hover:shadow-lg transition-all"
+            href="/login"
+            className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110  hover:bg-opacity-85 hover:shadow-lg transition-all"
           >
             Login
           </Link>

@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         className={`${nunito.className} ${quickSand.className} antialiased`}
       >
         <Navbar />
-        <main className="max-w-screen-2xl mx-auto">{children}</main>
+        <main className="max-w-screen-2xl mx-auto relative">{children}</main>
         <Footer />
       </body>
     </html>
