@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "login-background": "url('/assets/images/blurry-gradient-haikei.svg')",
+      },
       colors: {
         primary: {
           orange: "#ffbb25",
@@ -46,3 +49,4 @@ module.exports = {
   },
   plugins: [],
 };
+
