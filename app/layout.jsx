@@ -3,7 +3,9 @@ import "@styles/globals.css";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import Login from "@components/Login"
-import Register from "@components/Register"
+import Register from "@components/Register";
+import FoodCard from "@components/FoodCard";
+import RestaurantCard from "@components/RestaurantCard";
 
 const nunito = Nunito({ subsets: ["latin", "latin-ext"] });
 
@@ -20,6 +22,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${nunito.className} ${quickSand.className} antialiased`}
       ><main className="max-w-screen-2xl mx-auto">{children}</main>
+        <RestaurantCard/>
+        <FoodCard/>
         <Login/>
         <Register/>
         <Footer/>
