@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex items-center justify-center p-40 bg-login-background bg-cover shadow-[0_0_10px_40px_rgba(255,255,255,1)_inset] ">
-      <div className="grid grid-flow-row lg:grid-cols-2 xl:flex-row h-[40rem]">
+      <div className="grid grid-flow-row lg:grid-cols-2 xl:flex-row min-h-[40rem]">
         {isLogin && (
           <div className="flex flex-col place-items-center text-center gap-10 bg-gradient-to-br from-primary-red to-accent-yellow-light justify-center px-12 py-20">
             <h1 className="text-7xl font-black text-secondary-red">
