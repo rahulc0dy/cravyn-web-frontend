@@ -2,6 +2,8 @@ import { Nunito, Quicksand } from "next/font/google";
 import "@styles/globals.css";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
+import Login from "@components/Login"
+import Register from "@components/Register"
 
 const nunito = Nunito({ subsets: ["latin", "latin-ext"] });
 
@@ -17,10 +19,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${nunito.className} ${quickSand.className} antialiased`}
-      >
-        <Navbar />
-        <main className="max-w-screen-2xl mx-auto">{children}</main>
-        <Footer />
+      ><main className="max-w-screen-2xl mx-auto">{children}</main>
+        <Login/>
+        <Register/>
+        <Footer/>
       </body>
     </html>
   );
