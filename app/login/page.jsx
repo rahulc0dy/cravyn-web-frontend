@@ -20,7 +20,7 @@ const LoginPage = () => {
         </div>
 
         <div class="p-8 xl:w-1/2 w-full flex flex-col justify-center">
-          <h2 class="text-lg font-semibold mb-4 text-center">Login</h2>
+          <h2 class="text-2xl font-semibold mb-4 text-center">Login</h2>
 
           <div class="mb-4">
             <label for="phone" class="block font-medium text-lg text-gray-700">
