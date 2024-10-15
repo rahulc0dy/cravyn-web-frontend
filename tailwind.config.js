@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "login-background": "url('/assets/images/blurry-gradient-haikei.svg')",
+        "login-background": "url('/assets/images/colorful-stingrays.svg')",
       },
       colors: {
         primary: {
@@ -49,4 +49,3 @@ module.exports = {
   },
   plugins: [],
 };
-

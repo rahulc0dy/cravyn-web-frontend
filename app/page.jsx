@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Cravyn",
+  description:
+    "Cravyn is an online food ordering system that delivers your food fresh and warm to you withing minutes so your hunger no longer waits.",
+};
+
 export default function HomePage() {
   return (
     <div className="">

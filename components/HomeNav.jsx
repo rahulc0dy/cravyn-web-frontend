@@ -61,7 +61,7 @@ const HomeNav = () => {
         <div className="w-50 flex md:flex-row flex-col gap-7 font-semibold">
           <Link
             className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110  hover:bg-opacity-65 hover:shadow-lg transition-all"
-            href="#"
+            href="/signup"
           >
             <Image src="/assets/icons/signup.png" width={20} height={20} />
             <p>Sign Up</p>

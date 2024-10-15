@@ -1,97 +1,86 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 
 const LoginPage = () => {
-  const [isLogin, setIsLogin] = useState(false);
-
-  const toggleForm = () => {
-    setIsLogin(!isLogin);
-  };
-
-  const handleLogin = () => {};
-  const handleSignUp = () => {};
-
   return (
-    <div className="flex items-center justify-center p-40 bg-login-background bg-cover shadow-[0_0_10px_40px_rgba(255,255,255,1)_inset] ">
-      <div className="grid grid-flow-row lg:grid-cols-2 xl:flex-row min-h-[40rem]">
-        {isLogin && (
-          <div className="flex flex-col place-items-center text-center gap-10 bg-gradient-to-br from-primary-red to-accent-yellow-light justify-center px-12 py-20">
-            <h1 className="text-7xl font-black text-secondary-red">
-              New here?
-            </h1>
-            <h2 className="text-3xl font-bold text-black text-wrap">
-              Sign Up with us and get ordering in seconds.
-            </h2>
-            <Link
-              href="#"
-              className="border-secondary-red border-4 text-secondary-red rounded-full block w-full p-3 text-lg font-semibold"
-              onClick={toggleForm}
-            >
-              Sign Up
-            </Link>
-          </div>
-        )}
-        <form action="" className="flex flex-col gap-5 px-12 py-20  bg-white ">
-          <h2 className="font-bold text-xl text-center">Login</h2>
-          <div className="font-medium text-xl w-full">
-            <label className="block" htmlFor="phone no.">
-              Phone No.
+    <div className="flex items-center justify-center min-h-svh bg-gradient-to-br to-red-500 from-accent-yellow-light">
+      <div class="bg-white shadow-md rounded-lg flex flex-col xl:flex-row max-w-5xl mx-5 m-10  xl:min-h-[80svh]  min-w-[50svw]">
+        <div class="bg-login-background bg-cover xl:rounded-l-lg xl:rounded-tr-none rounded-br-none rounded-t-lg p-8 gap-4 xl:w-1/2 w-full flex flex-col items-center justify-center">
+          <h2 class="text-5xl font-black text-white mb-4 text-center">
+            New here?
+          </h2>
+          <p class="text-white font-medium mb-6 text-2xl text-center">
+            Sign up with us and get ordering in seconds
+          </p>
+          <Link
+            href="/signup"
+            class="py-2 text-lg text-primary-red border-primary-red border-2 bg-white rounded-full w-max px-6 font-semibold transition duration-300 hover:bg-primary-red hover:text-white"
+          >
+            Register
+          </Link>
+        </div>
+
+        <div class="p-8 xl:w-1/2 w-full flex flex-col justify-center">
+          <h2 class="text-lg font-semibold mb-4 text-center">Login</h2>
+
+          <div class="mb-4">
+            <label for="phone" class="block font-medium text-lg text-gray-700">
+              Email Address
             </label>
-            <input
-              className="block border-solid border-gray-400 border-2 rounded-md py-3 px-5 w-full"
-              type="number"
-              placeholder="Enter Phone Number"
-            />
+            <div class="flex mt-1">
+              <input
+                type="email"
+                id="email"
+                class="border-2 border-gray-300 bo p-2 rounded-md w-full"
+                placeholder="Enter Email Address"
+              ></input>
+            </div>
           </div>
-          <div className="font-medium text-xl w-full">
-            <label className="block" htmlFor="password">
+
+          <div class="mb-6">
+            <label
+              for="password"
+              class="block font-medium text-lg text-gray-700"
+            >
               Password
             </label>
             <input
-              className="block border-solid border-gray-400 border-2 rounded-md py-3 px-5 w-full"
               type="password"
-              placeholder="Enter password"
-            />
+              id="password"
+              class="border-2 border-gray-300 bo p-2 rounded-md w-full"
+              placeholder="Enter Password"
+            ></input>
           </div>
-          {!isLogin && (
-            <div className="font-medium text-xl w-full">
-              <label className="block" htmlFor="password">
-                Password
-              </label>
-              <input
-                className="block border-solid border-gray-400 border-2 rounded-md py-3 px-5 w-full"
-                type="password"
-                placeholder="Enter password"
-              />
-            </div>
-          )}
 
-          <input
-            type="submit"
-            className="block bg-primary-red p-5 rounded-md text-white font-bold cursor-pointer w-full"
-            value="Continue"
-            onClick={isLogin ? handleLogin : handleSignUp}
-          />
-        </form>
-        {!isLogin && (
-          <div className="flex flex-col place-items-center text-center gap-10 bg-gradient-to-br from-primary-red to-accent-yellow-light justify-center px-12 py-20">
-            <h1 className="text-7xl font-black text-secondary-red">
-              Already have an account?
-            </h1>
-            <h2 className="text-3xl font-bold text-black text-wrap">
-              Log in to your account and enjoy our services and offers.
-            </h2>
-            <Link
-              href="#"
-              className="border-secondary-red border-4 text-secondary-red rounded-full block w-full p-3 text-lg font-semibold"
-              onClick={toggleForm}
-            >
-              Login
-            </Link>
+          <div class="mb-6">
+            <label class="block font-medium text-lg text-gray-700">
+              Login as:
+            </label>
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="role"
+                  value="customer"
+                  class="accent-red-500 form-radio text-red-500 h-4 w-4"
+                ></input>
+                <span class="ml-2 text-gray-700">Customer</span>
+              </label>
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  class="accent-red-500 form-radio text-red-500 h-4 w-4"
+                ></input>
+                <span class="ml-2 text-gray-700">Admin</span>
+              </label>
+            </div>
           </div>
-        )}
+
+          <button class="w-full bg-red-500 text-white py-2 rounded-md font-semibold transition duration-300 hover:bg-red-600">
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );

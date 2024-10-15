@@ -19,7 +19,7 @@ const Navbar = () => {
             <h2 className="text-xl font-black">CRAVYN</h2>
           </div>
           <div className="flex gap-16 items-center font-semibold text-white">
-            <Link className="tab" href="#">
+            <Link className="tab" href="/">
               Home
             </Link>
             <Link className="tab" href="#">
