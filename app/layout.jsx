@@ -20,11 +20,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${nunito.className} ${quickSand.className} antialiased`}
+        className={`${nunito.className}  ${quickSand.className} antialiased`}
       >
         {!resetLayout && <Navbar />}
         {children}
-        {/* <main className="max-w-screen-2xl mx-auto relative"></main> */}
         {!resetLayout && <Footer />}
       </body>
     </html>

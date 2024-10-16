@@ -9,6 +9,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         "login-background": "url('/assets/images/colorful-stingrays.svg')",
+        "hero-background":
+          "url('/assets/images/vertical-closeup-wooden-plank-wall-background.jpg')",
       },
       colors: {
         primary: {
