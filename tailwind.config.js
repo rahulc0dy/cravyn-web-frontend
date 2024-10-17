@@ -20,6 +20,7 @@ module.exports = {
         },
         secondary: {
           red: "#960a0a",
+          orange: "#ED7E00",
         },
         tertiary: {
           yellow: "#ffedc0",

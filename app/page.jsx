@@ -1,3 +1,5 @@
+import FoodCard from "@components/FoodCard";
+import RestaurantCard from "@components/RestaurantCard";
 import Image from "next/image";
 
 export const metadata = {
@@ -6,11 +8,73 @@ export const metadata = {
     "Cravyn is an online food ordering system that delivers your food fresh and warm to you withing minutes so your hunger no longer waits.",
 };
 
+const foodCardData = [
+  {
+    image: "/assets/images/Sandwich.png",
+    item: "Sandwich",
+    description: "Delicious sandwich from Dash Restaurant.",
+    stars: "4.5",
+  },
+  {
+    image: "/assets/images/Burger.png",
+    item: "Burger",
+    description: "Delicious Burger from Dash Restaurant.",
+    stars: "4.5",
+  },
+  {
+    image: "/assets/images/Ramen.png",
+    item: "Sandwich",
+    description: "Delicious ramen from Dash Restaurant.",
+    stars: "4.5",
+  },
+  {
+    image: "/assets/images/Strawberry-Cake.png",
+    item: "Sandwich",
+    description: "Delicious strawberry cake from Dash Restaurant.",
+    stars: "4.5",
+  },
+];
+
+const restaurantCardData = [
+  {
+    image: "/assets/images/Bukhara.png",
+    restaurant: "Bukhara Dining",
+    description:
+      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+    stars: "4.5",
+    distance: "35-40",
+  },
+  {
+    image: "/assets/images/Banzara.png",
+    restaurant: "Banzara Restaurant",
+    description:
+      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+    stars: "4",
+    distance: "40-45",
+  },
+  {
+    image: "/assets/images/Mehico.png",
+    restaurant: "Mehico Restaurant",
+    description:
+      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+    stars: "4.3",
+    distance: "25-30",
+  },
+  {
+    image: "/assets/images/Maharaja.png",
+    restaurant: "Maharaja Meals",
+    description:
+      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+    stars: "4.7",
+    distance: "15-20",
+  },
+];
+
 const HomePage = () => {
   return (
     <main className="max-w-screen-2xl m-auto">
       {/* Hero Section */}
-      <section className="relative py-36">
+      <section className="relative py-36 px-6 2xl:px-0">
         <div className="hidden lg:block absolute origin-center right-52 bottom-24 overflow-y-hidden">
           <Image
             src="/assets/images/hero-food-image.png"
@@ -101,127 +165,53 @@ const HomePage = () => {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-12 bg-white">
+      <section className="py-12">
         <div className="container mx-auto text-center mb-12">
           <h2 className="text-3xl font-semibold text-gray-800 mb-6">
             Top Choices
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Product Cards */}
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <Image
-                src="/sandwich.png"
-                alt="Sandwich"
-                width={100}
-                height={100}
-              />
-              <h3 className="text-xl font-bold my-4">Sandwich</h3>
-              <p className="text-gray-600 mb-4">
-                Delicious sandwich with fresh ingredients.
-              </p>
-              <p className="text-gray-900 font-semibold">₹40.00</p>
-              <button className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition">
-                Order Now
-              </button>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <Image src="/burger.png" alt="Burger" width={100} height={100} />
-              <h3 className="text-xl font-bold my-4">Burger</h3>
-              <p className="text-gray-600 mb-4">
-                Juicy burger with special sauce.
-              </p>
-              <p className="text-gray-900 font-semibold">₹65.00</p>
-              <button className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition">
-                Order Now
-              </button>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <Image src="/ramen.png" alt="Ramen" width={100} height={100} />
-              <h3 className="text-xl font-bold my-4">Ramen</h3>
-              <p className="text-gray-600 mb-4">Hot and spicy ramen noodles.</p>
-              <p className="text-gray-900 font-semibold">₹169.00</p>
-              <button className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition">
-                Order Now
-              </button>
-            </div>
-
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <Image
-                src="/cake.png"
-                alt="Strawberry Cake"
-                width={100}
-                height={100}
-              />
-              <h3 className="text-xl font-bold my-4">Strawberry Cake</h3>
-              <p className="text-gray-600 mb-4">
-                Fresh strawberry cake with cream.
-              </p>
-              <p className="text-gray-900 font-semibold">₹200.00</p>
-              <button className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition">
-                Order Now
-              </button>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 p-10">
+            {
+              /* Product Cards */
+              foodCardData.map(({ image, item, description, stars }, index) => (
+                <FoodCard
+                  key={index}
+                  image={image}
+                  item={item}
+                  description={description}
+                  stars={stars}
+                />
+              ))
+            }
           </div>
         </div>
       </section>
 
       {/* Restaurants Section */}
       <section className="py-12">
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto text-center w-full">
           <h2 className="text-3xl font-semibold text-gray-800 mb-6">
             Top Offers For You
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Restaurant Cards */}
-            <div className="bg-white shadow-lg rounded-lg p-6">
-              <Image
-                src="/restaurant1.png"
-                alt="Banzara Restaurant"
-                width={200}
-                height={120}
-              />
-              <h3 className="text-xl font-bold mt-4">Banzara Restaurant</h3>
-              <p className="text-gray-600">₹43 | 40-45 minutes</p>
-              <p className="text-gray-900 font-semibold">Free Delivery</p>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-lg p-6">
-              <Image
-                src="/restaurant2.png"
-                alt="Bukhara Dining"
-                width={200}
-                height={120}
-              />
-              <h3 className="text-xl font-bold mt-4">Bukhara Dining</h3>
-              <p className="text-gray-600">₹48 | 35-40 minutes</p>
-              <p className="text-gray-900 font-semibold">Free Delivery</p>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-lg p-6">
-              <Image
-                src="/restaurant3.png"
-                alt="Mehico Restaurant"
-                width={200}
-                height={120}
-              />
-              <h3 className="text-xl font-bold mt-4">Mehico Restaurant</h3>
-              <p className="text-gray-600">₹46 | 15-25 minutes</p>
-              <p className="text-gray-900 font-semibold">Free Delivery</p>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-lg p-6">
-              <Image
-                src="/restaurant4.png"
-                alt="DJ Restaurant"
-                width={200}
-                height={120}
-              />
-              <h3 className="text-xl font-bold mt-4">DJ Restaurant</h3>
-              <p className="text-gray-600">₹43 | 40-45 minutes</p>
-              <p className="text-gray-900 font-semibold">Free Delivery</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-10">
+            {
+              /* Restaurant Cards */
+              restaurantCardData.map(
+                (
+                  { image, restaurant, description, stars, distance },
+                  index
+                ) => (
+                  <RestaurantCard
+                    key={index}
+                    image={image}
+                    restaurant={restaurant}
+                    description={description}
+                    stars={stars}
+                    distance={distance}
+                  />
+                )
+              )
+            }
           </div>
         </div>
       </section>
