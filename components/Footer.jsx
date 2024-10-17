@@ -23,7 +23,6 @@ const Footer = () => {
           </p>
 
           <p className=" text-xl font-medium">Follow and Support Us</p>
-
           <div className="flex flex-wrap gap-5 py-3 md:py-0">
             <div className="social">
               <Link href="#">

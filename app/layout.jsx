@@ -1,5 +1,4 @@
 "use client";
-
 import { Nunito, Quicksand } from "next/font/google";
 import "@styles/globals.css";
 import Navbar from "@components/Navbar";
