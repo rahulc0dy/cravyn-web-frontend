@@ -1,4 +1,9 @@
 {
+  "singleQuote": false,
+  "bracketSpacing": true,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "semi": true,
+  "endOfLine": "crlf",
+  "insertFinalNewline": true
 }
