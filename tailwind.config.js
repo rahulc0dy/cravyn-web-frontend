@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "login-background": "url('/assets/images/colorful-stingrays.svg')",
+        "hero-background":
+          "url('/assets/images/vertical-closeup-wooden-plank-wall-background.jpg')",
+      },
       colors: {
         primary: {
           orange: "#ffbb25",
@@ -15,6 +20,7 @@ module.exports = {
         },
         secondary: {
           red: "#960a0a",
+          orange: "#ED7E00",
         },
         tertiary: {
           yellow: "#ffedc0",
