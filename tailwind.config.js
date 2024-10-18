@@ -9,6 +9,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         "login-background": "url('/assets/images/colorful-stingrays.svg')",
+        "about-background": "url('/assets/images/About Us/abstract.png')",
+        "card1_bg": "url('/assets/images/About Us/card1_bg.jpg')",
+        "card2_bg": "url('/assets/images/About Us/card2_bg.jpg')",
+        "card3_bg": "url('/assets/images/About Us/card3_bg.jpg')",
       },
       colors: {
         primary: {
