@@ -122,7 +122,7 @@ const HomePage = () => {
           src="/assets/images/vertical-closeup-wooden-plank-wall-background.jpg"
           width={600}
           height={500}
-          className="absolute -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
+          className="absolute hidden lg:block -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
         />
         <div className="flex flex-row gap-5">
           <svg

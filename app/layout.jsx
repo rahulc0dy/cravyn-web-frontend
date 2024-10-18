@@ -1,9 +1,9 @@
 "use client";
 import { Nunito, Quicksand } from "next/font/google";
 import "@styles/globals.css";
-import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import { usePathname } from "next/navigation";
+import HomeNav from "@components/HomeNav";
 
 const nunito = Nunito({ subsets: ["latin", "latin-ext"] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${nunito.className}  ${quickSand.className} antialiased`}
       >
-        {!resetLayout && <Navbar />}
+        {!resetLayout && <HomeNav />}
         {children}
         {!resetLayout && <Footer />}
       </body>
