@@ -1,8 +1,11 @@
+"use client";
+
 import Description from "@components/AboutUs/Description";
 import TeamCard from "@components/AboutUs/TeamCard";
 import HomeNav from "@components/HomeNav";
 import Steps from "@components/AboutUs/Steps";
 import Image from "next/image";
+import { delay, motion } from "framer-motion";
 
 const TeamData=[
   {
@@ -11,7 +14,8 @@ const TeamData=[
     role: "Chief Executive Officer",
     desc1: "Business Head",
     desc2: "Strategic Mastermind",
-    desc3: "Excellent Leader"
+    desc3: "Excellent Leader",
+    delay:0.3
   },
   {
     image:"/assets/images/About Us/Saptak.png",
@@ -19,7 +23,8 @@ const TeamData=[
     role: "Chief Technicology Officer",
     desc1: "TechHead and Advisor",
     desc2: "Android/Web Expert",
-    desc3: "Innovation Leader" 
+    desc3: "Innovation Leader",
+    delay:0.5
   },
   {
     image:"/assets/images/About Us/Sneha.png",
@@ -27,7 +32,8 @@ const TeamData=[
     role: "Chief Operating Officer",
     desc1: "Operational Expert",
     desc2: "Master Planner",
-    desc3: "Workflow Optimizer"
+    desc3: "Workflow Optimizer",
+    delay:0.7
   },
   {
     image:"/assets/images/About Us/Souvik.png",
@@ -35,7 +41,8 @@ const TeamData=[
     role: "Chief Analytics/Data Officer",
     desc1: "Data Analytics Visionary",
     desc2: "Database Administrator",
-    desc3: "Predictive Analytics Expert"
+    desc3: "Predictive Analytics Expert",
+    delay:0.9
   }
 ]
 const aboutus = () => {
@@ -50,24 +57,6 @@ const aboutus = () => {
           </p>
         </div>
       </section>
-    </div>
-    <div className="flex justify-center items-center mt-14" >
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-20 m-10">
-      <div className="rounded-md text-center max-w-96 p-8 bg-card1_bg bg-cover shadow-2xl">
-        <h2 className="text-orange-800 text-4xl font-bold mb-4">Mission</h2>
-        <p className="text-orange-800 text-xl font-semibold">Our mission is to make mealtime moments more enjoyable by delivering fresh, high-quality meals from local restaurants directly to our customers' doors. We strive to provide a fast, reliable, and convenient food delivery experience, tailored to meet the diverse tastes and preferences of our users.</p>
-      </div>
-
-      <div className=" rounded-md text-center max-w-96 p-8 bg-card2_bg bg-cover shadow-2xl">
-        <h2 className="text-4xl text-cyan-900 font-bold mb-4">Vision</h2>
-        <p className="text-xl text-cyan-900 font-semibold">Our vision is to revolutionize the way people connect with their favourite food,becoming the most trusted food delivery platform.We envision a world where every craving can be satisfied effortlessly,while promoting sustainability and supporting local communities through innovative,customer-driven solutions.</p>
-      </div>
-
-      <div className="rounded-md text-center max-w-96 p-8 bg-card3_bg shadow-2xl">
-        <h2 className="text-green-900 text-4xl font-bold mb-4">Values</h2>
-        <p className="text-green-900 text-xl font-semibold">We put our customers first, ensuring every meal delivered is timely, fresh, and satisfying.We are committed to delivering excellence.We support local restaurants and foster growth in the communities we serve.We aim to minimize our impact on environment through responsible practices and partnerships.</p>
-      </div>
-    </div>
     </div>
     <Description/>
     <p className="text-center text-5xl font-bold mt-24 mb-10">Our Team</p>
@@ -90,8 +79,46 @@ const aboutus = () => {
     </div>
     <p className="text-center text-5xl font-bold mt-24 mx-4 md:mx-0">From Phone to Door</p>
     <Steps/>
-    <div className="flex justify-center">
-    <div className="bg-gradient-to-r from-red-950 to-red-700 bg-cover w-11/12 md:w-9/12 lg:w-7/12 rounded-md m-14">
+    <div className="flex justify-center items-center md:mt-20 mb-14" >
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-20 m-10">
+      <motion.div
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{delay:0.3}}
+       className="rounded-md text-center max-w-96 p-8 bg-card1_bg bg-cover shadow-2xl">
+        <h2 className="text-orange-800 text-4xl font-bold mb-4">Mission</h2>
+        <p className="text-orange-800 text-xl font-semibold">Our mission is to make mealtime moments more enjoyable by delivering fresh, high-quality meals from local restaurants directly to our customers' doors. We strive to provide a fast, reliable, and convenient food delivery experience, tailored to meet the diverse tastes and preferences of our users.</p>
+      </motion.div>
+
+      <motion.div 
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{delay:0.7}}
+      className=" rounded-md text-center max-w-96 p-8 bg-card2_bg bg-cover shadow-2xl">
+        <h2 className="text-4xl text-cyan-900 font-bold mb-4">Vision</h2>
+        <p className="text-xl text-cyan-900 font-semibold">Our vision is to revolutionize the way people connect with their favourite food,becoming the most trusted food delivery platform.We envision a world where every craving can be satisfied effortlessly,while promoting sustainability and supporting local communities through innovative,customer-driven solutions.</p>
+      </motion.div>
+
+      <motion.div
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{delay:1.1}}
+       className="rounded-md text-center max-w-96 p-8 bg-card3_bg shadow-2xl">
+        <h2 className="text-green-900 text-4xl font-bold mb-4">Values</h2>
+        <p className="text-green-900 text-xl font-semibold">We put our customers first, ensuring every meal delivered is timely, fresh, and satisfying.We are committed to delivering excellence.We support local restaurants and foster growth in the communities we serve.We aim to minimize our impact on environment through responsible practices and partnerships.</p>
+      </motion.div>
+    </div>
+    </div>
+    <motion.div
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{delay:0.7}}
+    className="flex justify-center mb-10">
+    <div className="bg-gradient-to-r shadow-2xl from-red-950 to-red-700 bg-cover w-11/12 md:w-9/12 lg:w-7/12 rounded-md m-14">
     <div className="grid grid-rows-[1fr_auto] md:grid-cols-[1fr_auto]">
     <div>
     <p className="text-white text-2xl md:text-4xl font-bold pl-14 mt-8 mb-2">Help us in fulfilling the cravings of the world</p>
@@ -102,7 +129,7 @@ const aboutus = () => {
     </div>
     </div>
     </div>
-    </div>
+    </motion.div>
     </div>
 };
 

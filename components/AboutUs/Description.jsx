@@ -1,9 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Description = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen m-6">
+    <motion.div
+    initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{delay:0.5}}
+    className="flex justify-center items-center min-h-screen m-6">
       <div className="grid grid-cols-1 lg:grid-cols-10 lg:gap-8 w-11/12 md:w-9/12 lg:w-8/12">
         <div className="md:col-span-3">
           <div className="mt-14 h-4/5 border-4 border-grey-light-3 p-6 rounded-lg">
@@ -51,7 +57,7 @@ const Description = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
