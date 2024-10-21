@@ -29,7 +29,7 @@ const HomeNav = () => {
           </Link>
           <Link
             className=" hover:scale-110 transition-all hover:text-primary-grey"
-            href="#"
+            href="/about"
           >
             About
           </Link>

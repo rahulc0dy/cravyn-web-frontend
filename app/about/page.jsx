@@ -1,82 +1,177 @@
+"use client";
+
+import Description from "@components/Description";
+import TeamCard from "@components/TeamCard";
+import Steps from "@components/Steps";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import HomeNav from "@components/HomeNav";
 
-const Steps = () => {
+const TeamData = [
+  {
+    image: "/assets/images/about/Rahul.png",
+    name: "Rahul Chakraborty",
+    role: "Chief Executive Officer",
+    desc1: "Business Head",
+    desc2: "Strategic Mastermind",
+    desc3: "Excellent Leader",
+    delay: 0.3,
+  },
+  {
+    image: "/assets/images/about/Saptak.png",
+    name: "Saptak Manna",
+    role: "Chief Technicology Officer",
+    desc1: "TechHead and Advisor",
+    desc2: "Android/Web Expert",
+    desc3: "Innovation Leader",
+    delay: 0.5,
+  },
+  {
+    image: "/assets/images/about/Sneha.png",
+    name: "Sneha Datta",
+    role: "Chief Operating Officer",
+    desc1: "Operational Expert",
+    desc2: "Master Planner",
+    desc3: "Workflow Optimizer",
+    delay: 0.7,
+  },
+  {
+    image: "/assets/images/about/Souvik.png",
+    name: "Souvik Mukherjee",
+    role: "Chief Analytics/Data Officer",
+    desc1: "Data Analytics Visionary",
+    desc2: "Database Administrator",
+    desc3: "Predictive Analytics Expert",
+    delay: 0.9,
+  },
+];
+const aboutus = () => {
   return (
-    <div className="flex justify-center items-center m-auto max-w-screen-2xl bg-white py-10">
-      <div className="grid grid-cols-[1fr_auto_1fr] grid-rows-4 gap-8 max-w-4xl text-black">
-        <div className="flex justify-end -translate-y-12 align-top">
-          <Image src="/assets/images/order.svg" width={150} height={150} />
-        </div>
-        <div className="text-left">
-          <h2 className="text-2xl font-bold">
-            Your favourite restaurant cooks for you.
-          </h2>
-          <p className="text-gray-600 text-lg font-light">
-            Your food is freshly prepared by the restaurants according to your
-            preferences and likings. Customize your order with instructions that
-            make the order just for you.
-          </p>
-        </div>
-
-        <div className="text-right">
-          <h2 className="text-2xl font-bold">
-            Get your cravings in minutes at your doorstep.
-          </h2>
-          <p className="text-gray-600 text-lg font-light">
-            Your food is delivered to you within 30 minutes of placing an order.
-            Get a seamless experience ordering through us. Give it a go now!
-          </p>
-        </div>
-        <div className="flex justify-start -translate-y-12">
-          <Image src="/assets/images/ride.svg" width={175} height={250} />
-        </div>
-        <div className=" row-span-4 col-start-2 row-start-1">
-          <Image
-            src="assets/images/numbers.svg"
-            width={35}
-            height={150}
-            className="h-5/6"
-          ></Image>
-        </div>
-        <div className=" flex justify-end  -translate-y-12">
-          <Image
-            src="/assets/images/cook.svg"
-            width={150}
-            height={150}
-            className="ml-4 h-11/12"
-          />
-        </div>
-        <div className="">
-          <h2 className="text-2xl font-bold">
-            Choose your cravings from our website or android app.
-          </h2>
-          <p className="text-gray-600 text-lg font-light">
-            Make a free account on our platform. Browse from the thousands of
-            available restaurants and delicious items from our app. Place an
-            order and get started.
-          </p>
-        </div>
-        <div className=" text-right">
-          <h2 className="text-2xl font-bold">
-            Our delivery partners are always
-          </h2>
-          <h2 className="text-2xl font-bold mb-2">ready to go.</h2>
-          <p className="text-gray-600 text-lg font-light">
-            Your order is picked up by our delivery partners who are always
-            ready to deliver your cravings to your doorstep.
-          </p>
-        </div>
-        <div className="">
-          <Image
-            src="/assets/images/deliver.svg"
-            width={150}
-            height={150}
-            className="ml-4"
-          />
+    <div>
+      <div className="bg-about-background bg-cover min-h-screen flex flex-col">
+        <HomeNav />
+        <section className="p-8 lg:p-0 flex flex-grow items-center justify-center  shadow-[0_-5rem_5rem_white_inset]">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-6xl lg:text-8xl font-bold text-gray-900 mb-9">
+              Who Are We?
+            </h1>
+            <p className="text-lg md:text-2xl md:font-normal font-semibold text-gray-600 leading-relaxed">
+              We are a dynamic food delivery company dedicated to bringing your
+              favorite meals right to your doorstep with speed and convenience.
+              We partner with top restaurants and local eateries to offer a wide
+              variety of cuisines, ensuring there’s something for everyone. Our
+              mission is to create a seamless and enjoyable ordering experience,
+              driven by our passion for great food and exceptional customer
+              service.
+            </p>
+          </div>
+        </section>
+      </div>
+      <Description />
+      <p className="text-center text-5xl font-bold mt-24 mb-10">Our Team</p>
+      <div className="flex justify-center items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {TeamData.map(({ image, name, role, desc1, desc2, desc3 }, index) => (
+            <TeamCard
+              key={index}
+              image={image}
+              name={name}
+              role={role}
+              desc1={desc1}
+              desc2={desc2}
+              desc3={desc3}
+            />
+          ))}
         </div>
       </div>
+      <p className="text-center text-5xl font-bold mt-24 mx-4 md:mx-0">
+        From Phone to Door
+      </p>
+      <Steps />
+      <div className="flex justify-center items-center md:mt-20 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-20 m-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="rounded-md text-center max-w-96 p-8 bg-card1_bg bg-cover shadow-2xl"
+          >
+            <h2 className="text-orange-800 text-4xl font-bold mb-4">Mission</h2>
+            <p className="text-orange-800 text-xl font-semibold">
+              Our mission is to make mealtime moments more enjoyable by
+              delivering fresh, high-quality meals from local restaurants
+              directly to our customers' doors. We strive to provide a fast,
+              reliable, and convenient food delivery experience, tailored to
+              meet the diverse tastes and preferences of our users.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+            className=" rounded-md text-center max-w-96 p-8 bg-card2_bg bg-cover shadow-2xl"
+          >
+            <h2 className="text-4xl text-cyan-900 font-bold mb-4">Vision</h2>
+            <p className="text-xl text-cyan-900 font-semibold">
+              Our vision is to revolutionize the way people connect with their
+              favourite food,becoming the most trusted food delivery platform.We
+              envision a world where every craving can be satisfied
+              effortlessly,while promoting sustainability and supporting local
+              communities through innovative,customer-driven solutions.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.1 }}
+            className="rounded-md text-center max-w-96 p-8 bg-card3_bg shadow-2xl"
+          >
+            <h2 className="text-green-900 text-4xl font-bold mb-4">Values</h2>
+            <p className="text-green-900 text-xl font-semibold">
+              We put our customers first, ensuring every meal delivered is
+              timely, fresh, and satisfying.We are committed to delivering
+              excellence.We support local restaurants and foster growth in the
+              communities we serve.We aim to minimize our impact on environment
+              through responsible practices and partnerships.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.7 }}
+        className="flex justify-center mb-10 max-w-screen-2xl mx-auto"
+      >
+        <div className="bg-gradient-to-r shadow-2xl from-red-950 to-red-700 bg-cover  rounded-md m-14">
+          <div className="grid grid-rows-[1fr_auto] md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-white text-2xl md:text-4xl font-bold pl-14 mt-8 mb-2">
+                Help us in fulfilling the cravings of the world
+              </p>
+              <button className="bg-accent-yellow font-bold text-black rounded-full px-5 py-2 ml-14 my-6 hover:bg-yellow-500">
+                Contact us
+              </button>
+            </div>
+            <div>
+              <Image
+                className="mr-10 hidden md:inline-block"
+                src="/assets/images/about/dots.svg"
+                width={200}
+                height={150}
+              ></Image>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
 
-export default Steps;
+export default aboutus;
