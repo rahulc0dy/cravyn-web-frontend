@@ -122,7 +122,7 @@ const HomePage = () => {
           src="/assets/images/vertical-closeup-wooden-plank-wall-background.jpg"
           width={600}
           height={500}
-          className="absolute -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
+          className="absolute hidden lg:block -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
         />
         <div className="flex flex-row gap-5">
           <svg
@@ -152,7 +152,7 @@ const HomePage = () => {
             </h1>
           </div>
         </div>
-        <p className="text-xl font-medium text-gray-500 mb-8 w-1/3">
+        <p className="text-xl font-medium text-gray-500 mb-8 lg:w-1/3 ">
           Get fresh foods and other treats at the convenience of your home.
           Order with us and enjoy exclusive discounts on your first order!
         </p>
