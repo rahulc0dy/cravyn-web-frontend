@@ -25,6 +25,7 @@ const HomeNav = () => {
                   initial={{ rotate: -180, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 180, opacity: 0 }}
+                  transition={{ duration: 0.1 }}
                   width="25"
                   height="25"
                   viewBox="0 0 24 24"
