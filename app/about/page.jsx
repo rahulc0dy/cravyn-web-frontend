@@ -11,28 +11,28 @@ const TeamData = [
   {
     image: "/assets/images/about/Rahul.png",
     name: "Rahul Chakraborty",
-    role: "Chief Executive Officer",
-    desc1: "Business Head",
-    desc2: "Strategic Mastermind",
-    desc3: "Excellent Leader",
+    role: "Frontend and Backend",
+    desc1: "UI Design",
+    desc2: "Frontend Development",
+    desc3: "Backend API Development",
     delay: 0.3,
   },
   {
     image: "/assets/images/about/Saptak.png",
     name: "Saptak Manna",
-    role: "Chief Technicology Officer",
-    desc1: "TechHead and Advisor",
-    desc2: "Android/Web Expert",
-    desc3: "Innovation Leader",
+    role: "Android and Backend",
+    desc1: "Android Development",
+    desc2: "Backend API Development",
+    desc3: "UI Design",
     delay: 0.5,
   },
   {
     image: "/assets/images/about/Sneha.png",
     name: "Sneha Datta",
-    role: "Chief Operating Officer",
-    desc1: "Operational Expert",
-    desc2: "Master Planner",
-    desc3: "Workflow Optimizer",
+    role: "Android and UI/UX",
+    desc1: "Android Development",
+    desc2: "UI Design",
+    desc3: "UX Design",
     delay: 0.7,
   },
   {
@@ -45,6 +45,7 @@ const TeamData = [
     delay: 0.9,
   },
 ];
+
 const aboutus = () => {
   return (
     <div>
@@ -59,10 +60,10 @@ const aboutus = () => {
               We are a dynamic food delivery company dedicated to bringing your
               favorite meals right to your doorstep with speed and convenience.
               We partner with top restaurants and local eateries to offer a wide
-              variety of cuisines, ensuring there’s something for everyone. Our
-              mission is to create a seamless and enjoyable ordering experience,
-              driven by our passion for great food and exceptional customer
-              service.
+              variety of cuisines, ensuring there&apos;s something for everyone.
+              Our mission is to create a seamless and enjoyable ordering
+              experience, driven by our passion for great food and exceptional
+              customer service.
             </p>
           </div>
         </section>
@@ -101,9 +102,9 @@ const aboutus = () => {
             <p className="text-orange-800 text-xl font-semibold">
               Our mission is to make mealtime moments more enjoyable by
               delivering fresh, high-quality meals from local restaurants
-              directly to our customers' doors. We strive to provide a fast,
-              reliable, and convenient food delivery experience, tailored to
-              meet the diverse tastes and preferences of our users.
+              directly to our customers&apos; doors. We strive to provide a
+              fast, reliable, and convenient food delivery experience, tailored
+              to meet the diverse tastes and preferences of our users.
             </p>
           </motion.div>
 
@@ -117,10 +118,10 @@ const aboutus = () => {
             <h2 className="text-4xl text-cyan-900 font-bold mb-4">Vision</h2>
             <p className="text-xl text-cyan-900 font-semibold">
               Our vision is to revolutionize the way people connect with their
-              favourite food,becoming the most trusted food delivery platform.We
-              envision a world where every craving can be satisfied
-              effortlessly,while promoting sustainability and supporting local
-              communities through innovative,customer-driven solutions.
+              favourite food, becoming the most trusted food delivery platform.
+              We envision a world where every craving can be satisfied
+              effortlessly, while promoting sustainability and supporting local
+              communities through innovative, customer-driven solutions.
             </p>
           </motion.div>
 
@@ -134,9 +135,9 @@ const aboutus = () => {
             <h2 className="text-green-900 text-4xl font-bold mb-4">Values</h2>
             <p className="text-green-900 text-xl font-semibold">
               We put our customers first, ensuring every meal delivered is
-              timely, fresh, and satisfying.We are committed to delivering
-              excellence.We support local restaurants and foster growth in the
-              communities we serve.We aim to minimize our impact on environment
+              timely, fresh, and satisfying. We are committed to delivering
+              excellence. We support local restaurants and foster growth in the
+              communities we serve. We aim to minimize our impact on environment
               through responsible practices and partnerships.
             </p>
           </motion.div>
