@@ -13,7 +13,7 @@ const SignupPage = () => {
             animate={{ x: 0 }}
             exit={{ x: -500 }}
             transition={{ duration: 0.3 }}
-            className="p-8 xl:w-1/2 w-full flex flex-col justify-center"
+            className="p-8 xl:w-1/2 w-full flex flex-col justify-center  bg-white rounded-md"
           >
             <h2 className="text-2xl font-semibold mb-4 text-center">Sign Up</h2>
 

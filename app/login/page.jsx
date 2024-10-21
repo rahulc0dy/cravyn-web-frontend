@@ -40,7 +40,7 @@ const LoginPage = () => {
             animate={{ x: 0 }}
             exit={{ x: 500 }}
             transition={{ duration: 0.3 }}
-            class="p-8 xl:w-1/2 w-full flex flex-col justify-center"
+            class="p-8 xl:w-1/2 w-full flex flex-col justify-center bg-white rounded-md"
           >
             <h2 class="text-2xl font-semibold mb-4 text-center">Login</h2>
 

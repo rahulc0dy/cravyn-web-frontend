@@ -152,7 +152,7 @@ const HomePage = () => {
             </h1>
           </div>
         </div>
-        <p className="text-xl font-medium text-gray-500 mb-8 w-1/3">
+        <p className="text-xl font-medium text-gray-500 mb-8 lg:w-1/3 ">
           Get fresh foods and other treats at the convenience of your home.
           Order with us and enjoy exclusive discounts on your first order!
         </p>
