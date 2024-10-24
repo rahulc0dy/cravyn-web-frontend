@@ -10,8 +10,8 @@ const HomeNav = () => {
   };
 
   return (
-    <nav className="w-full shadow-lg lg:shadow-none">
-      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8">
+    <nav className="w-full  lg:shadow-none">
+      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none border-b-2">
         <div className="flex justify-between w-full lg:w-auto items-center">
           <h1 className="font-black text-primary-grey text-2xl">CRAVYN</h1>
           <button
@@ -29,14 +29,14 @@ const HomeNav = () => {
                   width="25"
                   height="25"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
                 >
                   <motion.path
-                    d="M4 6H20M4 12H20M4 18H20"
-                    stroke="#222222"
-                    strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </motion.svg>
               ) : (
@@ -48,16 +48,16 @@ const HomeNav = () => {
                   transition={{ duration: 0.1 }}
                   width="25"
                   height="25"
-                  viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
                 >
                   <motion.path
-                    d="M18.3689 5.64103L5.63548 18.3634M5.63106 5.64103L18.3645 18.3634M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                    stroke="#000000"
-                    strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
                   />
                 </motion.svg>
               )}
