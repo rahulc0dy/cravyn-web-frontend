@@ -12,7 +12,7 @@ const quickSand = Quicksand({ subsets: ["latin", "latin-ext"] });
 export default function RootLayout({ children }) {
   const path = usePathname();
 
-  const noNavFooterPaths = ["/login-signup", "/login", "/signup", "/404"];
+  const noNavFooterPaths = ["/about", "/login", "/signup", "/404"];
 
   const resetLayout = noNavFooterPaths.includes(path);
 
