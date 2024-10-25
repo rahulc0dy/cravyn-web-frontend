@@ -23,15 +23,20 @@ module.exports = {
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
+          blue: "#1A9FC9",
+          green: "#1AC98B",
         },
         tertiary: {
           yellow: "#ffedc0",
           grey: "#232323",
+          blue: "#1d3e73",
+          green: "#385145",
         },
         accent: {
           yellow: "#ffda7f",
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
+          "green": "#c0ffe1" ,
         },
         warning: {
           "yellow-light": "#ffdd68",
