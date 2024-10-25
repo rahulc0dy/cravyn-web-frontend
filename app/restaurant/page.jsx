@@ -36,134 +36,157 @@ const RestaurantLandingPage = () => {
             Add your restaurant to Cravyn <br />
             and escalate your business to the next level
           </h2>
-          <div className="py-5 px-2 sm:px-10 bg-white rounded-md text-primary-grey relative lg:w-3/5 shadow-2xl">
-            <h3 className="sm:text-xl lg:text-2xl font-medium">
+          <div className="py-5 px-2 sm:px-10 bg-white rounded-md text-primary-grey relative shadow-2xl md:text-left">
+            <h3 className="sm:text-xl lg:text-2xl font-medium mt-5">
               Get Started - It only takes 10 minutes
             </h3>
-            <h4 className="text-grey-medium font-extralight">
+            <h4 className="text-grey-medium font-extralight mb-5">
               Please be ready with the following for a smooth registration
             </h4>
-            <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-max text-sm md:text-lg">
-              <div className="text-left flex">
-                <svg
-                  width="20"
-                  height="22"
-                  viewBox="0 0 20 22"
-                  fill="none"
-                  className=" inline mr-2"
-                >
-                  <path
-                    d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                    stroke="#04BE00"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="">
-                  <h5 className="">Registration Number</h5>
-                  <p className="font-light text-sm">
-                    Not registered?{" "}
-                    <Link href="#" className="text-blue-500">
-                      Register now.
-                    </Link>
-                  </p>
+            <div className="flex flex-wrap gap-10 sm:flex-row flex-col">
+              <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-full sm:w-max text-sm md:text-lg">
+                <div className="text-left flex">
+                  <svg
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    className=" inline mr-2"
+                  >
+                    <path
+                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                      stroke="#04BE00"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="">
+                    <h5 className="">Registration Number</h5>
+                    <p className="font-light text-sm">
+                      Not registered?{" "}
+                      <Link href="#" className="text-blue-500">
+                        Register now.
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <div className="text-left flex">
+                  <svg
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    className=" inline mr-2"
+                  >
+                    <path
+                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                      stroke="#04BE00"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="">
+                    <h5 className="">GSTIN Number</h5>
+                    <p className="font-light text-sm">
+                      Don't have GSTIN?{" "}
+                      <Link href="#" className="text-blue-500">
+                        Apply now.
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Restaurant Email
+                  </h5>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Restaurant Phone Number
+                  </h5>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Bank Account Details
+                  </h5>
                 </div>
               </div>
-              <div className="text-left flex">
-                <svg
-                  width="20"
-                  height="22"
-                  viewBox="0 0 20 22"
-                  fill="none"
-                  className=" inline mr-2"
+              <div className="aspect-square self-center">
+                <video
+                  width="160"
+                  controls={false}
+                  autoPlay
+                  preload={true}
+                  loop={true}
+                  muted
                 >
-                  <path
-                    d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                    stroke="#04BE00"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <source
+                    src="/assets/animations/Animation - 1728358643762.webm"
+                    type="video/webm"
                   />
-                </svg>
-                <div className="">
-                  <h5 className="">GSTIN Number</h5>
-                  <p className="font-light text-sm">
-                    Don't have GSTIN?{" "}
-                    <Link href="#" className="text-blue-500">
-                      Apply now.
-                    </Link>
-                  </p>
-                </div>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Restaurant Email
-                </h5>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Restaurant Phone Number
-                </h5>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Bank Account Details
-                </h5>
+                  <track
+                    src="/path/to/captions.vtt"
+                    kind="subtitles"
+                    srcLang="en"
+                    label="English"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
-            <Image
-              src="/assets/images/restaurant/Add-restaurant-blob.png"
-              width={500}
-              height={700}
-              alt=""
-              className="hidden absolute top-0 right-0 h-full w-auto object-fill"
-            />
+            <Link
+              href="/"
+              className="font-bold text-white text-center my-5 bg-primary-red block px-10 float-left rounded-md py-2"
+            >
+              Register Your Restaurant
+            </Link>
           </div>
         </div>
 
