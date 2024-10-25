@@ -46,3 +46,8 @@
     text-wrap: balance;
   }
 }
+
+.wrapper {
+  width: min(1536px, 100% - 2rem);
+  margin-inline: auto;
+}

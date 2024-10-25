@@ -11,7 +11,7 @@ const HomeNav = () => {
 
   return (
     <nav className="w-full  lg:shadow-none">
-      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none border-b-2">
+      <div className="wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none border-b-2">
         <div className="flex justify-between w-full lg:w-auto items-center">
           <h1 className="font-black text-primary-grey text-2xl">CRAVYN</h1>
           <button
