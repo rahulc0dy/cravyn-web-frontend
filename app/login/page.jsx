@@ -55,8 +55,9 @@ const LoginPage = () => {
                 <input
                   type="email"
                   id="email"
-                  class="border-2 border-gray-300 bo p-2 rounded-md w-full"
+                  class="border-2 border-gray-300 bo p-2 rounded-md w-full  placeholder-shown:invalid:border-gray-300 focus:outline-none  invalid:border-red-400 valid:border-green-500"
                   placeholder="Enter Email Address"
+                  required
                 ></input>
               </div>
             </div>
@@ -71,8 +72,9 @@ const LoginPage = () => {
               <input
                 type="password"
                 id="password"
-                class="border-2 border-gray-300 bo p-2 rounded-md w-full"
+                class="border-2 border-gray-300 bo p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300 focus:outline-none  invalid:border-red-400 valid:border-green-500"
                 placeholder="Enter Password"
+                required
               ></input>
             </div>
 
@@ -87,7 +89,7 @@ const LoginPage = () => {
                     name="role"
                     value="customer"
                     class="accent-red-500 form-radio text-red-500 h-4 w-4"
-                  ></input>
+                  />
                   <span class="ml-2 text-gray-700">Customer</span>
                 </label>
                 <label class="flex items-center">
@@ -96,7 +98,7 @@ const LoginPage = () => {
                     name="role"
                     value="admin"
                     class="accent-red-500 form-radio text-red-500 h-4 w-4"
-                  ></input>
+                  />
                   <span class="ml-2 text-gray-700">Restaurant Owner</span>
                 </label>
               </div>

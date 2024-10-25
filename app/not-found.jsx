@@ -10,7 +10,14 @@ export default function NotFound() {
         height={500}
       />
 
-      <h1 className="text-2xl">Could not find requested page</h1>
+      <div className="max-w-5xl px-5 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold py-5">
+          Oops! That page must have been cooked.
+        </h1>
+        <p className="py-2 text-xl font-light">
+          The page you requested was not found, or the url is not valid.
+        </p>
+      </div>
       <Link
         href="/"
         className="font-bold text-primary-grey  bg-accent-yellow hover:drop-shadow-lg rounded-md px-9 py-2 my-2 transition-all"

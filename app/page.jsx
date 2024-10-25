@@ -145,9 +145,13 @@ const HomePage = () => {
           </svg>
 
           <div className="w-50">
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">Crave.</h1>
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">Click.</h1>
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
+              Crave.
+            </h1>
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
+              Click.
+            </h1>
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
               Delivered.
             </h1>
           </div>

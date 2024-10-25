@@ -27,14 +27,15 @@ const SignupPage = () => {
               <input
                 type="text"
                 id="name"
-                className="border-gray-300 border-2 p-2 rounded-md w-full"
+                className="border-gray-300 border-2 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300  focus:outline-none  invalid:border-red-400 valid:border-green-500"
                 placeholder="Enter Your Name"
+                required
               ></input>
             </div>
 
             <div className="mb-4">
               <label
-                htmlFor="phone"
+                htmlFor="email"
                 className="block font-medium text-lg text-gray-700"
               >
                 Email
@@ -43,25 +44,32 @@ const SignupPage = () => {
                 <input
                   type="email"
                   id="email"
-                  className=" border-2 border-gray-300 bo p-2 rounded-md w-full"
+                  className="border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300  focus:outline-none  invalid:border-red-400 valid:border-green-500"
                   placeholder="Enter Email Address"
+                  pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                  required
                 ></input>
               </div>
             </div>
 
             <div className="mb-4">
               <label
-                htmlFor="phone"
+                htmlFor="phone-number"
                 className="block font-medium text-lg text-gray-700"
               >
                 Phone Number
               </label>
               <div className="flex mt-1">
                 <input
-                  type="number"
+                  type="text"
                   id="phone-number"
-                  className=" border-2 border-gray-300 bo p-2 rounded-md w-full"
+                  className="border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300  focus:outline-none invalid:border-red-400 valid:border-green-500"
                   placeholder="Enter phone number"
+                  inputMode="numeric"
+                  pattern="[0-9]+"
+                  required
+                  maxLength={10}
+                  minLength={10}
                 ></input>
               </div>
             </div>
@@ -76,7 +84,8 @@ const SignupPage = () => {
               <input
                 type="date"
                 id="dob"
-                className=" border-2 border-gray-300 bo p-2 rounded-md w-full"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300  focus:outline-none valid:border-green-500"
+                required
               ></input>
             </div>
 
@@ -90,8 +99,10 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="password"
-                className=" border-2 border-gray-300 bo p-2 rounded-md w-full"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Enter Password"
+                required
+                minLength="6"
               ></input>
             </div>
 
@@ -105,8 +116,10 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="confirm-password"
-                className=" border-2 border-gray-300 bo p-2 rounded-md w-full"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Confirm Password"
+                required
+                minLength="6"
               ></input>
             </div>
 
