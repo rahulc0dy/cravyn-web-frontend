@@ -13,7 +13,6 @@ const RestaurantCatalogue = () => {
       discount: '15% upto ₹200',
       orders: 547,
       rating: 4.5,
-      repeats: 26,
     },
        {
       imageUrl: '/assets/images/paneer.jpg',
@@ -23,7 +22,6 @@ const RestaurantCatalogue = () => {
       discount: '10% upto ₹200',
       orders: 650,
       rating: 4.5,
-      repeats: 40,
     },
        {
       imageUrl: '/assets/images/pasta.jpg',
@@ -33,7 +31,6 @@ const RestaurantCatalogue = () => {
       discount: '15% upto ₹200',
       orders: 547,
       rating: 4.5,
-      repeats: 26,
     },
        {
       imageUrl: '/assets/images/paneer.jpg',
@@ -43,7 +40,6 @@ const RestaurantCatalogue = () => {
       discount: '10% upto ₹200',
       orders: 650,
       rating: 4.5,
-      repeats: 40,
     },
   ];
 
@@ -59,7 +55,6 @@ const RestaurantCatalogue = () => {
           discount={item.discount}
           orders={item.orders}
           rating={item.rating}
-          repeats={item.repeats}
         />
       ))}
     </div>

@@ -25,6 +25,7 @@ module.exports = {
           orange: "#ED7E00",
           blue: "#1A9FC9",
           green: "#1AC98B",
+          pink: "#FF69B4",
         },
         tertiary: {
           yellow: "#ffedc0",

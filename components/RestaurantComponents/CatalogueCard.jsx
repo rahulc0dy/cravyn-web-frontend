@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CatalogueCard = ({ imageUrl, name, description, price, discount, orders, rating, repeats }) => {
+const CatalogueCard = ({ imageUrl, name, description, price, discount, orders, rating}) => {
   return (
     <div className="flex bg-white border-2 border-grey-medium rounded-xl max-w-4xl pr-6 shadow-xl overflow-hidden">
       <img src={imageUrl} alt={name} className="w-1/3 object-cover" />
@@ -21,10 +21,16 @@ const CatalogueCard = ({ imageUrl, name, description, price, discount, orders, r
             </div>
         </div>
 
-        <div className="mt-4 border-t-2 border-grey-light-3 p-4 flex justify-between text-gray-600">
+        <div className="mt-4 border-t-2 border-grey-light-3 py-4 flex justify-between text-gray-600 text-base font-semibold">
           <span>Orders: {orders}</span>
           <span>Rating: {rating}</span>
-          <span>Repeats: {repeats}</span>
+          <span>
+          <label class="inline-flex items-center cursor-pointer">
+          <span className='mr-2'>Available:</span>
+          <input type="checkbox" value="" class="sr-only peer"/>
+          <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  rounded-full peer dark:bg-grey-light-3 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary-pink"></div>
+</label>
+</span>
         </div>
 
       </div>
