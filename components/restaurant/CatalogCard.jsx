@@ -66,7 +66,7 @@ const CatalogCard = ({
           </span>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

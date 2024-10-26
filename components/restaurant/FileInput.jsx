@@ -13,7 +13,7 @@ const FileInput = ({ classes }) => {
   };
 
   return (
-    <div className={"flex items-center rounded-lg overflow-hidden" + classes}>
+    <div className={"mt-4 flex items-center rounded-lg overflow-hidden" + classes}>
       <label
         htmlFor="file-upload"
         className="py-2 px-4 flex-grow cursor-pointer text-grey-dark"

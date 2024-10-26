@@ -32,7 +32,7 @@ const FoodItemForm = () => {
           </div>
 
           <div>
-            <p className="text-grey-dark-3 text-lg font-semibold">
+            <p className="text-grey-dark-3 text-lg mb-4 font-semibold">
               Description:
             </p>
             <textarea
