@@ -5,7 +5,11 @@ import Footer from "@components/Footer";
 import { usePathname } from "next/navigation";
 import HomeNav from "@components/HomeNav";
 
-const nunito = Nunito({ subsets: ["latin", "latin-ext"] });
+const nunito = Nunito({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: true,
+});
 
 export default function RootLayout({ children }) {
   const path = usePathname();

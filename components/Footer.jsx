@@ -2,7 +2,11 @@ import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
-const quicksand = Quicksand({ subsets: ["latin", "latin-ext"] });
+const quicksand = Quicksand({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: true,
+});
 
 const Footer = () => {
   return (
@@ -184,40 +188,24 @@ const Footer = () => {
               src="/assets/icons/location-pin.svg"
               width={20}
               height={20}
-              className=" opacity-60"
             />
             <span>
               University of Calcutta, Technology Campus, Kolkata, 700016
             </span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image
-              src="/assets/icons/phone.svg"
-              width={20}
-              height={20}
-              className=" opacity-60"
-            />
+            <Image src="/assets/icons/phone.svg" width={20} height={20} />
 
             <span>+91 75769 73290</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image
-              src="/assets/icons/at-sign.svg"
-              width={20}
-              height={20}
-              className=" opacity-60"
-            />
+            <Image src="/assets/icons/at-sign.svg" width={20} height={20} />
 
             <span>codyrahulop@gmail.com</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <span>
-              <Image
-                src="/assets/icons/watch.svg"
-                width={20}
-                height={20}
-                className=" opacity-60"
-              />
+              <Image src="/assets/icons/watch.svg" width={20} height={20} />
             </span>
             <span>Mon-Fri 10.00am-5.00pm</span>
           </div>
