@@ -266,8 +266,9 @@ const RestaurantLandingPage = () => {
           Restaurant Stories
         </h2>
         <div className="wrapper p-5 py-10 flex gap-5 overflow-x-scroll">
-          {reviews.map(({ text, avatar, name, restaurant }) => (
+          {reviews.map(({ text, avatar, name, restaurant }, index) => (
             <ReviewCard
+              key={index}
               text={text}
               avatar={avatar}
               name={name}
