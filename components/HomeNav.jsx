@@ -93,7 +93,7 @@ const HomeNav = () => {
                   className="hover:scale-110 transition-all hover:text-primary-grey"
                   href="#"
                 >
-                  Services
+                  Partner with us
                 </Link>
                 <Link
                   className="hover:scale-110 transition-all hover:text-primary-grey"
@@ -167,9 +167,9 @@ const HomeNav = () => {
             </Link>
             <Link
               className="hover:scale-110 transition-all hover:text-primary-grey"
-              href="#"
+              href="/partner-with-us"
             >
-              Services
+              Partner with us
             </Link>
             <Link
               className="hover:scale-110 transition-all hover:text-primary-grey"

@@ -19,19 +19,23 @@ module.exports = {
           orange: "#ffbb25",
           red: "#e63a3a",
           grey: "#282723",
+          green: "#1AC98B",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
+          green: "#008F06",
         },
         tertiary: {
           yellow: "#ffedc0",
           grey: "#232323",
+          green: "#0A964A",
         },
         accent: {
           yellow: "#ffda7f",
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
+          green: "C0FFE1",
         },
         warning: {
           "yellow-light": "#ffdd68",

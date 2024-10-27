@@ -99,7 +99,7 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="password"
-                className=" border-2 border-gray-300 p-2 rounded-md w-full invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Enter Password"
                 required
                 minLength="6"
@@ -116,7 +116,7 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="confirm-password"
-                className=" border-2 border-gray-300 p-2 rounded-md w-full invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Confirm Password"
                 required
                 minLength="6"
