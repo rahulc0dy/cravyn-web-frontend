@@ -2,13 +2,13 @@ import React from "react";
 
 const OrderCard = ({ orderId, time, items, total, func }) => {
   return (
-    <div className="border-2 border-gray-300 rounded-lg shadow-xl w-60 h-72">
+    <div className="border-2 border-gray-300 rounded-lg shadow-xl w-64 h-72 overflow-clip">
       <div className="bg-accent-green flex justify-between items-center p-5 border-b-2">
-        <span className="text-xl font-bold text-tertiary-green tracking-widest">
+        <span className="text-xl font-extrabold text-danger-green tracking-widest">
           {orderId}
         </span>
-        <span className="text-sm flex items-center">
-          <span className="font-bold text-tertiary-blue text-base flex items-center">
+        <span className=" flex items-center">
+          <span className="font-bold text-tertiary-blue text-md flex items-center">
             <svg
               width="16"
               height="16"
@@ -32,7 +32,7 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
       </div>
       <div className="py-4 px-4">
         {items.slice(0, 3).map((item, index) => (
-          <div key={index} className="flex justify-between">
+          <div key={index} className="flex justify-between font-light">
             <span>{item.name}</span>
             <span className="font-semibold">×{item.quantity}</span>
           </div>
@@ -44,14 +44,14 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
         )}
       </div>
       <div className="border-t-2 pt-2 px-4">
-        <div className="flex justify-between text-green-600 font-bold">
-          <span>Order Total</span>
+        <div className="flex justify-between text-tertiary-green font-bold">
+          <span className="text-primary-grey">Order Total</span>
           <span>₹ {total}</span>
         </div>
       </div>
       <button
         onClick={func}
-        className="mt-4 text-red-500 hover:text-lg hover:text-red-800 font-semibold px-4"
+        className="mt-4 text-secondary-green hover:text-lg hover:text-red-800 font-semibold px-4"
       >
         View Details
       </button>

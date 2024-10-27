@@ -49,7 +49,7 @@ const RestaurantCatalogue = () => {
 
   return (
     <div>
-      <Toolbar />
+      {/* <Toolbar /> */}
       <div className="w-full mb-10 mx-auto space-y-8 max-h-screen overflow-y-scroll p-5">
         {menuItems.map((item, index) => (
           <CatalogCard
