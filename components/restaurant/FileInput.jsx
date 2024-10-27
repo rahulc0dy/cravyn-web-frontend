@@ -13,7 +13,7 @@ const FileInput = ({ classes }) => {
   };
 
   return (
-    <div className={"mt-4 flex items-center rounded-lg overflow-hidden" + classes}>
+    <div className={"flex items-center rounded-lg overflow-hidden" + classes}>
       <label
         htmlFor="file-upload"
         className="py-2 px-4 flex-grow cursor-pointer text-grey-dark"
@@ -22,7 +22,7 @@ const FileInput = ({ classes }) => {
       </label>
       <button
         type="button"
-        className="bg-red-500 px-4 py-3 text-white overflow-hidden cursor-pointer"
+        className="bg-green-400 px-4 py-3 text-white overflow-hidden cursor-pointer"
       >
         <svg
           width="21"

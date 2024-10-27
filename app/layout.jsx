@@ -14,16 +14,18 @@ const nunito = Nunito({
 export default function RootLayout({ children }) {
   const path = usePathname();
 
-  const noNavFooterPaths = ["/about", "/login", "/signup", "/404"];
+  const noFooterPaths = ["/about", "/login", "/signup", "/404","/restaurant/register"];
+  const noNavPaths=["/about", "/login", "/signup", "/404"];
 
-  const resetLayout = noNavFooterPaths.includes(path);
+  const resetLayout1 = noNavPaths.includes(path);
+  const resetLayout2 = noFooterPaths.includes(path);
 
   return (
     <html lang="en">
       <body className={`${nunito.className} antialiased`}>
-        {!resetLayout && <HomeNav />}
+        {!resetLayout1 && <HomeNav />}
         {children}
-        {!resetLayout && <Footer />}
+        {!resetLayout2 && <Footer />}
       </body>
     </html>
   );
