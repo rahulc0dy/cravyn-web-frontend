@@ -25,7 +25,7 @@ const Sidebar = () => {
     { name: "Discounts", href: "/restaurant/catalog/discounts" },
   ];
   const isActive = (href) =>
-    path === href ? "bg-accent-yellow-light font-semiboldhover:none" : "";
+    path === href ? "bg-accent-yellow-light font-semibold hover:none" : "";
 
   return (
     <div className="sticky py-10">
@@ -39,7 +39,16 @@ const Sidebar = () => {
               key={navItem.name}
               className={`py-2 px-4 ${isActive(navItem.href)} rounded-md`}
             >
-              <Link className={path===navItem.href?"cursor-auto":"hover:text-xl hover:font-bold"} href={navItem.href}>{navItem.name}</Link>
+              <Link
+                className={
+                  path === navItem.href
+                    ? "cursor-auto"
+                    : "hover:text-xl hover:font-bold"
+                }
+                href={navItem.href}
+              >
+                {navItem.name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -55,7 +64,14 @@ const Sidebar = () => {
               key={navItem.name}
               className={`py-2 px-4 ${isActive(navItem.href)} rounded-md`}
             >
-              <Link className={path===navItem.href?"":"hover:text-xl hover:font-bold"} href={navItem.href}>{navItem.name}</Link>
+              <Link
+                className={
+                  path === navItem.href ? "" : "hover:text-xl hover:font-bold"
+                }
+                href={navItem.href}
+              >
+                {navItem.name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -71,7 +87,14 @@ const Sidebar = () => {
               key={navItem.name}
               className={`py-2 px-4 ${isActive(navItem.href)} rounded-md`}
             >
-              <Link className={path===navItem.href?"":"hover:text-xl hover:font-bold"} href={navItem.href}>{navItem.name}</Link>
+              <Link
+                className={
+                  path === navItem.href ? "" : "hover:text-xl hover:font-bold"
+                }
+                href={navItem.href}
+              >
+                {navItem.name}
+              </Link>
             </li>
           ))}
         </ul>

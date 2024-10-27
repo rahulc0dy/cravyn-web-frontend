@@ -28,7 +28,7 @@ const OrderDetailsDialog = ({
         </div>
 
         <div className="text-primary-red pb-3 mb-4 border-b-2 font-bold">
-          {customerName}'s order
+          {customerName}&apos;s order
         </div>
 
         <div className="mb-4">
