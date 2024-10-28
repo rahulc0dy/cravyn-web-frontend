@@ -13,6 +13,7 @@ export default function NotFound() {
         src="/assets/images/404-not-found-landscape.svg"
         width={500}
         height={500}
+        alt="404-not-found landscape"
       />
 
       <div className="max-w-5xl px-5 text-center">
