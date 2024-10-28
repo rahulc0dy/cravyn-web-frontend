@@ -27,7 +27,7 @@ const FoodItemForm = () => {
             <input
               type="text"
               placeholder="Enter Item Name"
-              className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:border-grey-light-3"
+              className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3  focus:outline-none"
               required
               minLength={3}
             />
@@ -39,7 +39,7 @@ const FoodItemForm = () => {
             </p>
             <textarea
               placeholder="Enter Description"
-              className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none invalid:border-primary-red valid:border-secondary-green placeholder-shown:border-grey-light-3"
+              className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3 placeholder-shown:valid:border-grey-light-3 focus:outline-none"
               rows="6"
               minLength={10}
               maxLength={300}
@@ -54,9 +54,11 @@ const FoodItemForm = () => {
               ₹
             </span>
             <input
-              type="number"
+              type="text"
+              inputMode="numeric"
               placeholder="Enter Item Price"
-              className="w-full placeholder-grey-dark-3 md:pl-6 px-3 py-2 border-2 border-grey-light-3 rounded-r-md"
+              className="w-full placeholder-grey-dark-3 md:pl-6 px-3 py-2 border-2 border-grey-light-3 rounded-r-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3 focus:outline-none"
+              required
             />
           </div>
         </div>
