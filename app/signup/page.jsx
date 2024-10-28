@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const SignupPage = () => {
   return (
-    <div className="flex items-center justify-center min-h-svh bg-gradient-to-br to-red-500 from-accent-yellow-light">
+    <div className="flex items-center justify-center min-h-svh bg-gradient-to-br to-red-500 from-accent-yellow-light overflow-hidden">
       <div className="bg-white shadow-md rounded-lg flex flex-col xl:flex-row max-w-5xl mx-5 m-10 xl:min-h-[80svh]  min-w-[50svw]">
         <AnimatePresence>
           <motion.div
@@ -99,7 +99,7 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="password"
-                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Enter Password"
                 required
                 minLength="6"
@@ -116,7 +116,7 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="confirm-password"
-                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
+                className=" border-2 border-gray-300 p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300 invalid:border-red-400 valid:border-green-500 focus:outline-warning-yellow-light"
                 placeholder="Confirm Password"
                 required
                 minLength="6"
