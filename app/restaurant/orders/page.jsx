@@ -3,7 +3,6 @@
 import { useState } from "react";
 import OrderCard from "@components/restaurant/OrderCard";
 import OrderDetailsDialog from "@components/restaurant/OrderDetailsDialog";
-import Toolbar from "@components/restaurant/Toolbar";
 
 const OrdersPage = () => {
   const [showModal, setShowModal] = useState(false);
