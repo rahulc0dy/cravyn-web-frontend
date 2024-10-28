@@ -1,86 +1,133 @@
-# CRAVYN - Food Ordering System (Frontend)
+<h1 align="center">Cravyn 🍔🍕🍜</h1>
 
-This repository contains the frontend of **CRAVYN**, a food ordering system, built using **Next.js 14** and **JavaScript**. The project is designed to provide users with a smooth experience to browse, order, and track food from various restaurants.
+<p align="center">
+  <i>A sleek, easy-to-use food ordering system that brings your favorite meals right to your fingertips! Built with <a href="https://nextjs.org/">Next.js</a>.</i>
+</p>
 
-## 🚀 Live Website
+<p align="center">
+  <a href="https://cravyn-web-frontend.vercel.app"><strong>Visit Cravyn here!</strong></a>
+</p>
 
-The frontend of CRAVYN is currently deployed on Vercel and can be accessed [here](https://cravyn-web-frontend.vercel.app).
+<p align="center">
+  <img src="https://img.shields.io/website-up-down-green-red/https/cravyn-web-frontend.vercel.app.svg" alt="Website Status">
+</p>
 
-### Website Status
+## Table of Contents
 
-- **Status**: [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fcravyn-web-frontend.vercel.app)](https://cravyn-web-frontend.vercel.app)
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
 
-If the badge above is green, the site is up and running. If it's red, the site may be down.
+---
 
-## 🛠️ Tech Stack
+## Features
 
-- **Framework**: [Next.js 14](https://nextjs.org/)
-- **Language**: JavaScript
-- **Package Manager**: npm
-- **Deployment**: Vercel
+- 📱 **Responsive Design**: Optimized for mobile, tablet, and desktop views.
+- 🔍 **Menu Search & Filters**: Easily find dishes by category, cuisine, or dietary preferences.
+- 🛒 **Seamless Ordering Experience**: Add, remove, and customize items in your cart.
+- 🔔 **Real-time Notifications**: Stay updated with order status and delivery tracking.
+- 💳 **Secure Payment Integration**: Complete orders with secure payment options.
 
-## 📦 Installation and Setup
+---
 
-To run the project locally, follow these steps:
+## Demo
+
+Check out a live demo of the app here: [cravyn-web-frontend.vercel.app](https://cravyn-web-frontend.vercel.app)
+
+---
+
+## Installation
+
+Follow these steps to set up Cravyn on your local machine.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+
+### Steps
 
 1. Clone the repository:
-
    ```bash
-   git clone https://github.com/yourusername/cravyn-frontend.git
+   git clone https://github.com/rahulc0dy/cravyn-web-frontend.git
    ```
-
 2. Navigate into the project directory:
-
    ```bash
-   cd cravyn-frontend
+   cd cravyn-web-frontend
    ```
-
-3. Install the dependencies:
-
+3. Install dependencies:
    ```bash
    npm install
    ```
-
-4. Run the development server:
-
+4. Create a `.env.local` file in the root directory and add your environment variables:
+   ```plaintext
+   NEXT_PUBLIC_API_BASE_URL=your_api_key_here
+   ```
+5. Start the development server:
    ```bash
    npm run dev
    ```
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to view it locally.
 
-5. Open your browser and go to:
-   ```bash
-   http://localhost:3000
-   ```
+---
 
-## 💡 Features
+## Usage
 
-- User-friendly interface to browse and order food
-- Integration with backend for real-time updates and order tracking
-- Mobile-responsive design
-- Secure payment integration
+1. **Browse the Menu**: Browse different categories and filter dishes by cuisine and dietary needs.
+2. **Add to Cart**: Click on items to add them to your cart.
+3. **Place an Order**: Review your cart, proceed to checkout, and complete your order.
+4. **Track Your Order**: Receive real-time updates on your order status.
+5. **Restaurant Management**: Manage your restaurants in one place.
 
-## 🤝 Contributing
+---
 
-We welcome contributions to improve CRAVYN! If you'd like to contribute, feel free to fork the repository and submit a pull request.
+## Technologies
 
-### Steps to Contribute:
+- **Frontend**: Next.js, Tailwind CSS
+- **Backend**: Node.js
+- **Database**: PostgreSQL
+- **Payments**: Razorpay
+- **Hosting**: Vercel
+
+---
+
+## Contributing
+
+We welcome contributions! Please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit them:
-   ```bash
-   git commit -m "Add your message here"
-   ```
-4. Push to your forked repository:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Submit a pull request.
+2. Create a new branch (`feat/new-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feat/new-feature`).
+5. Open a Pull Request.
 
-## 📄 License
+### Our Contributers
 
-This project is licensed under the MIT License.
+Thanks to all the people who contribute to this project:
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/theMr17"><img src="https://github.com/theMr17.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>theMr17 </b></sub></a></td>
+    <td align="center"><a href="https://github.com/Souvik606"><img src="https://github.com/Souvik606.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>Souvik606</b></sub></a></td>
+    <td align="center"><a href="https://github.com/dattasneha"><img src="https://github.com/dattasneha.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>username3</b></sub></a></td>
+  </tr>
+</table>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or support, reach out via [contact@cravyn-web-frontend.vercel.app](mailto:contact@cravyn-web-frontend.vercel.app).
+
+<br/>
+
+Enjoy ordering with **Cravyn**! 🍲
