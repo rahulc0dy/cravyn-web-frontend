@@ -32,8 +32,8 @@ const Footer = () => {
 
           <p className=" text-xl font-medium">Follow and Support Us</p>
           <div className="flex flex-wrap gap-5 py-3 md:py-0">
-            <div className="social">
-              <Link href="#">
+            <div className="linkedin">
+              <Link href="https://www.linkedin.com/company/university-of-calcutta-technology-campus">
                 <svg
                   width="25"
                   height="25"
@@ -65,8 +65,8 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
-              <Link href="#">
+            <div className="github">
+              <Link href="https://github.com/rahulc0dy/cravyn-web-frontend">
                 <svg
                   width="25"
                   height="25"
@@ -84,7 +84,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="instagram">
               <Link href="#">
                 <svg
                   width="25"
@@ -103,7 +103,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="youtube">
               <Link href="#">
                 <svg
                   width="25"
@@ -136,7 +136,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="facebook">
               <Link href="#">
                 <svg
                   width="25"
@@ -161,23 +161,23 @@ const Footer = () => {
         <div className=" flex flex-col gap-4">
           <h3 className="text-xl font-medium">Company</h3>
           <div className="flex flex-col gap-4 font-light">
-            <p>About Us</p>
-            <p>Delivery Services</p>
-            <p>Privacy Policy</p>
-            <p>Terms and Conditions</p>
-            <p>FAQ</p>
+            <Link href="/about">About Us</Link>
+            <Link href="/delivery">Delivery Services</Link>
+            <Link href="/partner-with-us">Partner With Us</Link>
+            <Link href="/terms-and-conditions">Terms of Service</Link>
+            <Link href="/faq">FAQ</Link>
           </div>
         </div>
 
         <div className=" flex flex-col gap-4">
           <h3 className="text-xl font-medium">Account</h3>
           <div className="flex flex-col gap-4 font-light">
-            <p>Sign in</p>
-            <p>Your Orders</p>
-            <p>Track Your Order</p>
-            <p>Help Tickets</p>
-            <p>Your Addresses</p>
-            <p>Compare Products</p>
+            <Link href="/login">Sign in</Link>
+            <Link href="/orders">Your Orders</Link>
+            <Link href="/">Track Your Order</Link>
+            <Link href="/">Help Tickets</Link>
+            <Link href="/">Your Addresses</Link>
+            <Link href="/">Compare Products</Link>
           </div>
         </div>
 
@@ -201,7 +201,7 @@ const Footer = () => {
           <div className="flex flex-row gap-4 font-light items-center">
             <Image src="/assets/icons/at-sign.svg" width={20} height={20} />
 
-            <span>codyrahulop@gmail.com</span>
+            <span>cravyn.support@cravyn.com</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <span>
@@ -212,12 +212,14 @@ const Footer = () => {
         </div>
         <div className="">
           <h3 className="text-xl font-medium">Get Our Mobile App</h3>
-          <Image
-            className="py-2"
-            src="/assets/images/PlayStore.png"
-            width={150}
-            height={50}
-          />
+          <Link href="#">
+            <Image
+              className="py-2"
+              src="/assets/images/PlayStore.png"
+              width={150}
+              height={50}
+            />
+          </Link>
         </div>
         <div className="QR">
           <h3 className="text-xl font-medium">Scan QR</h3>
