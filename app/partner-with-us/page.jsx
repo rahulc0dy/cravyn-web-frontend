@@ -63,7 +63,7 @@ const RestaurantLandingPage = () => {
           Add your restaurant to Cravyn <br />
           and escalate your business to the next level
         </h2>
-        <div className="py-5 px-2 sm:px-10 bg-white rounded-md text-primary-grey relative shadow-2xl md:text-left">
+        <div className="py-5 px-4 sm:px-10 bg-white rounded-md text-primary-grey relative shadow-2xl md:text-left">
           <h3 className="sm:text-xl lg:text-2xl font-medium mt-5">
             Get Started - It only takes 10 minutes
           </h3>
@@ -71,7 +71,7 @@ const RestaurantLandingPage = () => {
             Please be ready with the following for a smooth registration
           </h4>
           <div className="flex flex-wrap gap-10 sm:flex-row flex-col">
-            <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-full sm:w-max text-sm md:text-lg">
+            <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-full sm:w-max text-sm md:text-lg px-5 md:px-0">
               <div className="text-left flex">
                 <svg
                   width="20"
@@ -91,7 +91,7 @@ const RestaurantLandingPage = () => {
                 <div className="">
                   <h5 className="">Registration Number</h5>
                   <p className="font-light text-sm">
-                    Not registered?{" "}
+                    Not registered?
                     <Link href="#" className="text-blue-500">
                       Register now.
                     </Link>
@@ -210,7 +210,7 @@ const RestaurantLandingPage = () => {
           </div>
           <Link
             href="/"
-            className="font-bold text-white text-center my-5 bg-primary-green block px-10 float-left rounded-md py-2"
+            className="font-bold text-white text-center my-5 bg-primary-green block px-10 md:float-left rounded-md py-2"
           >
             Register Your Restaurant
           </Link>
