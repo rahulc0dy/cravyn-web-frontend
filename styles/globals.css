@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
+*,
+::before,
+::after {
   text-decoration: none;
 }
 
@@ -48,5 +48,6 @@
 }
 
 .wrapper {
-  width: min(1536px, 100%-4rem);
+  width: min(1536px, 100% - 2rem);
+  margin-inline: auto;
 }

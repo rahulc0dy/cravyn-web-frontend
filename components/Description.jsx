@@ -8,7 +8,7 @@ const Description = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: 0.5 }}
-      className="flex justify-center items-center mx-auto py-72 m-6 max-w-screen-2xl"
+      className="flex justify-center items-center mx-auto py-10 m-6 max-w-screen-2xl"
     >
       <div className="grid grid-cols-1 lg:grid-cols-10 lg:gap-8 w-11/12 md:w-9/12 lg:w-8/12">
         <div className="md:col-span-3">

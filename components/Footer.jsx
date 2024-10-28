@@ -1,11 +1,19 @@
-import React from "react";
+import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
+const quicksand = Quicksand({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: true,
+});
+
 const Footer = () => {
   return (
-    <footer className=" w-full py-9 text-white bg-primary-grey flex flex-row justify-center">
-      <div className="max-w-screen-2xl px-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 3xl:px-0 justify-between gap-x-24 gap-y-10">
+    <footer
+      className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center`}
+    >
+      <div className="wrapper grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  justify-between gap-x-24 gap-y-10">
         <div className="flex flex-col justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <Image
@@ -13,11 +21,11 @@ const Footer = () => {
               src="/assets/icons/CUlogo.svg"
               width={80}
               height={80}
-            ></Image>
+            />
             <h2 className=" font-black text-3xl">CRAVYN</h2>
           </div>
 
-          <p className=" text-sm text-grey-light-3 py-2">
+          <p className=" text-sm font-light py-2">
             A Software Engineering Project by Group 3 of Computer Science and
             Engineering,Univeristy of Calcutta
           </p>
@@ -180,32 +188,24 @@ const Footer = () => {
               src="/assets/icons/location-pin.svg"
               width={20}
               height={20}
-            ></Image>
+            />
             <span>
               University of Calcutta, Technology Campus, Kolkata, 700016
             </span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image src="/assets/icons/phone.svg" width={20} height={20}></Image>
+            <Image src="/assets/icons/phone.svg" width={20} height={20} />
 
             <span>+91 75769 73290</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image
-              src="/assets/icons/at-sign.svg"
-              width={20}
-              height={20}
-            ></Image>
+            <Image src="/assets/icons/at-sign.svg" width={20} height={20} />
 
             <span>codyrahulop@gmail.com</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <span>
-              <Image
-                src="/assets/icons/watch.svg"
-                width={20}
-                height={20}
-              ></Image>
+              <Image src="/assets/icons/watch.svg" width={20} height={20} />
             </span>
             <span>Mon-Fri 10.00am-5.00pm</span>
           </div>
@@ -217,7 +217,7 @@ const Footer = () => {
             src="/assets/images/PlayStore.png"
             width={150}
             height={50}
-          ></Image>
+          />
         </div>
         <div className="QR">
           <h3 className="text-xl font-medium">Scan QR</h3>
@@ -226,7 +226,7 @@ const Footer = () => {
             src="/assets/images/QR.png"
             width={100}
             height={100}
-          ></Image>
+          />
         </div>
         <div className="payments">
           <h3 className="text-xl font-medium">Secure Payments</h3>
@@ -237,21 +237,13 @@ const Footer = () => {
                 src="/assets/images/mastercard.png"
                 width={40}
                 height={40}
-              ></Image>
+              />
             </span>
             <span>
-              <Image
-                src="/assets/images/visa.png"
-                width={40}
-                height={40}
-              ></Image>
+              <Image src="/assets/images/visa.png" width={40} height={40} />
             </span>
             <span>
-              <Image
-                src="/assets/images/paypal.png"
-                width={60}
-                height={40}
-              ></Image>
+              <Image src="/assets/images/paypal.png" width={60} height={40} />
             </span>
           </div>
         </div>
