@@ -27,7 +27,9 @@ const FoodItemForm = () => {
             <input
               type="text"
               placeholder="Enter Item Name"
-              className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md"
+              className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:border-grey-light-3"
+              required
+              minLength={3}
             />
           </div>
 
@@ -37,8 +39,10 @@ const FoodItemForm = () => {
             </p>
             <textarea
               placeholder="Enter Description"
-              className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none focus:outline-none focus:ring focus:ring-green-200"
+              className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none invalid:border-primary-red valid:border-secondary-green placeholder-shown:border-grey-light-3"
               rows="6"
+              minLength={10}
+              maxLength={300}
             />
           </div>
 
@@ -59,10 +63,10 @@ const FoodItemForm = () => {
       </div>
 
       <div className=" flex justify-between mt-2">
-        <button className="w-2/3 px-6 py-2 bg-secondary-green text-white font-semibold rounded-md hover:bg-teal-700">
+        <button className="w-2/3 px-6 py-2 bg-primary-green text-white font-semibold rounded-md hover:brightness-90">
           Add Item to Catalog
         </button>
-        <button className="font-semibold w-1/3 ml-4 px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+        <button className="font-semibold w-1/3 ml-4 px-6 py-2 bg-primary-red text-white rounded-md hover:brightness-90">
           Cancel
         </button>
       </div>

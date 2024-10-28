@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
-const Sidebar = () => {
+const Sidebar = ({ restaurantName, restaurantOwnerName }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
   const path = usePathname();
 
@@ -46,13 +47,13 @@ const Sidebar = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="size-6"
+            className="size-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
             />
           </svg>
@@ -73,7 +74,13 @@ const Sidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:relative lg:flex lg:flex-col lg:w-64`}
       >
-        <div className="py-10">
+        <div className="">
+          <div className="pb-4">
+            <h2 className="text-2xl font-bold text-teal-600">
+              {restaurantName}
+            </h2>
+            <p className=" text-grey-medium">{restaurantOwnerName}</p>
+          </div>
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">
               Orders

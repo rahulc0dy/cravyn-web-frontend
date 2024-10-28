@@ -51,7 +51,7 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
       </div>
       <button
         onClick={func}
-        className="mt-4 text-secondary-green hover:text-lg hover:text-red-800 font-semibold px-4"
+        className="mt-4 text-secondary-green hover:scale-105 hover:underline hover:text-tertiary-green font-semibold px-4 transition-all"
       >
         View Details
       </button>

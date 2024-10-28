@@ -15,8 +15,11 @@ const OrderDetailsDialog = ({
 }) => {
   if (!visible) return null;
   return (
-    <div className=" fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 px-4">
-      <div className="bg-white shadow-lg w-full max-w-2xl h-screen max-h-[95svh] overflow-y-scroll p-6">
+    <div className=" fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 px-4 z-50">
+      <div
+        className="bg-white shadow-lg w-full max-w-2xl h-screen max-h-[95svh] overflow-y-scroll p-6"
+        onClick={() => {}}
+      >
         <div className="grid grid-cols-[auto_1fr_auto] items-center pb-2">
           <div className="text-3xl font-extrabold border-r-2 border-black pr-4 tracking-widest text-grey-dark-3">
             {orderId}
@@ -32,11 +35,11 @@ const OrderDetailsDialog = ({
         </div>
 
         <div className="mb-4">
-          <h2 className="font-bold text-secondary-red text-xl mb-4">
+          <h2 className="font-bold text-tertiary-green text-xl mb-4">
             Order Items:
           </h2>
           <table className="w-full table-auto">
-            <thead className="bg-yellow-100">
+            <thead className="bg-accent-green">
               <tr>
                 <th className="text-left py-2 px-5">Item</th>
                 <th className="text-left py-2 px-2">Qty.</th>
@@ -58,11 +61,11 @@ const OrderDetailsDialog = ({
                 </tr>
               ))}
               <tr>
-                <td className=" text-green-600 font-bold text-lg py-1 px-5  border-t-4 border-gray-300">
+                <td className=" text-primary-green font-bold text-lg py-1 px-5  border-t-4 border-gray-300">
                   Order Total:
                 </td>
                 <td className="py-1 px-2 text-lg font-semibold text-gray-500 border-t-4 border-gray-300"></td>
-                <td className="py-1 px-2 text-green-600 font-bold text-lg mb-4 border-t-4 border-gray-300 pt-4 pr-8">
+                <td className="py-1 px-2 text-primary-green font-bold text-lg mb-4 border-t-4 border-gray-300 pt-4 pr-8">
                   ₹ {totalPrice.toFixed(2)}
                 </td>
               </tr>
@@ -71,7 +74,7 @@ const OrderDetailsDialog = ({
         </div>
 
         <div className="mb-4">
-          <h3 className="font-bold text-secondary-red text-xl">
+          <h3 className="font-bold text-tertiary-green text-xl">
             Instructions:
           </h3>
           <div className="bg-gray-100 p-3 rounded-md mt-2">{instructions}</div>
@@ -79,7 +82,7 @@ const OrderDetailsDialog = ({
 
         <div className="grid grid-cols-2 gap-6 mb-4">
           <div>
-            <h3 className="font-bold text-secondary-red text-xl mb-3">
+            <h3 className="font-bold text-tertiary-green text-xl mb-3">
               Delivery Address:
             </h3>
             <p>{address.line1}</p>
@@ -90,7 +93,7 @@ const OrderDetailsDialog = ({
             <p>Landmark: {address.landmark}</p>
           </div>
           <div>
-            <h3 className="font-bold text-secondary-red text-xl mb-3">
+            <h3 className="font-bold text-tertiary-green text-xl mb-3">
               Delivery Partner:
             </h3>
             <p>{deliveryPartner.name}</p>
@@ -101,7 +104,7 @@ const OrderDetailsDialog = ({
         </div>
 
         <div className="flex items-center mb-4">
-          <label className="font-bold text-secondary-red text-xl mr-4">
+          <label className="font-bold text-tertiary-green text-xl mr-4">
             Order Status:
           </label>
           <select className="border-2 border-grey-light-3 px-12 py-1 rounded-md">
