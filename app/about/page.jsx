@@ -170,6 +170,7 @@ const aboutus = () => {
               </div>
               <div>
                 <Image
+                  alt=""
                   className="mr-10 hidden md:inline-block"
                   src="/assets/images/about/dots.svg"
                   width={200}
