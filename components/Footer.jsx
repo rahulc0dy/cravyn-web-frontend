@@ -186,7 +186,7 @@ const Footer = () => {
           <h3 className="text-xl font-medium">Contact</h3>
           <div className="flex flex-row gap-4 font-light items-center">
             <Image
-              alt="location pin"
+              alt=""
               src="/assets/icons/location-pin.svg"
               width={20}
               height={20}
@@ -196,18 +196,33 @@ const Footer = () => {
             </span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image src="/assets/icons/phone.svg" width={20} height={20} />
+            <Image
+              alt=""
+              src="/assets/icons/phone.svg"
+              width={20}
+              height={20}
+            />
 
             <span>+91 75769 73290</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image src="/assets/icons/at-sign.svg" width={20} height={20} />
+            <Image
+              alt=""
+              src="/assets/icons/at-sign.svg"
+              width={20}
+              height={20}
+            />
 
             <span>cravyn.support@cravyn.com</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <span>
-              <Image src="/assets/icons/watch.svg" width={20} height={20} />
+              <Image
+                alt=""
+                src="/assets/icons/watch.svg"
+                width={20}
+                height={20}
+              />
             </span>
             <span>Mon-Fri 10.00am-5.00pm</span>
           </div>
@@ -216,6 +231,7 @@ const Footer = () => {
           <h3 className="text-xl font-medium">Get Our Mobile App</h3>
           <Link href="#">
             <Image
+              alt=""
               className="py-2"
               src="/assets/images/PlayStore.png"
               width={150}
@@ -246,10 +262,20 @@ const Footer = () => {
               />
             </span>
             <span>
-              <Image src="/assets/images/visa.png" width={40} height={40} />
+              <Image
+                alt=""
+                src="/assets/images/visa.png"
+                width={40}
+                height={40}
+              />
             </span>
             <span>
-              <Image src="/assets/images/paypal.png" width={60} height={40} />
+              <Image
+                alt=""
+                src="/assets/images/paypal.png"
+                width={60}
+                height={40}
+              />
             </span>
           </div>
         </div>
