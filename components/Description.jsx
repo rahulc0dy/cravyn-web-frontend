@@ -22,7 +22,7 @@ const Description = () => {
             <h2 className="text-3xl font-bold pb-2">30 Minutes Delivery</h2>
             <p className="text-gray-600 font-semibold mb-6 md:m-0 pb-5">
               We Deliver your food fresh to you within 30 minutes. So your
-              cravings don’t have to wait.
+              cravings don&apos;t have to wait.
             </p>
           </div>
         </div>
