@@ -66,8 +66,8 @@ const Description = () => {
             />
             <h2 className="text-3xl font-bold pb-2">Fresh Cooked Food</h2>
             <p className="text-gray-600 font-semibold mb-6 md:m-0 pb-5">
-              We deliver fresh cooked food straight from the restaurant’s pan to
-              your plate.
+              We deliver fresh cooked food straight from the restaurant&apos;s
+              pan to your plate.
             </p>
           </div>
         </div>
