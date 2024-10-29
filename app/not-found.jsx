@@ -13,9 +13,17 @@ export default function NotFound() {
         src="/assets/images/404-not-found-landscape.svg"
         width={500}
         height={500}
+        alt="404-not-found landscape"
       />
 
-      <h1 className="text-2xl">Could not find requested page</h1>
+      <div className="max-w-5xl px-5 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold py-5">
+          Oops! That page must have been cooked.
+        </h1>
+        <p className="py-2 text-xl font-light">
+          The page you requested was not found, or the url is not valid.
+        </p>
+      </div>
       <div className="flex space-x-4">
         {/* Container for buttons with spacing */}
         <Link

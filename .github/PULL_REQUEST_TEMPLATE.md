@@ -1,22 +1,43 @@
-<!-- READ ME FIRST: Please fill in the explanation section below and check off every point from the Essential Checklist! -->
+### Description
 
-## Explanation
+<!-- Please include a summary of the changes and the purpose of this PR. -->
 
-<!--
-  - Explain what your PR does. If this PR fixes an existing bug, please include
-  - "Fixes #bugnum:" in the explanation so that GitHub can auto-close the issue
-  - when this PR is merged.
-  -->
+**Related Issue**:
 
-## Screenshots (For UI-specific PRs only)
+<!-- [Link to Issue or Description] -->
 
-<!-- Delete these section if this PR does not include UI-related changes. -->
+### Changes
 
-## Essential Checklist
+- [ ] Bugfix
+- [ ] Feature
+- [ ] Documentation
+- [ ] Refactoring
+- [ ] Other (describe below)
 
-<!-- Please tick the relevant boxes by putting an "x" in them. -->
+### What was Changed?
 
-- [ ] The PR title and explanation each start with "Fix #bugnum: " (If this PR fixes part of an issue, prefix the title with "Fix part of #bugnum: ...".)
-- [ ] The PR does not contain any unnecessary code changes from code editor.
-- [ ] The PR is made from a branch that's **not** called "master" and is up-to-date with "master".
-- [ ] The PR is **assigned** to the appropriate reviewers.
+Please include a detailed description of what has been changed, including any new features, bug fixes, or structural changes.
+
+### How to Test?
+
+1. **Steps**:
+<!-- List the steps required to test this feature or bug fix. -->
+2. **Expected Outcome**:
+<!-- Describe the expected result of these tests. -->
+
+### Checklist
+
+- [ ] I have tested the code and verified it works as expected.
+- [ ] I have updated documentation where necessary.
+- [ ] My code follows the style guidelines of this project.
+- [ ] My changes do not introduce any breaking changes.
+- [ ] All existing and new tests pass.
+<!-- - [ ] I have added or updated unit tests as needed. -->
+
+### Screenshots
+
+<!-- If applicable, add any screenshots that show the change in action. Delete this section if not applicable -->
+
+### Additional Notes
+
+<!-- Any additional information, context, or notes about this PR. -->
