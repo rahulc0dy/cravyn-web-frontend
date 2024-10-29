@@ -10,8 +10,8 @@ const HomeNav = () => {
   };
 
   return (
-    <nav className="w-full  lg:shadow-none">
-      <div className="w-full max-w-screen-2xl px-5 2xl:px-0 mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none border-b-2">
+    <nav className="w-full lg:shadow-none">
+      <div className="wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ">
         <div className="flex justify-between w-full lg:w-auto items-center">
           <h1 className="font-black text-primary-grey text-2xl">CRAVYN</h1>
           <button
@@ -79,32 +79,32 @@ const HomeNav = () => {
               <div className="flex lg:flex-row flex-col gap-10 text-lg font-bold text-grey-dark-2 text-center">
                 <Link
                   className="hover:scale-110 transition-all hover:text-primary-grey lg:border-none"
-                  href="#"
+                  href="/"
                 >
                   Home
                 </Link>
                 <Link
                   className="hover:scale-110 transition-all hover:text-primary-grey"
-                  href="#"
+                  href="/"
                 >
                   Menu
                 </Link>
                 <Link
                   className="hover:scale-110 transition-all hover:text-primary-grey"
-                  href="#"
+                  href="/partner-with-us"
                 >
-                  Services
+                  Partner with us
                 </Link>
                 <Link
                   className="hover:scale-110 transition-all hover:text-primary-grey"
-                  href="#"
+                  href="/about"
                 >
                   About
                 </Link>
               </div>
               <div className="flex gap-10 text-lg font-medium py-5 lg:py-0 justify-around">
                 <Link
-                  href="#"
+                  href="/about"
                   className="hover:scale-110 transition-all hover:text-primary-grey"
                 >
                   <svg viewBox="0 0 50 50" width="20" height="20">
@@ -112,7 +112,7 @@ const HomeNav = () => {
                   </svg>
                 </Link>
                 <Link
-                  href="#"
+                  href="/search"
                   className="hover:scale-110 transition-all hover:text-primary-grey"
                 >
                   <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
@@ -148,13 +148,14 @@ const HomeNav = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
         <div
-          className={`hidden lg:w-auto lg:flex lg:flex-row flex-col lg:items-center gap-8`}
+          className={`hidden lg:flex lg:flex-row flex-col lg:items-center gap-8 lg:w-4/5 justify-between`}
         >
-          <div className="flex lg:flex-row flex-col gap-10 text-lg font-bold text-grey-dark-2 text-center">
+          <div className="flex lg:flex-row flex-col gap-10 justify-between w-2/5 text-lg font-bold text-grey-dark-2 text-center">
             <Link
               className="hover:scale-110 transition-all hover:text-primary-grey lg:border-none"
-              href="#"
+              href="/"
             >
               Home
             </Link>
@@ -166,20 +167,20 @@ const HomeNav = () => {
             </Link>
             <Link
               className="hover:scale-110 transition-all hover:text-primary-grey"
-              href="#"
+              href="/partner-with-us"
             >
-              Services
+              Partner with us
             </Link>
             <Link
               className="hover:scale-110 transition-all hover:text-primary-grey"
-              href="#"
+              href="/about"
             >
               About
             </Link>
           </div>
           <div className="flex gap-10 text-lg font-medium py-5 lg:py-0 justify-around">
             <Link
-              href="#"
+              href="/about"
               className="hover:scale-110 transition-all hover:text-primary-grey"
             >
               <svg viewBox="0 0 50 50" width="20" height="20">

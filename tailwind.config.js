@@ -19,19 +19,24 @@ module.exports = {
           orange: "#ffbb25",
           red: "#e63a3a",
           grey: "#282723",
+          green: "#1AC98B",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
+          green: "#00CD52",
         },
         tertiary: {
           yellow: "#ffedc0",
           grey: "#232323",
+          green: "#0A964A",
+          blue: "#1D3E73",
         },
         accent: {
           yellow: "#ffda7f",
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
+          green: "#C0FFE1",
         },
         warning: {
           "yellow-light": "#ffdd68",
@@ -39,6 +44,7 @@ module.exports = {
         danger: {
           red: "#ff324b",
           "red-dark": "#f80407",
+          green: "#385145",
         },
         grey: {
           "light-1": "#dbdbdb",

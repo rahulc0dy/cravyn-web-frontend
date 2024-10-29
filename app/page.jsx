@@ -78,6 +78,7 @@ const HomePage = () => {
         <div className="hidden lg:block absolute origin-center right-52 bottom-24 overflow-y-hidden">
           <Image
             src="/assets/images/hero-food-image.png"
+            alt="hero food image"
             width={600}
             height={500}
             className="bottom-10 -translate-y-10"
@@ -89,6 +90,7 @@ const HomePage = () => {
             <div className="flex justify-between gap-2">
               <Image
                 src="/assets/images/star-white.png"
+                alt="star white"
                 width={20}
                 height={20}
               />
@@ -96,21 +98,25 @@ const HomePage = () => {
                 src="/assets/images/star-white.png"
                 width={20}
                 height={20}
+                alt="star white"
               />
               <Image
                 src="/assets/images/star-white.png"
                 width={20}
                 height={20}
+                alt="star white"
               />
               <Image
                 src="/assets/images/star-white.png"
                 width={20}
                 height={20}
+                alt="star white"
               />
               <Image
                 src="/assets/images/star-white.png"
                 width={20}
                 height={20}
+                alt="star white"
               />
             </div>
             <button className="bg-accent-yellow text-secondary-red text-md px-5 py-2 rounded-full font-bold transition-all ease-in-out flex place-items-center hover:shadow-2xl">
@@ -122,6 +128,7 @@ const HomePage = () => {
           src="/assets/images/vertical-closeup-wooden-plank-wall-background.jpg"
           width={600}
           height={500}
+          alt=""
           className="absolute hidden lg:block -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
         />
         <div className="flex flex-row gap-5">
@@ -145,9 +152,13 @@ const HomePage = () => {
           </svg>
 
           <div className="w-50">
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">Crave.</h1>
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">Click.</h1>
-            <h1 className="text-7xl font-bold text-gray-800 mb-4">
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
+              Crave.
+            </h1>
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
+              Click.
+            </h1>
+            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
               Delivered.
             </h1>
           </div>
@@ -158,7 +169,7 @@ const HomePage = () => {
         </p>
         <button className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold transition-all ease-in-out flex items-center gap-4 pr-7 hover:shadow-2xl">
           <div className="bg-accent-yellow rounded-full p-2">
-            <Image src="/assets/icons/order-now.png" width={25} height={25} />
+            <Image src="/assets/icons/order-now.png" width={25} height={25} alt="order now" />
           </div>
           Order Now
         </button>

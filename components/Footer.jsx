@@ -1,11 +1,19 @@
-import React from "react";
+import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
+const quicksand = Quicksand({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: true,
+});
+
 const Footer = () => {
   return (
-    <footer className=" w-full py-9 text-white bg-primary-grey flex flex-row justify-center">
-      <div className="max-w-screen-2xl px-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 3xl:px-0 justify-between gap-x-24 gap-y-10">
+    <footer
+      className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center`}
+    >
+      <div className="wrapper grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  justify-between gap-x-24 gap-y-10">
         <div className="flex flex-col justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <Image
@@ -14,19 +22,19 @@ const Footer = () => {
               src="/assets/icons/CUlogo.svg"
               width={80}
               height={80}
-            ></Image>
+            />
             <h2 className=" font-black text-3xl">CRAVYN</h2>
           </div>
 
-          <p className=" text-sm text-grey-light-3 py-2">
+          <p className=" text-sm font-light py-2">
             A Software Engineering Project by Group 3 of Computer Science and
             Engineering,Univeristy of Calcutta
           </p>
 
           <p className=" text-xl font-medium">Follow and Support Us</p>
           <div className="flex flex-wrap gap-5 py-3 md:py-0">
-            <div className="social">
-              <Link href="#">
+            <div className="linkedin">
+              <Link href="https://www.linkedin.com/company/university-of-calcutta-technology-campus">
                 <svg
                   width="25"
                   height="25"
@@ -58,8 +66,8 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
-              <Link href="#">
+            <div className="github">
+              <Link href="https://github.com/rahulc0dy/cravyn-web-frontend">
                 <svg
                   width="25"
                   height="25"
@@ -77,7 +85,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="instagram">
               <Link href="#">
                 <svg
                   width="25"
@@ -96,7 +104,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="youtube">
               <Link href="#">
                 <svg
                   width="25"
@@ -129,7 +137,7 @@ const Footer = () => {
                 </svg>
               </Link>
             </div>
-            <div className="social">
+            <div className="facebook">
               <Link href="#">
                 <svg
                   width="25"
@@ -154,23 +162,23 @@ const Footer = () => {
         <div className=" flex flex-col gap-4">
           <h3 className="text-xl font-medium">Company</h3>
           <div className="flex flex-col gap-4 font-light">
-            <p>About Us</p>
-            <p>Delivery Services</p>
-            <p>Privacy Policy</p>
-            <p>Terms and Conditions</p>
-            <p>FAQ</p>
+            <Link href="/about">About Us</Link>
+            <Link href="/delivery">Delivery Services</Link>
+            <Link href="/partner-with-us">Partner With Us</Link>
+            <Link href="/terms-and-conditions">Terms of Service</Link>
+            <Link href="/faq">FAQ</Link>
           </div>
         </div>
 
         <div className=" flex flex-col gap-4">
           <h3 className="text-xl font-medium">Account</h3>
           <div className="flex flex-col gap-4 font-light">
-            <p>Sign in</p>
-            <p>Your Orders</p>
-            <p>Track Your Order</p>
-            <p>Help Tickets</p>
-            <p>Your Addresses</p>
-            <p>Compare Products</p>
+            <Link href="/login">Sign in</Link>
+            <Link href="/orders">Your Orders</Link>
+            <Link href="/">Track Your Order</Link>
+            <Link href="/">Help Tickets</Link>
+            <Link href="/">Your Addresses</Link>
+            <Link href="/">Compare Products</Link>
           </div>
         </div>
 
@@ -182,52 +190,38 @@ const Footer = () => {
               src="/assets/icons/location-pin.svg"
               width={20}
               height={20}
-            ></Image>
+            />
             <span>
               University of Calcutta, Technology Campus, Kolkata, 700016
             </span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image
-              alt=""
-              src="/assets/icons/phone.svg"
-              width={20}
-              height={20}
-            ></Image>
+            <Image src="/assets/icons/phone.svg" width={20} height={20} />
 
             <span>+91 75769 73290</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
-            <Image
-              alt=""
-              src="/assets/icons/at-sign.svg"
-              width={20}
-              height={20}
-            ></Image>
+            <Image src="/assets/icons/at-sign.svg" width={20} height={20} />
 
-            <span>codyrahulop@gmail.com</span>
+            <span>cravyn.support@cravyn.com</span>
           </div>
           <div className="flex flex-row gap-4 font-light items-center">
             <span>
-              <Image
-                alt=""
-                src="/assets/icons/watch.svg"
-                width={20}
-                height={20}
-              ></Image>
+              <Image src="/assets/icons/watch.svg" width={20} height={20} />
             </span>
             <span>Mon-Fri 10.00am-5.00pm</span>
           </div>
         </div>
         <div className="">
           <h3 className="text-xl font-medium">Get Our Mobile App</h3>
-          <Image
-            alt=""
-            className="py-2"
-            src="/assets/images/PlayStore.png"
-            width={150}
-            height={50}
-          ></Image>
+          <Link href="#">
+            <Image
+              className="py-2"
+              src="/assets/images/PlayStore.png"
+              width={150}
+              height={50}
+            />
+          </Link>
         </div>
         <div className="QR">
           <h3 className="text-xl font-medium">Scan QR</h3>
@@ -237,7 +231,7 @@ const Footer = () => {
             src="/assets/images/QR.png"
             width={100}
             height={100}
-          ></Image>
+          />
         </div>
         <div className="payments">
           <h3 className="text-xl font-medium">Secure Payments</h3>
@@ -249,23 +243,13 @@ const Footer = () => {
                 src="/assets/images/mastercard.png"
                 width={40}
                 height={40}
-              ></Image>
+              />
             </span>
             <span>
-              <Image
-                alt=""
-                src="/assets/images/visa.png"
-                width={40}
-                height={40}
-              ></Image>
+              <Image src="/assets/images/visa.png" width={40} height={40} />
             </span>
             <span>
-              <Image
-                alt=""
-                src="/assets/images/paypal.png"
-                width={60}
-                height={40}
-              ></Image>
+              <Image src="/assets/images/paypal.png" width={60} height={40} />
             </span>
           </div>
         </div>
