@@ -198,7 +198,7 @@ const RegisterRestaurant = () => {
                 placeholder="GSTIn Number"
               ></input>
             </div>
-            <button className="opacity-100 bg-primary-green rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16">
+            <button className="opacity-100 bg-primary-green rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16 lg:float-right lg:mr-12">
               Register
             </button>
           </div>
