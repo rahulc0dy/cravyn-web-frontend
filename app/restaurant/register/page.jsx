@@ -13,7 +13,7 @@ const RegisterRestaurant = () => {
     <>
       <div className="bg-green-100 pt-10 min-h-[92dvh]">
         <div className=" wrapper grid grid-cols-1 lg:gap-y-0 lg:grid-cols-[1.7fr_3fr] mx-auto gap-x-10">
-          <div className="lg:sticky lg:top-10 bottom-0 bg-green-800 p-4 rounded-xl lg:max-h-[80svh]">
+          <div className="lg:sticky lg:top-10 bottom-0 bg-green-800 p-8 rounded-xl lg:max-h-[80svh]">
             <Image
               className="mx-auto pb-6"
               src="/assets/images/restaurant/restaurant-illustration-for-sidebox.png"
@@ -35,7 +35,7 @@ const RegisterRestaurant = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="green"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   fillRule="evenodd"
@@ -53,7 +53,7 @@ const RegisterRestaurant = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="green"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   fillRule="evenodd"
@@ -68,7 +68,7 @@ const RegisterRestaurant = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="green"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   fillRule="evenodd"
@@ -86,7 +86,7 @@ const RegisterRestaurant = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="green"
-                  class="size-6"
+                  className="size-6"
                 >
                   <path
                     fillRule="evenodd"
@@ -225,7 +225,7 @@ const RegisterRestaurant = () => {
                 placeholder="GSTIn Number"
               ></input>
             </div>
-            <button className="opacity-100 bg-primary-green rounded-full h-10 text-white hover:bg-teal-900 w-1/2 mb-16">
+            <button className="opacity-100 bg-primary-green rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16">
               Register
             </button>
           </div>
