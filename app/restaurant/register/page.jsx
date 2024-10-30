@@ -13,75 +13,25 @@ const RegisterRestaurant = () => {
     <>
       <div className="bg-green-100 pt-10 min-h-[92dvh]">
         <div className=" wrapper grid grid-cols-1 lg:gap-y-0 lg:grid-cols-[1.7fr_3fr] mx-auto gap-x-10">
-          <div className="lg:sticky lg:top-10 bottom-0 bg-green-800 p-8 rounded-xl lg:max-h-[80svh]">
-            <Image
-              className="mx-auto pb-6"
-              src="/assets/images/restaurant/restaurant-illustration-for-sidebox.png"
-              width={200}
-              height={100}
-            ></Image>
-            <p className="text-center text-white text-2xl my-auto font-bold px-2">
-              Register with us and get 0% commission for the 1st month for new
-              restaurants in selected cities
-            </p>
-
-            <div
-              className="flex bg-white mt-10 rounded-full w-full justify-center p-3 cursor-pointer"
-              onClick={() => {
-                setShowDocumentModal(true);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="green"
-                className="size-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
-                  clipRule="evenodd"
-                />
-                <path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
-              </svg>
-
-              <p className="px-1 text-md font-semibold">
-                Documents for registration
+          <div className="lg:sticky lg:top-10 bottom-0 bg-emerald-800 px-10 rounded-xl lg:max-h-[80svh] flex flex-col justify-center items-center">
+            <div>
+              <Image
+                alt="0%"
+                className="mx-auto pb-6"
+                src="/assets/images/restaurant/commision0.png"
+                width={200}
+                height={100}
+              ></Image>
+              <p className="text-center text-white text-2xl my-auto font-bold px-2">
+                Register with us and get 0% commission for the 1st month for new
+                restaurants in selected cities
               </p>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="green"
-                className="size-6"
+              <div
+                className="flex bg-white mt-10 rounded-full gap-3 w-full justify-center p-3 cursor-pointer"
+                onClick={() => {
+                  setShowDocumentModal(true);
+                }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-
-            <div className="flex bg-white mt-10 rounded-full w-full justify-center p-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="green"
-                className="size-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              <p className="px-1 text-md font-semibold">
-                Need help? Contact Us
-              </p>
-
-              <button>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -90,11 +40,34 @@ const RegisterRestaurant = () => {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
+                    d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z"
+                    clipRule="evenodd"
+                  />
+                  <path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+                </svg>
+                <p className="px-1 text-md font-semibold">
+                  Documents for registration
+                </p>
+              </div>
+
+              <div className="flex bg-white mt-10 rounded-full w-full justify-center gap-3 p-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="green"
+                  className="size-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
                     clipRule="evenodd"
                   />
                 </svg>
-              </button>
+
+                <p className="px-1 text-md font-semibold">
+                  Need help? Contact Us
+                </p>
+              </div>
             </div>
           </div>
 
