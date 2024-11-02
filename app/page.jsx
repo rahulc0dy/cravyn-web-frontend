@@ -169,7 +169,12 @@ const HomePage = () => {
         </p>
         <button className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold transition-all ease-in-out flex items-center gap-4 pr-7 hover:shadow-2xl">
           <div className="bg-accent-yellow rounded-full p-2">
-            <Image src="/assets/icons/order-now.png" width={25} height={25} alt="order now" />
+            <Image
+              src="/assets/icons/order-now.png"
+              width={25}
+              height={25}
+              alt="order now"
+            />
           </div>
           Order Now
         </button>

@@ -116,7 +116,7 @@ Thanks to all the people who contribute to this project:
   <tr>
     <td align="center"><a href="https://github.com/theMr17"><img src="https://github.com/theMr17.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>theMr17 </b></sub></a></td>
     <td align="center"><a href="https://github.com/Souvik606"><img src="https://github.com/Souvik606.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>Souvik606</b></sub></a></td>
-    <td align="center"><a href="https://github.com/dattasneha"><img src="https://github.com/dattasneha.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>username3</b></sub></a></td>
+    <td align="center"><a href="https://github.com/dattasneha"><img src="https://github.com/dattasneha.png" width="100px;" alt="" style="border-radius: 50%;"/><br /><sub><b>dattasneha</b></sub></a></td>
   </tr>
 </table>
 

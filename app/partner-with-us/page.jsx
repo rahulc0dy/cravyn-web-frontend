@@ -209,7 +209,7 @@ const RestaurantLandingPage = () => {
             </div>
           </div>
           <Link
-            href="/"
+            href="/restaurant/register"
             className="font-bold text-white text-center my-5 bg-primary-green block px-10 md:float-left rounded-md py-2"
           >
             Register Your Restaurant
