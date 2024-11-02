@@ -9,11 +9,29 @@ import DocumentModalBox from "@components/restaurant/DocumentsRequiredModal";
 const RegisterRestaurant = () => {
   const [showDocumentModal, setShowDocumentModal] = useState(false);
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          alert(`Latitude: ${latitude}, Longitude: ${longitude}`);
+          // You can also set these values in your address fields or process as needed
+        },
+        (error) => {
+          alert("Unable to retrieve location.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
   return (
     <>
       <div className="bg-green-100 pt-10 min-h-[92dvh]">
         <div className=" wrapper grid grid-cols-1 lg:gap-y-0 lg:grid-cols-[1.7fr_3fr] mx-auto gap-x-10">
-          <div className="lg:sticky lg:top-10 bottom-0 bg-emerald-800 px-10 rounded-xl lg:max-h-[80svh] flex flex-col justify-center items-center">
+          <div className="lg:sticky lg:top-10 bottom-0 bg-emerald-800 px-10 py-5 lg:py-0 rounded-xl lg:max-h-[80svh] flex flex-col justify-center items-center">
             <div>
               <Image
                 alt="0%"
@@ -21,7 +39,7 @@ const RegisterRestaurant = () => {
                 src="/assets/images/restaurant/commision0.png"
                 width={200}
                 height={100}
-              ></Image>
+              />
               <p className="text-center text-white text-2xl my-auto font-bold px-2">
                 Register with us and get 0% commission for the 1st month for new
                 restaurants in selected cities
@@ -87,7 +105,7 @@ const RegisterRestaurant = () => {
                 className="mb-10 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
                 type="text"
                 placeholder="Restaurant Name*"
-              ></input>
+              />
             </div>
 
             <div className="bg-white rounded-lg my-8 lg:mr-8">
@@ -102,11 +120,11 @@ const RegisterRestaurant = () => {
                   className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-7/12 mx-8 mt-8 py-2 px-3"
                   type="text"
                   placeholder="Email address*"
-                ></input>
+                />
                 <input
                   type="checkbox"
                   className="accent-primary-green mr-2 w-5 h-5"
-                ></input>
+                />
                 <p>Same as owner email</p>
               </div>
               <div className="flex justify-start items-center">
@@ -114,11 +132,11 @@ const RegisterRestaurant = () => {
                   className="placeholder-gray-600 bg-gray-50 mb-10 border-2 rounded-lg w-7/12 mx-8 py-2 px-3"
                   type="number"
                   placeholder="Phone Number*"
-                ></input>
+                />
                 <input
                   type="checkbox"
                   className="accent-primary-green mr-2 w-5 h-5 -translate-y-5"
-                ></input>
+                />
                 <p className="-translate-y-5">Same as owner phone number</p>
               </div>
             </div>
@@ -136,33 +154,64 @@ const RegisterRestaurant = () => {
               </p>
               <div className="flex">
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-6/12 mx-8 mt-8 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-8 py-2 px-3"
                   type="text"
                   placeholder="Street(Optional)"
-                ></input>
+                />
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-6/12 mx-8 mt-8 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-8 py-2 px-3"
                   type="text"
                   placeholder="Floor/Tower(Optional)"
-                ></input>
+                />
               </div>
               <div className="flex">
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-6/12 mx-8 mt-4 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="Area/Sector/Locality"
-                ></input>
+                />
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-6/12 mx-8 mt-4 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="City"
-                ></input>
+                />
               </div>
-              <input
-                className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-9/12 mx-8 mt-4 py-2 px-3"
-                type="text"
-                placeholder="Landmark(optional)"
-              ></input>
+              <div className="flex flex-col lg:flex-row">
+                <input
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-7/12 mx-8 mt-4 py-2 px-3"
+                  type="text"
+                  placeholder="Landmark(optional)"
+                />
+                <button
+                  onClick={getLocation}
+                  className="mb-5 text-emerald-600 rounded-lg lg:w-3/12 mx-8 mt-4 py-2"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 28 32"
+                    fill="#059669 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    className=" inline-block align-middle"
+                  >
+                    <path
+                      d="M26 13.3333C26 22.6666 14 30.6666 14 30.6666C14 30.6666 2 22.6666 2 13.3333C2 10.1507 3.26428 7.09841 5.51472 4.84797C7.76516 2.59753 10.8174 1.33325 14 1.33325C17.1826 1.33325 20.2348 2.59753 22.4853 4.84797C24.7357 7.09841 26 10.1507 26 13.3333Z"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M14 17.3333C16.2091 17.3333 18 15.5424 18 13.3333C18 11.1241 16.2091 9.33325 14 9.33325C11.7909 9.33325 10 11.1241 10 13.3333C10 15.5424 11.7909 17.3333 14 17.3333Z"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>{" "}
+                  Fill Current Location
+                </button>
+              </div>
             </div>
 
             <div className="bg-white rounded-lg my-16 lg:mr-8">
@@ -177,7 +226,7 @@ const RegisterRestaurant = () => {
                 className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
                 type="text"
                 placeholder="Registration Number"
-              ></input>
+              />
               <p className="px-8 font-bold text-danger-green">
                 FSSAI License Copy:
               </p>
@@ -196,8 +245,33 @@ const RegisterRestaurant = () => {
                 className="mb-10 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-4 py-2 px-3"
                 type="text"
                 placeholder="GSTIn Number"
-              ></input>
+              />
             </div>
+
+            <div className="bg-white rounded-lg my-16 lg:mr-8">
+              <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
+                Set Password
+              </p>
+              <p className="text-base text-danger-green px-8">
+                This password will be used to login to your restaurant
+                dashboard.
+              </p>
+              <input
+                className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
+                type="password"
+                placeholder="Password"
+                minLength={6}
+                maxLength={20}
+              />
+              <input
+                className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 py-2 px-3"
+                type="password"
+                placeholder="Confirm password"
+                minLength={6}
+                maxLength={20}
+              />
+            </div>
+
             <button className="opacity-100 bg-primary-green rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16 lg:float-right lg:mr-12">
               Register
             </button>
