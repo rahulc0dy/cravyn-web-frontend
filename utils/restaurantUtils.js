@@ -5,12 +5,17 @@ const registerRestaurant = async (restaurant) => {
 
   const fetchUrl = process.env.NEXT_PUBLIC_CRAVYN_API_BASE_URL + "/restaurants";
 
+  const formData = new FormData();
+
+  for (const key in restaurant) {
+    if (restaurant.hasOwnProperty(key)) {
+      formData.append(key, restaurant[key]);
+    }
+  }
+
   const response = await fetch(fetchUrl, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(restaurant),
+    body: formData,
   });
 
   if (!response.ok) {

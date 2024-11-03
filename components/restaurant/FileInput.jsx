@@ -28,7 +28,7 @@ const FileInput = ({
       className={"mt-4 flex items-center rounded-lg overflow-hidden" + classes}
     >
       <label
-        htmlFor="file-upload"
+        htmlFor={htmlId}
         className="py-2 px-4 flex-grow cursor-pointer text-grey-dark"
       >
         {fileName}

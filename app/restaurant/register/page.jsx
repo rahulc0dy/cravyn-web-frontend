@@ -31,8 +31,9 @@ const RegisterRestaurant = () => {
   const [ifscCode, setIfscCode] = useState("");
   const [bankName, setBankName] = useState("");
   const [bankBranchCity, setBankBranchCity] = useState("");
+  const [licenseCopy, setLicenseCopy] = useState(null);
 
-  const { mutate, isPending, isError, error, isSuccess } = useMutation({
+  const { mutate, isPending, isError, error, isSuccess, data } = useMutation({
     mutationFn: (formData) => registerRestaurant(formData),
     onSuccess: (data) => {
       console.log("Registration successful:", data);
@@ -58,7 +59,7 @@ const RegisterRestaurant = () => {
       landmark,
       pinCode,
       availabilityStatus: true,
-      licenseUrl: "https://dj.com",
+      licenseCopy,
       gstinNo,
       accountNo,
       ifscCode,
@@ -68,10 +69,9 @@ const RegisterRestaurant = () => {
       confirmPassword,
     };
 
-    console.log(restaurant);
-
     mutate(restaurant);
   };
+  isSuccess && console.log(data);
 
   return (
     <>
@@ -380,6 +380,7 @@ const RegisterRestaurant = () => {
                 }
                 htmlId="fssai-license"
                 fileType="image/*"
+                onUpload={setLicenseCopy}
               />
               <p className="px-8 font-bold text-danger-green">GSTIn Copy:</p>
               <FileInput
