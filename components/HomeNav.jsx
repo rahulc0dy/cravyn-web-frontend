@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,8 +11,21 @@ const HomeNav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const path = usePathname();
 
-  return (
+  const noNavFooterPaths = [
+    "/about",
+    "/login",
+    "/signup",
+    "/partner-with-us",
+    "/restaurant/*",
+  ];
+
+  const resetLayout = noNavFooterPaths.includes(path); //|| path.startsWith("/restaurant");
+
+  return resetLayout ? (
+    <></>
+  ) : (
     <nav className="w-full lg:shadow-none">
       <div className="wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ">
         <div className="flex justify-between w-full lg:w-auto items-center">

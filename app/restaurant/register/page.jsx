@@ -5,26 +5,72 @@ import { useState } from "react";
 import Image from "next/image";
 import FileInput from "@components/restaurant/FileInput";
 import DocumentModalBox from "@components/restaurant/DocumentsRequiredModal";
+import { fillLocation } from "@utils/locationUtils.js";
+import { useMutation } from "@tanstack/react-query";
+import { registerRestaurant } from "@utils/restaurantUtils";
 
 const RegisterRestaurant = () => {
   const [showDocumentModal, setShowDocumentModal] = useState(false);
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          alert(`Latitude: ${latitude}, Longitude: ${longitude}`);
-          // You can also set these values in your address fields or process as needed
-        },
-        (error) => {
-          alert("Unable to retrieve location.");
-        }
-      );
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
+  const [restaurantName, setRestaurantName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [street, setStreet] = useState("");
+  const [floor, setFloor] = useState("");
+  const [area, setArea] = useState("");
+  const [city, setCity] = useState("");
+  const [pinCode, setPinCode] = useState("");
+  const [landmark, setLandmark] = useState("");
+  const [registrationNo, setRegistrationNo] = useState("");
+  const [gstinNo, setGstinNo] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
+  const [accountNo, setAccountNo] = useState("");
+  const [ifscCode, setIfscCode] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [bankBranchCity, setBankBranchCity] = useState("");
+
+  const { mutate, isPending, isError, error, isSuccess } = useMutation({
+    mutationFn: (formData) => registerRestaurant(formData),
+    onSuccess: (data) => {
+      console.log("Registration successful:", data);
+    },
+    onError: (error) => {
+      console.error("Registration failed:", error);
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const restaurant = {
+      name: restaurantName,
+      registrationNo,
+      ownerId: "db8829a3-cc1a-4958-9d8b-9175f4fde63d",
+      email,
+      phoneNumber,
+      lat,
+      long,
+      city,
+      street,
+      landmark,
+      pinCode,
+      availabilityStatus: true,
+      licenseUrl: "https://dj.com",
+      gstinNo,
+      accountNo,
+      ifscCode,
+      bankName,
+      bankBranchCity,
+      password,
+      confirmPassword,
+    };
+
+    console.log(restaurant);
+
+    mutate(restaurant);
   };
 
   return (
@@ -89,11 +135,16 @@ const RegisterRestaurant = () => {
             </div>
           </div>
 
-          <div className="mx-auto lg:mx-0 lg:overflow-y-scroll lg:max-h-[85svh]">
+          <form
+            action="submit"
+            onSubmit={handleSubmit}
+            className="mx-auto lg:mx-0 lg:overflow-y-scroll lg:max-h-[85svh]"
+          >
             <p className="text-3xl font-extrabold mt-10 text-green-700">
               Register your restaurant
             </p>
 
+            {/* Name */}
             <div className="bg-white rounded-lg my-8 lg:mr-8 py-4">
               <p className="px-8 pt-5 text-xl font-bold text-danger-green">
                 Restaurant Name
@@ -102,12 +153,16 @@ const RegisterRestaurant = () => {
                 Customers will see this name on Cravyn
               </p>
               <input
+                required
                 className="mb-10 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
                 type="text"
                 placeholder="Restaurant Name*"
+                title="Enter restaurant name"
+                onChange={(e) => setRestaurantName(e.target.value)}
               />
             </div>
 
+            {/* Contact */}
             <div className="bg-white rounded-lg my-8 lg:mr-8">
               <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
                 Contact Details
@@ -118,8 +173,9 @@ const RegisterRestaurant = () => {
               <div className="flex justify-start items-center">
                 <input
                   className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-7/12 mx-8 mt-8 py-2 px-3"
-                  type="text"
+                  type="email"
                   placeholder="Email address*"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   type="checkbox"
@@ -129,9 +185,15 @@ const RegisterRestaurant = () => {
               </div>
               <div className="flex justify-start items-center">
                 <input
+                  required
                   className="placeholder-gray-600 bg-gray-50 mb-10 border-2 rounded-lg w-7/12 mx-8 py-2 px-3"
-                  type="number"
+                  type="tel"
+                  pattern="[0-9]{10}"
                   placeholder="Phone Number*"
+                  title="Enter valid phone number"
+                  minLength={10}
+                  maxLength={10}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <input
                   type="checkbox"
@@ -141,6 +203,7 @@ const RegisterRestaurant = () => {
               </div>
             </div>
 
+            {/* Address */}
             <div className="bg-white rounded-lg my-8 lg:mr-8">
               <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
                 Add your restaurant's location for order pick-up
@@ -152,28 +215,48 @@ const RegisterRestaurant = () => {
                 Address details are basis the restaurant location mentioned
                 above
               </p>
-              <div className="flex">
+              <div className="flex flex-col lg:flex-row">
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-8 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 mt-8 py-2 px-3"
                   type="text"
                   placeholder="Street(Optional)"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
                 />
                 <input
-                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-8 py-2 px-3"
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 lg:mt-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="Floor/Tower(Optional)"
+                  onChange={(e) => setFloor(e.target.value)}
                 />
               </div>
               <div className="flex">
                 <input
+                  required
                   className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="Area/Sector/Locality"
+                  value={area}
+                  onChange={(e) => setArea(e.target.value)}
                 />
                 <input
+                  required
                   className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-5/12 mx-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </div>
+              <div className="flex">
+                <input
+                  required
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg mx-8 mt-4 py-2 px-3"
+                  type="number"
+                  placeholder="Pin Code*"
+                  value={pinCode}
+                  pattern="[0-9]{7}"
+                  onChange={(e) => setPinCode(e.target.value)}
                 />
               </div>
               <div className="flex flex-col lg:flex-row">
@@ -181,9 +264,20 @@ const RegisterRestaurant = () => {
                   className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-7/12 mx-8 mt-4 py-2 px-3"
                   type="text"
                   placeholder="Landmark(optional)"
+                  onChange={(e) => setLandmark(e.target.value)}
                 />
                 <button
-                  onClick={getLocation}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    fillLocation({
+                      streetSetter: setStreet,
+                      areaSetter: setArea,
+                      citySetter: setCity,
+                      pinCodeSetter: setPinCode,
+                      latSetter: setLat,
+                      longSetter: setLong,
+                    });
+                  }}
                   className="mb-5 text-emerald-600 rounded-lg lg:w-3/12 mx-8 mt-4 py-2"
                 >
                   <svg
@@ -214,6 +308,54 @@ const RegisterRestaurant = () => {
               </div>
             </div>
 
+            {/* Bank Details */}
+            <div className="bg-white rounded-lg my-8 lg:mr-8">
+              <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
+                Add your restaurant's bank details for payments
+              </p>
+              <p className="px-8 pt-5 text-xl font-bold text-danger-green">
+                Restaurant bank details
+              </p>
+              <p className="text-base px-8 text-grey-dark-3">
+                Bank details are basis the restaurant details mentioned above
+              </p>
+              <div className="flex flex-col lg:flex-row">
+                <input
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 mt-8 py-2 px-3"
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="Account number*"
+                  value={accountNo}
+                  onChange={(e) => setAccountNo(e.target.value)}
+                />
+                <input
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 lg:mt-8 mt-4 py-2 px-3"
+                  type="text"
+                  placeholder="IFSC code"
+                  onChange={(e) => setIfscCode(e.target.value)}
+                />
+              </div>
+              <div className="flex flex-col lg:flex-row">
+                <input
+                  required
+                  className="mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 mt-4 py-2 px-3"
+                  type="text"
+                  placeholder="Bank Name"
+                  value={bankName}
+                  onChange={(e) => setBankName(e.target.value)}
+                />
+                <input
+                  required
+                  className="mb-10 lg:mb-5 placeholder-gray-600 bg-gray-50 border-2 rounded-lg lg:w-5/12 mx-8 mt-4 py-2 px-3"
+                  type="text"
+                  placeholder="Branch city"
+                  value={bankBranchCity}
+                  onChange={(e) => setBankBranchCity(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Documents */}
             <div className="bg-white rounded-lg my-16 lg:mr-8">
               <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
                 Upload documents
@@ -223,9 +365,11 @@ const RegisterRestaurant = () => {
                 restaurant with us
               </p>
               <input
+                required
                 className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
                 type="text"
                 placeholder="Registration Number"
+                onChange={(e) => setRegistrationNo(e.target.value)}
               />
               <p className="px-8 font-bold text-danger-green">
                 FSSAI License Copy:
@@ -234,20 +378,28 @@ const RegisterRestaurant = () => {
                 classes={
                   " w-10/12 mb-8 ml-8 text-gray-600 border-2 border-grey-light-3"
                 }
+                htmlId="fssai-license"
+                fileType="image/*"
               />
               <p className="px-8 font-bold text-danger-green">GSTIn Copy:</p>
               <FileInput
                 classes={
                   " mb-5 bg-gray-50 w-10/12 ml-8 text-gray-600 border-2 border-grey-light-3"
                 }
+                htmlId="gstin-copy"
+                fileType="image/*"
               />
               <input
+                required
                 className="mb-10 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-4 py-2 px-3"
                 type="text"
                 placeholder="GSTIn Number"
+                value={gstinNo}
+                onChange={(e) => setGstinNo(e.target.value)}
               />
             </div>
 
+            {/* Password */}
             <div className="bg-white rounded-lg my-16 lg:mr-8">
               <p className="px-8 pt-5 text-2xl font-bold text-danger-green">
                 Set Password
@@ -257,25 +409,51 @@ const RegisterRestaurant = () => {
                 dashboard.
               </p>
               <input
+                required
                 className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 mt-8 py-2 px-3"
                 type="password"
                 placeholder="Password"
                 minLength={6}
                 maxLength={20}
+                title="6-20 characters"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <input
+                required
                 className="mb-8 placeholder-gray-600 bg-gray-50 border-2 rounded-lg w-10/12 mx-8 py-2 px-3"
                 type="password"
                 placeholder="Confirm password"
                 minLength={6}
                 maxLength={20}
+                title="Passwords should match"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
+              {confirmPassword !== password ? (
+                <p className="text-center text-red-500 pb-4">
+                  Passwords do not match
+                </p>
+              ) : (
+                ""
+              )}
             </div>
 
-            <button className="opacity-100 bg-primary-green rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16 lg:float-right lg:mr-12">
-              Register
-            </button>
-          </div>
+            {isError ? (
+              <p className="text-red-500 py-2">{error.message}</p>
+            ) : (
+              ""
+            )}
+            <input
+              type="submit"
+              value={isPending ? "Loading" : "Register"}
+              className={`opacity-100 ${
+                isPending
+                  ? "bg-secondary-orange cursor-wait"
+                  : "bg-primary-green"
+              } rounded-full  text-white hover:bg-teal-900 py-2 px-12 font-bold text-xl mb-16 lg:float-right lg:mr-12 cursor-pointer`}
+            />
+          </form>
         </div>
       </div>
       <DocumentModalBox
