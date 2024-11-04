@@ -13,6 +13,7 @@ module.exports = {
         card1_bg: "url('/assets/images/about/card1_bg.jpg')",
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
+        "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
       },
       colors: {
         primary: {

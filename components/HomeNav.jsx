@@ -21,7 +21,7 @@ const HomeNav = () => {
     "/restaurant/*",
   ];
 
-  const resetLayout = noNavFooterPaths.includes(path); //|| path.startsWith("/restaurant");
+  const resetLayout = noNavFooterPaths.includes(path);
 
   return resetLayout ? (
     <></>

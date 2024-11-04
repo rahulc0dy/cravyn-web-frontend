@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function RestaurantLayout({ children }) {
   const path = usePathname();
 
-  const resetLayoutRoutes = ["/restaurant/register"];
+  const resetLayoutRoutes = ["/restaurant/register", "/restaurant/login"];
 
   return (
     <AuthProvider>
