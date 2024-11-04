@@ -56,6 +56,8 @@ module.exports = {
           "dark-4": "#212121",
         },
       },
+      animation: {},
+      keyframes: {},
     },
   },
   plugins: [],

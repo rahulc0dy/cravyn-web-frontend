@@ -1,4 +1,5 @@
 import FoodCard from "@components/FoodCard";
+import LoadingSpinner from "@components/LoadingSpinner";
 import RestaurantCard from "@components/RestaurantCard";
 import Image from "next/image";
 

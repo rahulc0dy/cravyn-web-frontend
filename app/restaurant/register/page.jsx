@@ -7,9 +7,15 @@ import FileInput from "@components/restaurant/FileInput";
 import DocumentModalBox from "@components/restaurant/DocumentsRequiredModal";
 import { fillLocation } from "@utils/locationUtils.js";
 import { useMutation } from "@tanstack/react-query";
-import { registerRestaurant } from "@utils/restaurantUtils";
+import { registerRestaurant } from "@services/restaurantServices";
+import { useAuth } from "@providers/RestaurantAuthProvider";
+import { useRouter } from "next/navigation";
 
 const RegisterRestaurant = () => {
+  const { login, auth } = useAuth();
+
+  const router = useRouter();
+
   const [showDocumentModal, setShowDocumentModal] = useState(false);
 
   const [restaurantName, setRestaurantName] = useState("");
@@ -33,17 +39,35 @@ const RegisterRestaurant = () => {
   const [bankBranchCity, setBankBranchCity] = useState("");
   const [licenseCopy, setLicenseCopy] = useState(null);
 
-  const { mutate, isPending, isError, error, isSuccess, data } = useMutation({
+  const {
+    mutate: registration,
+    isPending,
+    isError,
+    error,
+    isSuccess,
+    data,
+  } = useMutation({
     mutationFn: (formData) => registerRestaurant(formData),
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       console.log("Registration successful:", data);
+
+      await login({
+        registrationNumber: registrationNo,
+        password,
+      });
+
+      console.log("Loginsss");
+
+      if (auth.isAuthenticated) {
+        router.push("/restaurant/catalog"); // Redirect if login is successful
+      }
     },
     onError: (error) => {
       console.error("Registration failed:", error);
     },
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const restaurant = {
@@ -69,9 +93,8 @@ const RegisterRestaurant = () => {
       confirmPassword,
     };
 
-    mutate(restaurant);
+    registration(restaurant);
   };
-  isSuccess && console.log(data);
 
   return (
     <>
@@ -447,7 +470,7 @@ const RegisterRestaurant = () => {
             )}
             <input
               type="submit"
-              value={isPending ? "Loading" : "Register"}
+              value={isPending ? "Registering" : "Register"}
               className={`opacity-100 ${
                 isPending
                   ? "bg-secondary-orange cursor-wait"
