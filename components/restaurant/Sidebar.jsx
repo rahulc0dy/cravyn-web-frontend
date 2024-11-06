@@ -4,10 +4,17 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useAuth } from "@providers/RestaurantAuthProvider";
 
-const Sidebar = ({ restaurantName, restaurantOwnerName }) => {
+const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
   const path = usePathname();
+  const { auth } = useAuth();
+
+  const { name: restaurantName, restaurant_id } = auth.user ?? {
+    name: null,
+    restaurant_id: null,
+  };
 
   const toggleSidebar = () => setIsOpen(!isOpen); // Toggle sidebar visibility
 
@@ -79,7 +86,7 @@ const Sidebar = ({ restaurantName, restaurantOwnerName }) => {
             <h2 className="text-2xl font-bold text-teal-600">
               {restaurantName}
             </h2>
-            <p className=" text-grey-medium">{restaurantOwnerName}</p>
+            <p className=" text-grey-medium">{restaurant_id}</p>
           </div>
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">

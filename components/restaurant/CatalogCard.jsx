@@ -29,7 +29,7 @@ const CatalogCard = ({
         </svg>
       </button>
       <Image
-        src={imageUrl}
+        src={imageUrl || "/assets/images/CRAVYN.png"}
         width={500}
         height={500}
         alt={name}

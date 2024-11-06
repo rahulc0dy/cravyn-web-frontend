@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "@components/LoadingSpinner";
+import api from "@utils/api";
 
 const AuthContext = createContext();
 
@@ -15,77 +16,86 @@ export const AuthProvider = ({ children }) => {
 
   // Log in function
   const login = async (credentials) => {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_CRAVYN_API_BASE_URL + "/restaurants/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-        // credentials: "include", // Include cookies in request
-      }
-    );
+    try {
+      const response = await api.post("/restaurants/login", credentials, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
 
-    if (!response.ok) {
-      const errorData = await response.json(); // Get the error response body
-      console.error("Error Response:", errorData);
-      throw new Error("Login failed: " + errorData.message);
+      const { restaurant } = response.data.data;
+      setAuth({ isAuthenticated: true, loading: false, user: restaurant });
+
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({
+          isAuthenticated: true,
+          user: restaurant,
+        })
+      );
+
+      return response.data;
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+      throw new Error(
+        "Login failed: " + error.response?.data?.message || "Unexpected error"
+      );
     }
-
-    const data = await response.json();
-    const { restaurant } = data.data;
-    setAuth({ isAuthenticated: true, loading: false, user: restaurant });
-
-    return data;
   };
 
   // Log out function
   const logout = async (shouldRedirect = true) => {
     try {
-      await fetch(
-        process.env.NEXT_PUBLIC_CRAVYN_API_BASE_URL + "/restaurants/logout",
-        {
-          method: "POST",
-          credentials: "include", // Ensure cookies are included for logout
-        }
-      );
+      await api.post("/restaurants/logout", null, { withCredentials: true });
     } catch (error) {
-      console.error("Logout failed", error);
+      console.error("Logout failed", error.response?.data || error.message);
     }
 
-    // Reset authentication state
     setAuth({ isAuthenticated: false, loading: false, user: null });
+    localStorage.removeItem("auth");
 
-    // Redirect only if shouldRedirect is true
     if (shouldRedirect) {
-      router.push("/restaurant/protectedError"); // or "/restaurant/login" if that's preferred
+      router.push("/restaurant/login");
+    }
+  };
+
+  // Refresh token function
+  const refreshToken = async () => {
+    try {
+      const response = await api.get("/restaurants/refresh-token", {
+        withCredentials: true,
+      });
+
+      const { restaurant } = response.data.data;
+      setAuth({
+        isAuthenticated: true,
+        loading: false,
+        user: restaurant,
+      });
+
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({
+          isAuthenticated: true,
+          user: restaurant,
+        })
+      );
+    } catch (error) {
+      console.error(
+        "Token refresh failed:",
+        error.response?.data || error.message
+      );
+      logout(true);
     }
   };
 
   // Check login status on initial load
   useEffect(() => {
-    const verifyToken = async () => {
-      try {
-        const response = await fetch(
-          process.env.NEXT_PUBLIC_CRAVYN_API_BASE_URL +
-            "/restaurants/verify-token",
-          {
-            method: "GET",
-            credentials: "include", // Ensure cookies are included in verification
-          }
-        );
-
-        if (!response.ok) throw new Error("Token verification failed");
-
-        const data = await response.json();
-        setAuth({ isAuthenticated: true, loading: false, user: data.user });
-      } catch (error) {
-        logout(false); // Logout without redirect
-      }
-    };
-
-    verifyToken();
+    const storedAuth = JSON.parse(localStorage.getItem("auth"));
+    if (storedAuth?.isAuthenticated) {
+      setAuth({ ...storedAuth, loading: false });
+    } else if (auth.loading) {
+      refreshToken();
+    }
   }, []);
 
   return (

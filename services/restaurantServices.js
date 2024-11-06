@@ -1,10 +1,6 @@
+import api from "@utils/api";
+
 const registerRestaurant = async (restaurant) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-
-  const fetchUrl = process.env.NEXT_PUBLIC_CRAVYN_API_BASE_URL + "/restaurants";
-
   const formData = new FormData();
 
   for (const key in restaurant) {
@@ -13,18 +9,35 @@ const registerRestaurant = async (restaurant) => {
     }
   }
 
-  const response = await fetch(fetchUrl, {
-    method: "POST",
-    body: formData,
-  });
-
-  if (!response.ok) {
-    const errorData = await response.json(); // Get the error response body
-    console.error("Error Response:", errorData);
-    throw new Error("Registration failed: " + errorData.message);
+  try {
+    const response = await api.post("/restaurants", formData);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Registration failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
   }
-
-  return response.json();
 };
 
-export { registerRestaurant };
+const getCatalog = async (limit = null) => {
+  try {
+    const response = await api.get(`/restaurants/catalog`, {
+      params: { limit },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error getting catalog:", error.response.data);
+      throw new Error("Catalog fetch failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
+export { registerRestaurant, getCatalog };

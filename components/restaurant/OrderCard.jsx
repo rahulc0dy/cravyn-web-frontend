@@ -14,7 +14,7 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
               height="16"
               viewBox="0 0 20 20"
               fill="none"
-              class="inline mr-2"
+              className="inline mr-2"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
