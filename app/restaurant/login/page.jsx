@@ -79,9 +79,10 @@ const RestaurantLoginPage = () => {
             <div className="flex mt-1">
               <input
                 type="text"
-                id="email"
+                id="registration-number"
                 className="border-2 border-gray-300 bo p-2 rounded-md w-full  placeholder-shown:invalid:border-gray-300 focus:outline-none  invalid:border-red-400 valid:border-green-500"
                 placeholder="Enter Registration Number"
+                autoComplete="registration-number"
                 required
                 onChange={(e) => setRegistrationNumber(e.target.value)}
               />
@@ -102,6 +103,7 @@ const RestaurantLoginPage = () => {
               maxLength={20}
               className="border-2 border-gray-300 bo p-2 rounded-md w-full placeholder-shown:invalid:border-gray-300 focus:outline-none  invalid:border-red-400 valid:border-green-500"
               placeholder="Enter Password"
+              autoComplete="current-password"
               required
               onChange={(e) => setPassword(e.target.value)}
             />

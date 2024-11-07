@@ -1,4 +1,3 @@
-import { useAuth } from "@providers/RestaurantAuthProvider";
 import axios from "axios";
 
 const api = axios.create({
@@ -21,6 +20,7 @@ async function refreshToken() {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
+    console.debug("Intercepted error response");
     const { config, response } = error;
 
     if (response?.status === 401 && !config._retry) {
@@ -32,8 +32,7 @@ api.interceptors.response.use(
 
         return api(config);
       } catch (refreshError) {
-        const { logout } = useAuth();
-        logout();
+        localStorage.removeItem("auth");
       }
     }
     return Promise.reject(error);

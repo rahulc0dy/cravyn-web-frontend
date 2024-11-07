@@ -79,24 +79,29 @@ export const AuthProvider = ({ children }) => {
           user: restaurant,
         })
       );
+
+      return response;
     } catch (error) {
       console.error(
         "Token refresh failed:",
         error.response?.data || error.message
       );
-      logout(true);
+      await logout(true);
     }
   };
 
   // Check login status on initial load
   useEffect(() => {
     const storedAuth = JSON.parse(localStorage.getItem("auth"));
+
     if (storedAuth?.isAuthenticated) {
       setAuth({ ...storedAuth, loading: false });
-    } else if (auth.loading) {
-      refreshToken();
+    } else {
+      // If no auth data in localStorage, set loading to false and redirect to login
+      setAuth({ isAuthenticated: false, loading: false, user: null });
+      router.push("/restaurant/login");
     }
-  }, []);
+  }, [router]);
 
   return (
     <AuthContext.Provider value={{ auth, login, logout }}>
