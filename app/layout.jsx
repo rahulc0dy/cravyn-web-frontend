@@ -14,8 +14,8 @@ const nunito = Nunito({
 export default function RootLayout({ children }) {
   const path = usePathname();
 
-  const noFooterPaths = ["/about", "/login", "/signup", "/404","/restaurant/register"];
-  const noNavPaths=["/about", "/login", "/signup", "/404"];
+  const noFooterPaths = ["/about", "/login", "/signup", "/404","/restaurant/register","/analytics"];
+  const noNavPaths=["/about", "/login", "/signup", "/404","/analytics"];
 
   const resetLayout1 = noNavPaths.includes(path);
   const resetLayout2 = noFooterPaths.includes(path);

@@ -13,6 +13,7 @@ module.exports = {
         card1_bg: "url('/assets/images/about/card1_bg.jpg')",
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
+        register_bg: "url('/assets/images/restaurant/register-bg.jpg')",
         "restaurant-hero-bg":
           "url('/assets/images/restaurant/blob-scene-haikei.svg')",
       },
@@ -57,6 +58,13 @@ module.exports = {
           "dark-3": "#484848",
           "dark-4": "#212121",
         },
+        purple: {
+          "light-1": "#EEDDFF",
+          "light-2": "#7D5CFF",
+          "medium": "#8000FF",
+          "dark-1": "#8047FF",
+          "dark-2": "#7500BC"
+        }
       },
     },
   },

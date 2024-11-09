@@ -10,8 +10,8 @@ const RegisterRestaurant=()=>{
     const [showDocumentModal, setShowDocumentModal] = useState(false);
     return <>
     <div className="bg-green-100 relative">
-    <div className=" wrapper grid grid-cols-1 lg:gap-y-0 lg:grid-cols-[1.7fr_3fr] lg:max-h-[78.5svh] lg:overflow-y-scroll mx-auto gap-x-10">
-        <div className="lg:sticky lg:top-0 bottom-0 bg-green-800 p-4 rounded-3xl lg:rounded-b-none lg:rounded-t-3xl lg:max-h-[78.5svh]">
+    <div className="wrapper grid grid-cols-1 lg:gap-y-0 lg:grid-cols-[1.7fr_3fr] lg:max-h-[80dvh] lg:overflow-y-scroll mx-auto gap-x-10">
+        <div className="lg:sticky lg:top-0 bottom-0 bg-green-800 p-4 rounded-3xl lg:rounded-b-none lg:rounded-t-3xl lg:max-h-[80dvh]">
             
             <Image className="mx-auto pb-6" src="/assets/images/restaurant/restaurant-background.png" width={200} height={100}></Image>
             <p className="text-center text-white text-2xl my-auto font-bold px-2">Register with us and get 0% commission for the 1st month for new restaurants in selected cities</p>
@@ -45,7 +45,7 @@ const RegisterRestaurant=()=>{
         </div>
 
         <div className="mx-auto lg:mx-0">
-            <p className="text-4xl font-extrabold mt-10 text-green-700">Register your restaurant</p>
+            <p className="text-4xl text-center lg:text-left font-extrabold mt-10 text-green-700">Register your restaurant</p>
 
             <div className="bg-white rounded-3xl my-8 lg:mr-8">
             <p className="px-8 pt-5 text-2xl font-bold text-lime-800">Restaurant Name</p>
@@ -97,8 +97,8 @@ const RegisterRestaurant=()=>{
         </div>
     </div>
     </div>
-    <div className="flex min-h-[10.5svh] justify-center border-t-4 border-teal-400 items-center lg:justify-end">
-        <button className="opacity-100 bg-secondary-green rounded-full w-40 h-10 text-white hover:bg-teal-900 lg:mr-32">Register</button>
+    <div className="flex lg:bg-black lg:bg-gradient-none bg-gradient-to-b h-auto from-gray-100 from-30% to-white to-50% justify-center items-center lg:justify-end">
+        <button className="opacity-100 bg-secondary-green rounded-full w-[20vh] h-[5vh] text-white hover:bg-teal-900 lg:mr-32">Register</button>
     </div>
     <DocumentModalBox
         visible={showDocumentModal}
