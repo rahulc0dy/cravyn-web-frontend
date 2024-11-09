@@ -13,34 +13,31 @@ module.exports = {
         card1_bg: "url('/assets/images/about/card1_bg.jpg')",
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
-        register_bg: "url('/assets/images/restaurant/register-bg.jpg')",
-        "restaurant-hero-bg":
-          "url('/assets/images/restaurant/blob-scene-haikei.svg')",
+        "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
       },
       colors: {
         primary: {
           orange: "#ffbb25",
           red: "#e63a3a",
           grey: "#282723",
+          green: "#1AC98B",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
-          blue: "#1A9FC9",
-          green: "#1AC98B",
-          pink: "#FF69B4",
+          green: "#00CD52",
         },
         tertiary: {
           yellow: "#ffedc0",
           grey: "#232323",
-          blue: "#1d3e73",
-          green: "#385145",
+          green: "#0A964A",
+          blue: "#1D3E73",
         },
         accent: {
           yellow: "#ffda7f",
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
-          green: "#c0ffe1",
+          green: "#C0FFE1",
         },
         warning: {
           "yellow-light": "#ffdd68",
@@ -48,6 +45,7 @@ module.exports = {
         danger: {
           red: "#ff324b",
           "red-dark": "#f80407",
+          green: "#385145",
         },
         grey: {
           "light-1": "#dbdbdb",
@@ -58,14 +56,9 @@ module.exports = {
           "dark-3": "#484848",
           "dark-4": "#212121",
         },
-        purple: {
-          "light-1": "#EEDDFF",
-          "light-2": "#7D5CFF",
-          "medium": "#8000FF",
-          "dark-1": "#8047FF",
-          "dark-2": "#7500BC"
-        }
       },
+      animation: {},
+      keyframes: {},
     },
   },
   plugins: [],

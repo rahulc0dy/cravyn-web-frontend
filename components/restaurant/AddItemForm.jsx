@@ -4,7 +4,11 @@ import FileInput from "./FileInput";
 const FoodItemForm = () => {
   return (
     <div className=" grid my-10 grid-rows-[1fr_auto] m-5 lg:mx-auto p-8 border-2 border-secondary-blue rounded-lg self-start">
+<<<<<<< HEAD
       <div className="grid grid-cols-[1.5fr_3fr] gap-8 md:my-8">
+=======
+      <div className="grid md:grid-cols-[1.5fr_3fr] gap-8 md:my-8">
+>>>>>>> e26789f0813acc2ca75013750270da3ee7fad2db
         <div className="flex flex-col items-center gap-2">
           <div className="w-full aspect-square rounded-md bg-red-100 flex items-center justify-center text-gray-500">
             Image 500 X 500 pixels
@@ -20,14 +24,25 @@ const FoodItemForm = () => {
         </div>
 
         <div className="grid grid-rows-[auto_auto_auto] gap-4 items-start">
+<<<<<<< HEAD
           <div className="flex items-center">
             <label className="w-1/4 text-grey-dark-3 text-lg font-semibold mr-5">
+=======
+          <div className="flex flex-col md:flex-row md:items-center">
+            <label className="md:w-1/4 text-grey-dark-3 text-lg font-semibold mr-5">
+>>>>>>> e26789f0813acc2ca75013750270da3ee7fad2db
               Item Name:
             </label>
             <input
               type="text"
               placeholder="Enter Item Name"
+<<<<<<< HEAD
               className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md"
+=======
+              className="w-full placeholder-grey-dark-3 bg-grey-light-2 px-3 py-2 border-2 border-grey-light-3 rounded-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3  focus:outline-none"
+              required
+              minLength={3}
+>>>>>>> e26789f0813acc2ca75013750270da3ee7fad2db
             />
           </div>
 
@@ -37,6 +52,7 @@ const FoodItemForm = () => {
             </p>
             <textarea
               placeholder="Enter Description"
+<<<<<<< HEAD
               className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none focus:outline-none focus:ring focus:ring-green-200"
               rows="6"
             />
@@ -54,15 +70,48 @@ const FoodItemForm = () => {
               placeholder="Enter Item Price"
               className="w-full placeholder-grey-dark-3 md:pl-6 px-3 py-2 border-2 border-grey-light-3 rounded-r-md"
             />
+=======
+              className="bg-grey-light-2 placeholder-grey-dark-3 w-full px-3 py-2 border-2 border-grey-light-3 rounded-md resize-none invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3 placeholder-shown:valid:border-grey-light-3 focus:outline-none"
+              rows="6"
+              minLength={10}
+              maxLength={300}
+            />
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center">
+            <label className="md:w-1/4 text-grey-dark-3 text-lg font-semibold mr-5">
+              Item Price:
+            </label>
+            <div className="flex w-full">
+              <span className=" text-2xl text-green-900 font-bold rounded-l-md border-t-2 border-l-2 border-b-2 border-grey-light-3 bg-green-100 px-4 py-1">
+                ₹
+              </span>
+              <input
+                type="text"
+                inputMode="numeric"
+                placeholder="Enter Item Price"
+                className="w-full placeholder-grey-dark-3 md:pl-6 px-3 py-2 border-2 border-grey-light-3 rounded-r-md invalid:border-primary-red valid:border-secondary-green placeholder-shown:invalid:border-grey-light-3 focus:outline-none"
+                required
+              />
+            </div>
+>>>>>>> e26789f0813acc2ca75013750270da3ee7fad2db
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <div className=" flex justify-between mt-2">
         <button className="w-2/3 px-6 py-2 bg-secondary-green text-white font-semibold rounded-md hover:bg-teal-700">
           Add Item to Catalog
         </button>
         <button className="font-semibold w-1/3 ml-4 px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+=======
+      <div className=" flex flex-col md:flex-row justify-between gap-3 py-3 md:py-0">
+        <button className="md:w-2/3 px-6 py-2 bg-primary-green text-white font-semibold rounded-md hover:brightness-90">
+          Add Item to Catalog
+        </button>
+        <button className="font-semibold md:w-1/3 px-6 py-2 bg-primary-red text-white rounded-md hover:brightness-90">
+>>>>>>> e26789f0813acc2ca75013750270da3ee7fad2db
           Cancel
         </button>
       </div>

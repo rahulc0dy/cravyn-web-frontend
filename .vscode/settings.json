@@ -1,1 +1,81 @@
-{}
+{
+    "window.autoDetectColorScheme": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "left",
+    "explorer.confirmDelete": false,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono,MesloLGS NF Regular,monospace",
+    "editor.wordWrap": "on",
+    "editor.fontFamily": "'Fira Code',SourceCodePro,Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorWidth": 2,
+    "editor.formatOnPaste": true,
+    "emmet.excludeLanguages": ["markdown"],
+    "emmet.triggerExpansionOnTab": true,
+    "explorer.confirmDragAndDrop": false,
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "emmet.showAbbreviationSuggestions": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": null
+        }
+    ],
+    "tailwindTranspiler.savePath": "public/styles.css",
+    "terminal.integrated.altClickMovesCursor": false,
+    "terminal.integrated.cursorBlinking": true,
+    "editor.minimap.showSlider": "always",
+    "emmet.showExpandedAbbreviation": "never",
+    "workbench.productIconTheme": "material-product-icons",
+    "editor.linkedEditing": true,
+    "editor.suggest.showWords": false,
+    "diffEditor.codeLens": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "gitlens.hovers.currentLine.over": "line",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "workbench.startupEditor": "none",
+    "terminal.integrated.fontSize": 16,
+    "codesnap.shutterAction": "copy",
+    "prettier.tabWidth": 4,
+    "material-icon-theme.folders.theme": "specific",
+    "editor.inlineSuggest.enabled": true,
+    "workbench.colorTheme": "Panda Syntax",
+    "git.openRepositoryInParentFolders": "never",
+    "codesnap.containerPadding": "4em",
+    "codesnap.backgroundColor": "#64e7a3",
+    "material-icon-theme.folders.color": "#26a69a",
+    "material-icon-theme.activeIconPack": "react",
+    "git.enableSmartCommit": true,
+    "workbench.preferredDarkColorTheme": "Panda Syntax",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+}
