@@ -19,7 +19,7 @@ const Sidebar = () => {
   const toggleSidebar = () => setIsOpen(!isOpen); // Toggle sidebar visibility
 
   const orderNavs = [
-    { name: "Pending", href: "/restaurant/orders" },
+    { name: "Pending", href: "/restaurant/orders/pending" },
     { name: "Completed", href: "/restaurant/orders/completed" },
     { name: "Packed", href: "/restaurant/orders/packed" },
   ];

@@ -28,7 +28,9 @@ const RestaurantCatalogue = () => {
         {isLoading ? (
           <LoadingSpinner />
         ) : isError ? (
-          <>{error.message} </>
+          <h5 className="text-center font-bold text-lg text-red-500">
+            {error.message}
+          </h5>
         ) : (
           menuItems.map((item, index) => (
             <CatalogCard

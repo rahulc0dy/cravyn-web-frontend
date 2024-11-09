@@ -40,14 +40,14 @@ const getCatalog = async (limit = null) => {
   }
 };
 
-const getOrders = async () => {
+const getPendingOrders = async () => {
   try {
-    const response = await api.get(`/restaurants/orders`, {});
+    const response = await api.get(`/restaurants/orders/pending`, {});
     return response.data;
   } catch (error) {
     if (error.response) {
       console.error("Error getting orders:", error.response.data);
-      throw new Error("Orders fetch failed: " + error.response.data.message);
+      throw new Error(error.response.data.message);
     } else {
       console.error("Unexpected Error:", error);
       throw new Error(error.message);
@@ -55,4 +55,4 @@ const getOrders = async () => {
   }
 };
 
-export { registerRestaurant, getCatalog, getOrders };
+export { registerRestaurant, getCatalog, getPendingOrders };
