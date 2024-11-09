@@ -5,26 +5,49 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Are we fake platform who has no security and privacy?",
-    answer: "Yes, absolutely",
+    question: "I ordered food... where is it?!",
+    answer:
+      "We get it, hanger is real! 😤 Track your order in the app, and if it's taking longer than usual, remember: good food is worth the wait. Plus, you’ll appreciate it more after staring out the window every 5 seconds.",
   },
   {
-    question: "Are we a bunch of dead people?",
-    answer: "Yes",
+    question: "What should I order if I don’t know what to order?",
+    answer:
+      "Ah, a classic conundrum. Try our Chef’s Surprise option — we’ll choose for you! Or scroll endlessly like you do on Netflix and pick whatever hits first. 🍿",
   },
   {
-    question:
-      "Are we trying to complete this project somehow without proper methods?",
-    answer: "You guessed right, we are.",
+    question: "Why is my food not as pretty as the photos?",
+    answer:
+      "Our photographers have superpowers and really nice lighting. But don’t worry, it’ll taste just as amazing! Besides, it’s the inside (and the taste) that counts, right? 😅",
   },
   {
-    question:
-      "I have no more questions, this is just random things. Is this ok?",
-    answer: "No.",
+    question: "How do I get free delivery?",
+    answer:
+      "You could (1) check if it’s Taco Tuesday, (2) hope for a promo code, or (3) become besties with the delivery driver. Your call. 😉",
   },
   {
-    question: "CU is the biggest scam of my life. ",
-    answer: "Just facts.",
+    question: "Help! I have too many options!",
+    answer:
+      "We know the struggle is real. Try the Eenie Meenie Miney Moe approach. Or filter by mood: Hungry? Super hungry? Or 'just a snack' (which we know really means 'full meal'). 🤷‍♂️",
+  },
+  {
+    question: "Can I order from multiple restaurants?",
+    answer:
+      "One food craving at a time, please! But hey, if you really want that sushi-taco-pizza-burger combo, we’re here to make it happen. Just brace yourself for the wait… 🚴‍♀️🍣🌮🍕",
+  },
+  {
+    question: "What happens if I fall asleep and miss my delivery?",
+    answer:
+      "The food goes on a spiritual journey back to the restaurant. Or your front desk might hold it, depending on your vibe with them. But no worries, you can re-order when you wake up. 😴",
+  },
+  {
+    question: "What if my food is cold?",
+    answer:
+      "Uh-oh! Pop it in the microwave, or, if you want the VIP treatment, let us know, and we’ll make it right. Just think of it as a delicious, unexpected journey. 🍲",
+  },
+  {
+    question: "Why don’t you deliver to my area yet?",
+    answer:
+      "Because the world is a big place, and we’re still growing! Drop us a hint on social, and who knows, your town could be next. (Also, start convincing your neighbors. The more, the merrier!) 🌍",
   },
 ];
 
@@ -32,7 +55,7 @@ const reviews = [
   {
     text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam beatae hic incidunt possimus esse enim sit repellat consequatur, odio quaerat dolor, eveniet natus ipsam porro maiores et. Quaerat earum repudiandae facilis eos tempore? Ratione esse repudiandae enim est alias nesciunt illo ea, voluptates error quasi corrupti quibusdam facilis sit aliquid.",
     avatar: "/assets/images/restaurant/person.png",
-    name: "Albus Dumbledore",
+    name: "Severus Snape",
     restaurant: "Hogwarts",
   },
   {
@@ -44,7 +67,7 @@ const reviews = [
   {
     text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam beatae hic incidunt possimus esse enim sit repellat consequatur, odio quaerat dolor, corrupti quibusdam facilis sit aliquid.",
     avatar: "/assets/images/restaurant/person.png",
-    name: "Albus Dumbledore",
+    name: "Aliester Moody",
     restaurant: "Chamber of Secrets",
   },
 ];
