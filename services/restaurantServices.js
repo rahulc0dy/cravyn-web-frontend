@@ -55,4 +55,27 @@ const getPendingOrders = async () => {
   }
 };
 
-export { registerRestaurant, getCatalog, getPendingOrders };
+const addFoodItem = async (foodItem) => {
+  const formData = new FormData();
+
+  for (const key in foodItem) {
+    if (foodItem.hasOwnProperty(key)) {
+      formData.append(key, foodItem[key]);
+    }
+  }
+
+  try {
+    const response = await api.post("/foods", formData);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
+export { registerRestaurant, getCatalog, getPendingOrders, addFoodItem };

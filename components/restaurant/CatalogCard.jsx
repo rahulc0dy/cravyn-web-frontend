@@ -29,7 +29,11 @@ const CatalogCard = ({
         </svg>
       </button>
       <Image
-        src={imageUrl || "/assets/images/CRAVYN.png"}
+        src={
+          imageUrl && (imageUrl.startsWith("http") || imageUrl.startsWith("/"))
+            ? imageUrl
+            : "/assets/images/CRAVYN.png"
+        }
         width={500}
         height={500}
         alt={name}
@@ -51,13 +55,15 @@ const CatalogCard = ({
           </div>
           <div>
             <span className="font-semibold text-gray-700">Discount: </span>
-            <span className="text-orange-500 font-extrabold">{discount}</span>
+            <span className="text-orange-500 font-extrabold">
+              {discount ?? "None"}
+            </span>
           </div>
         </div>
 
         <div className="mt-4 border-t-2 border-grey-light-3 py-4 flex flex-col lg:flex-row justify-between text-gray-600 text-base font-semibold">
-          <span>Orders: {orders}</span>
-          <span>Rating: {rating}</span>
+          <span>Orders: {orders ?? "0"}</span>
+          <span>Rating: {rating ?? "N/A"}</span>
           <span>
             <label className="inline-flex items-center cursor-pointer">
               <span className="mr-2">Available:</span>

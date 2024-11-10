@@ -8,6 +8,7 @@ const FileInput = ({
   onUpload,
   htmlId,
   fileType,
+  required,
 }) => {
   const [fileName, setFileName] = useState("Choose File");
   const [file, setFile] = useState(null); // To store the selected file
@@ -57,6 +58,7 @@ const FileInput = ({
       <input
         id={htmlId}
         type="file"
+        name={htmlId}
         className="hidden"
         accept={fileType}
         onChange={handleFileChange}

@@ -99,11 +99,11 @@ const Sidebar = () => {
                   className={`py-2 px-5 ${isActive(navItem.href)} rounded-md`}
                 >
                   <Link
-                    className={
+                    className={`${
                       path === navItem.href
                         ? "cursor-auto"
                         : "hover:text-xl hover:font-bold"
-                    }
+                    } transition-all transform-gpu`}
                     href={navItem.href}
                   >
                     {navItem.name}
@@ -124,11 +124,11 @@ const Sidebar = () => {
                   className={`py-2 px-5 ${isActive(navItem.href)} rounded-md`}
                 >
                   <Link
-                    className={
+                    className={`${
                       path === navItem.href
-                        ? ""
+                        ? "cursor-auto"
                         : "hover:text-xl hover:font-bold"
-                    }
+                    } transition-all transform-gpu`}
                     href={navItem.href}
                   >
                     {navItem.name}
@@ -149,11 +149,11 @@ const Sidebar = () => {
                   className={`py-2 px-5 ${isActive(navItem.href)} rounded-md`}
                 >
                   <Link
-                    className={
+                    className={`${
                       path === navItem.href
-                        ? ""
+                        ? "cursor-auto"
                         : "hover:text-xl hover:font-bold"
-                    }
+                    } transition-all transform-gpu`}
                     href={navItem.href}
                   >
                     {navItem.name}

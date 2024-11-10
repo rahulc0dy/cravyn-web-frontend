@@ -35,7 +35,7 @@ const RestaurantCatalogue = () => {
           menuItems.map((item, index) => (
             <CatalogCard
               key={index}
-              imageUrl={item.image_url}
+              imageUrl={item.food_image_url}
               name={item.food_name}
               description={item.description}
               price={item.price}

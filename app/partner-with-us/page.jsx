@@ -5,49 +5,44 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "I ordered food... where is it?!",
+    question: "Why should I partner with your platform?",
     answer:
-      "We get it, hanger is real! 😤 Track your order in the app, and if it's taking longer than usual, remember: good food is worth the wait. Plus, you’ll appreciate it more after staring out the window every 5 seconds.",
+      "Joining us means more visibility, more orders, and more happy customers! Our platform connects you with a large community of hungry customers looking for new dining options. Plus, you get the tools to manage orders, track performance, and grow your business!",
   },
   {
-    question: "What should I order if I don’t know what to order?",
+    question: "How do I sign up to add my restaurant?",
     answer:
-      "Ah, a classic conundrum. Try our Chef’s Surprise option — we’ll choose for you! Or scroll endlessly like you do on Netflix and pick whatever hits first. 🍿",
+      "It’s easy! Just click 'Register Your Restaurant', fill in some details about your restaurant, and our team will guide you through the process. You’ll be ready to take orders in no time!",
   },
   {
-    question: "Why is my food not as pretty as the photos?",
+    question: "What are the requirements to partner with your platform?",
     answer:
-      "Our photographers have superpowers and really nice lighting. But don’t worry, it’ll taste just as amazing! Besides, it’s the inside (and the taste) that counts, right? 😅",
+      "We welcome all types of restaurants, big or small! All you need is a valid business license, a menu with pricing, and a commitment to delivering delicious food to customers.",
   },
   {
-    question: "How do I get free delivery?",
+    question: "How does payment work for orders?",
     answer:
-      "You could (1) check if it’s Taco Tuesday, (2) hope for a promo code, or (3) become besties with the delivery driver. Your call. 😉",
+      "Once you’re set up, you’ll receive payments directly through our platform. We’ll handle the customer payments and deposit your earnings regularly, minus a small service fee.",
   },
   {
-    question: "Help! I have too many options!",
+    question: "How will I receive customer orders?",
     answer:
-      "We know the struggle is real. Try the Eenie Meenie Miney Moe approach. Or filter by mood: Hungry? Super hungry? Or 'just a snack' (which we know really means 'full meal'). 🤷‍♂️",
+      "Orders will be sent to your restaurant via our easy-to-use partner app or web portal, where you can view, prepare, and manage incoming orders all in one place.",
   },
   {
-    question: "Can I order from multiple restaurants?",
+    question: "Can I set my own delivery options?",
     answer:
-      "One food craving at a time, please! But hey, if you really want that sushi-taco-pizza-burger combo, we’re here to make it happen. Just brace yourself for the wait… 🚴‍♀️🍣🌮🍕",
+      "Absolutely! You can choose to handle deliveries yourself, use our delivery partners, or even offer both options. We’re here to support what works best for your business.",
   },
   {
-    question: "What happens if I fall asleep and miss my delivery?",
+    question: "What kind of support can I expect?",
     answer:
-      "The food goes on a spiritual journey back to the restaurant. Or your front desk might hold it, depending on your vibe with them. But no worries, you can re-order when you wake up. 😴",
+      "Our dedicated support team is here to help! Whether you have questions about setup, orders, or promoting your restaurant, we’re just a call or email away.",
   },
   {
-    question: "What if my food is cold?",
+    question: "Is there a contract or commitment period?",
     answer:
-      "Uh-oh! Pop it in the microwave, or, if you want the VIP treatment, let us know, and we’ll make it right. Just think of it as a delicious, unexpected journey. 🍲",
-  },
-  {
-    question: "Why don’t you deliver to my area yet?",
-    answer:
-      "Because the world is a big place, and we’re still growing! Drop us a hint on social, and who knows, your town could be next. (Also, start convincing your neighbors. The more, the merrier!) 🌍",
+      "No long-term contracts! We believe in flexibility, so you’re free to use our platform as long as it works for your business. Just let us know if you ever need to make changes.",
   },
 ];
 
@@ -74,242 +69,265 @@ const reviews = [
 
 const RestaurantLandingPage = () => {
   return (
-    <section className="w-full relative">
-      <div className="wrapper  w-full flex flex-col place-items-center text-center py-10 px-5 rounded-md bg-restaurant-hero-bg bg-cover">
-        <Image
-          src="/assets/images/restaurant/Cover_BG.png"
-          width={2000}
-          height={500}
-          className="absolute right-0 left-0 -top-2 -z-10 object-cover h-1/4"
-        />
-        <h2 className="md:text-3xl font-bold py-8 text-white">
-          Add your restaurant to Cravyn <br />
-          and escalate your business to the next level
-        </h2>
-        <div className="py-5 px-4 sm:px-10 bg-white rounded-md text-primary-grey relative shadow-2xl md:text-left">
-          <h3 className="sm:text-xl lg:text-2xl font-medium mt-5">
-            Get Started - It only takes 10 minutes
-          </h3>
-          <h4 className="text-grey-medium font-extralight mb-5">
-            Please be ready with the following for a smooth registration
-          </h4>
-          <div className="flex flex-wrap gap-10 sm:flex-row flex-col">
-            <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-full sm:w-max text-sm md:text-lg px-5 md:px-0">
-              <div className="text-left flex">
-                <svg
-                  width="20"
-                  height="22"
-                  viewBox="0 0 20 22"
-                  fill="none"
-                  className=" inline mr-2"
-                >
-                  <path
-                    d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                    stroke="#04BE00"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="">
-                  <h5 className="">Registration Number</h5>
-                  <p className="font-light text-sm">
-                    Not registered?
-                    <Link href="#" className="text-blue-500">
-                      Register now.
-                    </Link>
-                  </p>
+    <>
+      <section className="w-full relative">
+        <div className="wrapper  w-full flex flex-col place-items-center text-center py-10 px-5 rounded-md bg-restaurant-hero-bg bg-cover">
+          <Image
+            src="/assets/images/restaurant/Cover_BG.png"
+            width={2000}
+            height={500}
+            className="absolute right-0 left-0 -top-2 -z-10 object-cover h-1/4 w-full"
+          />
+          <h2 className="md:text-3xl font-bold py-8 text-white">
+            Add your restaurant to Cravyn <br />
+            and escalate your business to the next level
+          </h2>
+          <div className="py-5 px-4 sm:px-10 bg-white rounded-md text-primary-grey relative shadow-2xl md:text-left">
+            <h3 className="sm:text-xl lg:text-2xl font-medium mt-5">
+              Get Started - It only takes 10 minutes
+            </h3>
+            <h4 className="text-grey-medium font-extralight mb-5">
+              Please be ready with the following for a smooth registration
+            </h4>
+            <div className="flex flex-wrap gap-10 sm:flex-row flex-col">
+              <div className="grid lg:grid-cols-2 gap-y-5 gap-x-7 py-4 w-full sm:w-max text-sm md:text-lg px-5 md:px-0">
+                <div className="text-left flex">
+                  <svg
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    className=" inline mr-2"
+                  >
+                    <path
+                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                      stroke="#04BE00"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="">
+                    <h5 className="">Registration Number</h5>
+                    <p className="font-light text-sm">
+                      Not registered?
+                      <Link href="#" className="text-blue-500">
+                        Register now.
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <div className="text-left flex">
+                  <svg
+                    width="20"
+                    height="22"
+                    viewBox="0 0 20 22"
+                    fill="none"
+                    className=" inline mr-2"
+                  >
+                    <path
+                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                      stroke="#04BE00"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="">
+                    <h5 className="">GSTIN Number</h5>
+                    <p className="font-light text-sm">
+                      Don&apos;t have GSTIN?{" "}
+                      <Link href="#" className="text-blue-500">
+                        Apply now.
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Restaurant Email
+                  </h5>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Restaurant Phone Number
+                  </h5>
+                </div>
+                <div className="text-left">
+                  <h5 className="">
+                    <svg
+                      width="20"
+                      height="22"
+                      viewBox="0 0 20 22"
+                      fill="none"
+                      className=" inline mr-2"
+                    >
+                      <path
+                        d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
+                        stroke="#04BE00"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Bank Account Details
+                  </h5>
                 </div>
               </div>
-              <div className="text-left flex">
-                <svg
-                  width="20"
-                  height="22"
-                  viewBox="0 0 20 22"
-                  fill="none"
-                  className=" inline mr-2"
+              <div className="aspect-video rounded-lg overflow-clip self-center">
+                <video
+                  width="320"
+                  controls={false}
+                  autoPlay
+                  preload="true"
+                  loop
+                  muted
                 >
-                  <path
-                    d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                    stroke="#04BE00"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <source
+                    src="/assets/animations/register-restaurant.mp4"
+                    type="video/mp4"
                   />
-                </svg>
-                <div className="">
-                  <h5 className="">GSTIN Number</h5>
-                  <p className="font-light text-sm">
-                    Don&apos;t have GSTIN?{" "}
-                    <Link href="#" className="text-blue-500">
-                      Apply now.
-                    </Link>
-                  </p>
-                </div>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Restaurant Email
-                </h5>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Restaurant Phone Number
-                </h5>
-              </div>
-              <div className="text-left">
-                <h5 className="">
-                  <svg
-                    width="20"
-                    height="22"
-                    viewBox="0 0 20 22"
-                    fill="none"
-                    className=" inline mr-2"
-                  >
-                    <path
-                      d="M7 11.75L9.25 14L13 8.74999M10 1.71399C7.73574 3.86422 4.72026 5.04357 1.598 4.99999C1.20084 6.20997 0.998976 7.47549 1 8.74899C1 14.341 4.824 19.039 10 20.372C15.176 19.04 19 14.342 19 8.74999C19 7.43999 18.79 6.17899 18.402 4.99899H18.25C15.054 4.99899 12.15 3.75099 10 1.71399Z"
-                      stroke="#04BE00"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Bank Account Details
-                </h5>
+                  <track
+                    src="/path/to/captions.vtt"
+                    kind="subtitles"
+                    srcLang="en"
+                    label="English"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
-            <div className="aspect-video rounded-lg overflow-clip self-center">
-              <video
-                width="320"
-                controls={false}
-                autoPlay
-                preload="true"
-                loop
-                muted
-              >
-                <source
-                  src="/assets/animations/register-restaurant.mp4"
-                  type="video/mp4"
-                />
-                <track
-                  src="/path/to/captions.vtt"
-                  kind="subtitles"
-                  srcLang="en"
-                  label="English"
-                />
-                Your browser does not support the video tag.
-              </video>
+            <Link
+              href="/restaurant/register"
+              className="font-bold text-white text-center my-5 bg-primary-green block px-10 md:float-left rounded-md py-2"
+            >
+              Register Your Restaurant
+            </Link>
+          </div>
+        </div>
+
+        <div className="wrapper  p-5">
+          <h2 className="text-4xl font-bold text-tertiary-grey text-center py-7">
+            Why Partner With Us?
+          </h2>
+          <div className="flex w-full font-light text-xl justify-around p-5 flex-wrap gap-8">
+            <div className="text-center flex flex-col place-items-center">
+              <Image
+                src="/assets/images/restaurant/restaurant.png"
+                width={100}
+                height={100}
+                alt="restaurant illustration"
+              />
+              <p>
+                Get a digital Storefront
+                <br /> for your Restaurant.
+              </p>
+            </div>
+            <div className="text-center flex flex-col place-items-center">
+              <Image
+                src="/assets/images/restaurant/fast-delivery.png"
+                width={100}
+                height={100}
+                alt="restaurant illustration"
+              />
+              <p>
+                Deliver to doorstep
+                <br /> of your customers.
+              </p>
+            </div>
+            <div className="text-center flex flex-col place-items-center">
+              <Image
+                src="/assets/images/restaurant/growth.png"
+                width={100}
+                height={100}
+                alt="restaurant illustration"
+              />
+              <p>
+                Grow your business
+                <br /> with our online platform.
+              </p>
             </div>
           </div>
-          <Link
-            href="/restaurant/register"
-            className="font-bold text-white text-center my-5 bg-primary-green block px-10 md:float-left rounded-md py-2"
-          >
-            Register Your Restaurant
-          </Link>
         </div>
-      </div>
 
-      <div className="wrapper  p-5">
-        <h2 className="text-4xl font-bold text-tertiary-grey text-center py-7">
-          Why Partner With Us?
-        </h2>
-        <div className="flex w-full font-light text-xl justify-around p-5 flex-wrap gap-8">
-          <div className="text-center flex flex-col place-items-center">
-            <Image
-              src="/assets/images/restaurant/restaurant.png"
-              width={100}
-              height={100}
-              alt="restaurant illustration"
-            />
-            <p>
-              Get a digital Storefront
-              <br /> for your Restaurant.
-            </p>
-          </div>
-          <div className="text-center flex flex-col place-items-center">
-            <Image
-              src="/assets/images/restaurant/fast-delivery.png"
-              width={100}
-              height={100}
-              alt="restaurant illustration"
-            />
-            <p>
-              Deliver to doorstep
-              <br /> of your customers.
-            </p>
-          </div>
-          <div className="text-center flex flex-col place-items-center">
-            <Image
-              src="/assets/images/restaurant/growth.png"
-              width={100}
-              height={100}
-              alt="restaurant illustration"
-            />
-            <p>
-              Grow your business
-              <br /> with our online platform.
-            </p>
+        <div className="w-full bg-accent-green pt-10">
+          <h2 className="text-xl md:text-4xl font-bold text-center">
+            Restaurant Stories
+          </h2>
+          <div className="wrapper p-5 py-10 flex gap-5 overflow-x-scroll">
+            {reviews.map(({ text, avatar, name, restaurant }, index) => (
+              <ReviewCard
+                key={index}
+                text={text}
+                avatar={avatar}
+                name={name}
+                restaurant={restaurant}
+              />
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="w-full bg-accent-green pt-10">
-        <h2 className="text-xl md:text-4xl font-bold text-center">
-          Restaurant Stories
-        </h2>
-        <div className="wrapper p-5 py-10 flex gap-5 overflow-x-scroll">
-          {reviews.map(({ text, avatar, name, restaurant }, index) => (
-            <ReviewCard
+      {/* FAQ Section */}
+      <section className="w-full relative">
+        <div className="wrapper p-5">
+          <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
+            Frequently Asked Questions
+          </h2>
+          {faqs.map(({ question, answer }, index) => (
+            <FaqExpandableCard
+              question={question}
+              answer={answer}
               key={index}
-              text={text}
-              avatar={avatar}
-              name={name}
-              restaurant={restaurant}
             />
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="wrapper p-5">
-        <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
-          Frequently Asked Questions
-        </h2>
-        {faqs.map(({ question, answer }, index) => (
-          <FaqExpandableCard question={question} answer={answer} key={index} />
-        ))}
-      </div>
-    </section>
+      <section className="w-full relative">
+        <div className="wrapper py-16 text-center ">
+          <h5 className="lg:text-3xl text-xl font-medium py-2">
+            Need help with registering your restaurant?
+          </h5>
+          <Link
+            href="/support"
+            className="lg:text-3xl text-xl font-medium text-blue-500"
+          >
+            Contact Support
+          </Link>
+        </div>
+      </section>
+    </>
   );
 };
 
