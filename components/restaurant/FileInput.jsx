@@ -8,7 +8,6 @@ const FileInput = ({
   onUpload,
   htmlId,
   fileType,
-  required,
 }) => {
   const [fileName, setFileName] = useState("Choose File");
   const [file, setFile] = useState(null); // To store the selected file
@@ -26,7 +25,7 @@ const FileInput = ({
   };
   return (
     <div
-      className={"mt-4 flex items-center rounded-lg overflow-hidden" + classes}
+      className={"mt-4 flex items-center rounded-lg overflow-hidden " + classes}
     >
       <label
         htmlFor={htmlId}

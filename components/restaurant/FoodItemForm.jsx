@@ -10,6 +10,7 @@ const FoodItemForm = ({
   foodPrice = "",
   foodType = "",
   foodImage = null,
+  foodItemId,
   onSubmit,
 }) => {
   const [itemName, setItemName] = useState(foodName);
@@ -50,6 +51,7 @@ const FoodItemForm = ({
       discountPercent: null,
       discountCap: null,
       foodImage: image,
+      foodItemId,
     });
   };
 
@@ -60,10 +62,14 @@ const FoodItemForm = ({
     >
       <div className="grid md:grid-cols-[1.5fr_3fr] gap-8 md:my-8">
         <div className="flex flex-col items-center gap-2">
-          <div className="w-full aspect-square rounded-md bg-red-100 flex items-center justify-center text-gray-500">
-            {imagePreview ? (
+          <div
+            className={`${
+              imagePreview ? "border-2 border-emerald-700" : "bg-emerald-100"
+            } w-full aspect-square rounded-md flex items-center justify-center text-gray-500`}
+          >
+            {imagePreview || foodImage?.startsWith("http") ? (
               <Image
-                src={imagePreview}
+                src={imagePreview || foodImage}
                 width={200}
                 height={200}
                 className="w-full h-full object-cover border-2"
@@ -74,7 +80,7 @@ const FoodItemForm = ({
             )}
           </div>
           <FileInput
-            classes={" w-full text-gray-600 border-2 border-grey-light-3"}
+            classes={"w-full text-gray-600 border-2 border-grey-light-3"}
             htmlId="food-image"
             onUpload={handleImageChange}
             fileType="image"
@@ -220,7 +226,13 @@ const FoodItemForm = ({
       <div className=" flex flex-col md:flex-row justify-between gap-3 py-3 md:py-0">
         <input
           type="submit"
-          value={isPending ? "Pending" : "Add Item to Catalog"}
+          value={
+            isPending
+              ? "Pending"
+              : foodName
+              ? "Update Item"
+              : "Add Item to Catalog"
+          }
           className="md:w-2/3 px-6 py-2 bg-primary-green text-white font-semibold rounded-md hover:bg-emerald-600 cursor-pointer"
         />
         <Link

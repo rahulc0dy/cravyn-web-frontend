@@ -40,6 +40,23 @@ const getCatalog = async (limit = null) => {
   }
 };
 
+const getFoodItem = async (itemId) => {
+  try {
+    const response = await api.get(`/foods`, {
+      params: { foodItemId: itemId },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error getting foodItem:", error.response.data);
+      throw new Error("Food item fetch failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
 const getPendingOrders = async () => {
   try {
     const response = await api.get(`/restaurants/orders/pending`, {});
@@ -78,4 +95,34 @@ const addFoodItem = async (foodItem) => {
   }
 };
 
-export { registerRestaurant, getCatalog, getPendingOrders, addFoodItem };
+const updateFooditem = async (foodItem) => {
+  const formData = new FormData();
+
+  for (const key in foodItem) {
+    if (foodItem.hasOwnProperty(key)) {
+      formData.append(key, foodItem[key]);
+    }
+  }
+
+  try {
+    const response = await api.patch("/foods", formData);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
+export {
+  registerRestaurant,
+  getCatalog,
+  getPendingOrders,
+  addFoodItem,
+  getFoodItem,
+  updateFooditem,
+};
