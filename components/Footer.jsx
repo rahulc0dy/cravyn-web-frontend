@@ -1,6 +1,9 @@
+"use client";
+
 import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const quicksand = Quicksand({
   subsets: ["latin", "latin-ext"],
@@ -9,7 +12,15 @@ const quicksand = Quicksand({
 });
 
 const Footer = () => {
-  return (
+  const path = usePathname();
+
+  const noNavFooterPaths = ["/about", "/login", "/signup"];
+
+  const resetLayout = noNavFooterPaths.includes(path);
+
+  return resetLayout ? (
+    <></>
+  ) : (
     <footer
       className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center`}
     >
