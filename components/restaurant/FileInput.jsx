@@ -2,22 +2,33 @@
 
 import { useState } from "react";
 
-const FileInput = ({ classes, iconColor = "primary-green" }) => {
+const FileInput = ({
+  classes,
+  iconColor = "primary-green",
+  onUpload,
+  htmlId,
+  fileType,
+}) => {
   const [fileName, setFileName] = useState("Choose File");
+  const [file, setFile] = useState(null); // To store the selected file
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFileName(file.name);
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFileName(selectedFile.name);
+      // Call the onUpload function passed from the parent component
+      if (onUpload) {
+        onUpload(selectedFile);
+      }
     }
   };
-
   return (
     <div
-      className={"mt-4 flex items-center rounded-lg overflow-hidden" + classes}
+      className={"mt-4 flex items-center rounded-lg overflow-hidden " + classes}
     >
       <label
-        htmlFor="file-upload"
+        htmlFor={htmlId}
         className="py-2 px-4 flex-grow cursor-pointer text-grey-dark"
       >
         {fileName}
@@ -44,10 +55,11 @@ const FileInput = ({ classes, iconColor = "primary-green" }) => {
       </button>
       {/* Hidden File Input */}
       <input
-        id="file-upload"
+        id={htmlId}
         type="file"
+        name={htmlId}
         className="hidden"
-        accept="image/*"
+        accept={fileType}
         onChange={handleFileChange}
       />
     </div>

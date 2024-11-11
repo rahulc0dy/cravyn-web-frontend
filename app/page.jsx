@@ -1,4 +1,6 @@
 import FoodCard from "@components/FoodCard";
+import LoadingSpinner from "@components/LoadingSpinner";
+import FaqExpandableCard from "@components/restaurant/FaqExpandableCard";
 import RestaurantCard from "@components/RestaurantCard";
 import Image from "next/image";
 
@@ -67,6 +69,54 @@ const restaurantCardData = [
       "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
     stars: "4.7",
     distance: "15-20",
+  },
+];
+
+const faqs = [
+  {
+    question: "I ordered food... where is it?!",
+    answer:
+      "We get it, hanger is real! 😤 Track your order in the app, and if it's taking longer than usual, remember: good food is worth the wait. Plus, you’ll appreciate it more after staring out the window every 5 seconds.",
+  },
+  {
+    question: "What should I order if I don’t know what to order?",
+    answer:
+      "Ah, a classic conundrum. Try our Chef’s Surprise option — we’ll choose for you! Or scroll endlessly like you do on Netflix and pick whatever hits first. 🍿",
+  },
+  {
+    question: "Why is my food not as pretty as the photos?",
+    answer:
+      "Our photographers have superpowers and really nice lighting. But don’t worry, it’ll taste just as amazing! Besides, it’s the inside (and the taste) that counts, right? 😅",
+  },
+  {
+    question: "How do I get free delivery?",
+    answer:
+      "You could (1) check if it’s Taco Tuesday, (2) hope for a promo code, or (3) become besties with the delivery driver. Your call. 😉",
+  },
+  {
+    question: "Help! I have too many options!",
+    answer:
+      "We know the struggle is real. Try the Eenie Meenie Miney Moe approach. Or filter by mood: Hungry? Super hungry? Or 'just a snack' (which we know really means 'full meal'). 🤷‍♂️",
+  },
+  {
+    question: "Can I order from multiple restaurants?",
+    answer:
+      "One food craving at a time, please! But hey, if you really want that sushi-taco-pizza-burger combo, we’re here to make it happen. Just brace yourself for the wait… 🚴‍♀️🍣🌮🍕",
+  },
+  {
+    question: "What happens if I fall asleep and miss my delivery?",
+    answer:
+      "The food goes on a spiritual journey back to the restaurant. Or your front desk might hold it, depending on your vibe with them. But no worries, you can re-order when you wake up. 😴",
+  },
+  {
+    question: "What if my food is cold?",
+    answer:
+      "Uh-oh! Pop it in the microwave, or, if you want the VIP treatment, let us know, and we’ll make it right. Just think of it as a delicious, unexpected journey. 🍲",
+  },
+  {
+    question: "Why don’t you deliver to my area yet?",
+    answer:
+      "Because the world is a big place, and we’re still growing! Drop us a hint on social, and who knows, your town could be next. (Also, start convincing your neighbors. The more, the merrier!) 🌍",
   },
 ];
 
@@ -230,6 +280,14 @@ const HomePage = () => {
             }
           </div>
         </div>
+      </section>
+      <section className="wrapper p-5">
+        <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
+          Frequently Asked Questions
+        </h2>
+        {faqs.map(({ question, answer }, index) => (
+          <FaqExpandableCard question={question} answer={answer} key={index} />
+        ))}
       </section>
     </main>
   );

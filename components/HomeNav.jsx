@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -151,6 +154,7 @@ const HomeNav = () => {
                     src="/assets/icons/signup.png"
                     width={20}
                     height={20}
+                    alt="Signup icon"
                   />
                   <p>Sign Up</p>
                 </Link>
@@ -223,7 +227,12 @@ const HomeNav = () => {
               className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
               href="/signup"
             >
-              <Image src="/assets/icons/signup.png" width={20} height={20} />
+              <Image
+                src="/assets/icons/signup.png"
+                width={20}
+                height={20}
+                alt="Signup icon"
+              />
               <p>Sign Up</p>
             </Link>
             <Link

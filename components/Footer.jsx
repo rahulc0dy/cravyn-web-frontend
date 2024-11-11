@@ -1,6 +1,9 @@
+"use client";
+
 import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const quicksand = Quicksand({
   subsets: ["latin", "latin-ext"],
