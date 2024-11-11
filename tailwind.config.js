@@ -13,6 +13,7 @@ module.exports = {
         card1_bg: "url('/assets/images/about/card1_bg.jpg')",
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
+        management_bg: "url('/assets/images/management/Sidebar.png)",
         "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
       },
       colors: {
@@ -55,6 +56,13 @@ module.exports = {
           "dark-2": "#5b5b5b",
           "dark-3": "#484848",
           "dark-4": "#212121",
+        },
+        blue: {
+          "light-1": "#99DDFF",
+          "light-2": "#0EC5FF",
+          medium: "#000AFF",
+          "dark-1": "#005BC7",
+          "dark-2": "#00398E",
         },
       },
       animation: {},
