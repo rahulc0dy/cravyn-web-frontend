@@ -11,6 +11,14 @@ const nunito = Nunito({
   preload: true,
 });
 
+export const metadata = {
+  title: "Cravyn",
+  description:
+    "Cravyn is an online food ordering system working to connect restaurants directly to their customer.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 export default function RootLayout({ children }) {
   const path = usePathname();
 

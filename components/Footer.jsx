@@ -9,7 +9,15 @@ const quicksand = Quicksand({
 });
 
 const Footer = () => {
-  return (
+  const path = usePathname();
+
+  const noFooterPaths = ["/login", "/signup", "/restaurant/login"];
+
+  const resetLayout = noFooterPaths.includes(path);
+
+  return resetLayout ? (
+    <></>
+  ) : (
     <footer
       className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center`}
     >

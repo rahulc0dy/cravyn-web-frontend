@@ -5,8 +5,6 @@ import TeamCard from "@components/TeamCard";
 import Steps from "@components/Steps";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import HomeNav from "@components/HomeNav";
-import Footer from "@components/Footer";
 
 const TeamData = [
   {
@@ -52,7 +50,6 @@ const aboutus = () => {
     <>
       <div>
         <div className="bg-about-background bg-cover min-h-screen flex flex-col">
-          <HomeNav />
           <section className="p-8 lg:p-0 flex flex-grow items-center justify-center  shadow-[0_-5rem_5rem_white_inset]">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-6xl lg:text-8xl font-bold text-gray-900 mb-9">
@@ -181,7 +178,6 @@ const aboutus = () => {
           </div>
         </motion.div>
       </div>
-      <Footer />
     </>
   );
 };
