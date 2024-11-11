@@ -8,9 +8,14 @@ const FaqExpandableCard = ({ question, answer }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="border-grey-light-3 rounded-lg border-2 px-5 mb-6">
+    <div
+      className="border-grey-light-3 rounded-lg border-2 px-5 mb-6"
+      onClick={() => {
+        setIsExpanded(!isExpanded);
+      }}
+    >
       <div className="flex items-center justify-between w-full">
-        <p className="md:text-lg font-normal text-grey-dark-3 py-5">
+        <p className="md:text-lg font-medium text-grey-dark-3 py-5">
           {question}
         </p>
         <Image
@@ -18,10 +23,9 @@ const FaqExpandableCard = ({ question, answer }) => {
           width={40}
           height={40}
           alt="expand icon"
-          className="cursor-pointer"
-          onClick={() => {
-            setIsExpanded(!isExpanded);
-          }}
+          className={`cursor-pointer ${
+            isExpanded && "rotate-180"
+          } transform-gpu transition-transform`}
         />
       </div>
 

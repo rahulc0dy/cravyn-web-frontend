@@ -1,6 +1,6 @@
 import React from "react";
 
-const OrderCard = ({ orderId, time, items, total, func }) => {
+const OrderCard = ({ orderId, time, items, total, handleClickedOrder }) => {
   return (
     <div className="border-2 border-gray-300 rounded-lg shadow-xl w-64 h-72 overflow-clip">
       <div className="bg-accent-green flex justify-between items-center p-5 border-b-2">
@@ -14,7 +14,7 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
               height="16"
               viewBox="0 0 20 20"
               fill="none"
-              class="inline mr-2"
+              className="inline mr-2"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -50,7 +50,7 @@ const OrderCard = ({ orderId, time, items, total, func }) => {
         </div>
       </div>
       <button
-        onClick={func}
+        onClick={() => handleClickedOrder(orderId)}
         className="mt-4 text-secondary-green hover:scale-105 hover:underline hover:text-tertiary-green font-semibold px-4 transition-all"
       >
         View Details

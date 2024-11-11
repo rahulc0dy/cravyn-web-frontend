@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -8,8 +11,21 @@ const HomeNav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const path = usePathname();
 
-  return (
+  const noNavFooterPaths = [
+    "/about",
+    "/login",
+    "/signup",
+    "/partner-with-us",
+    "/restaurant/*",
+  ];
+
+  const resetLayout = noNavFooterPaths.includes(path);
+
+  return resetLayout ? (
+    <></>
+  ) : (
     <nav className="w-full lg:shadow-none">
       <div className="wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ">
         <div className="flex justify-between w-full lg:w-auto items-center">
@@ -135,6 +151,7 @@ const HomeNav = () => {
                     src="/assets/icons/signup.png"
                     width={20}
                     height={20}
+                    alt="Signup icon"
                   />
                   <p>Sign Up</p>
                 </Link>
@@ -207,7 +224,12 @@ const HomeNav = () => {
               className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
               href="/signup"
             >
-              <Image src="/assets/icons/signup.png" width={20} height={20} />
+              <Image
+                src="/assets/icons/signup.png"
+                width={20}
+                height={20}
+                alt="Signup icon"
+              />
               <p>Sign Up</p>
             </Link>
             <Link
