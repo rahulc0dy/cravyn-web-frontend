@@ -1,8 +1,12 @@
 "use client";
+import ChatModal from '@components/management/ChatModalBox';
 import { useState } from 'react';
 
 const QueryPage = () => {
   const [activeTab, setActiveTab] = useState('unanswered');
+  const [showModal, setShowModal] = useState(false);
+  const [showText, setShowText]=useState("");
+  const [showName, setShowName]=useState("");
 
   const unansweredQueries = [
     { name: 'Rupesh Paul', question: 'Why is my order delayed?' },
@@ -32,6 +36,7 @@ const QueryPage = () => {
 
   return (
     <div className="p-6 bg-blue-50 min-h-screen flex justify-center items-center">
+      <ChatModal visible={showModal} closefunc={()=>{setShowModal(false)}} name={showName} text={showText}/>
       <div className="bg-white w-full max-w-2xl rounded-lg shadow-lg">
         {/* Tabs */}
         <div className="flex justify-around border-b border-gray-200">
@@ -53,9 +58,9 @@ const QueryPage = () => {
         <div className="p-4 space-y-4 w-full max-h-[80svh] overflow-y-scroll">
           {queriesToShow.length > 0 ? (
             queriesToShow.map((query, index) => (
-              <div
+              <button
                 key={index}
-                className="flex items-center justify-between p-3 bg-gray-100 rounded-lg shadow-md"
+                className="flex w-full items-center justify-between p-3 bg-gray-100 rounded-lg shadow-md" onClick={()=>{setShowModal(true);setShowName(query.name);setShowText(query.question)}}
               >
                 <div className="flex items-center space-x-3">
                   <div className="bg-blue-100 p-2 rounded-full">
@@ -68,7 +73,7 @@ const QueryPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-blue-medium">{query.name}</p>
+                    <p className="font-semibold text-blue-medium text-left">{query.name}</p>
                     <p className="text-sm text-blue-dark-2">{query.question}</p>
                   </div>
                 </div>
@@ -102,7 +107,7 @@ const QueryPage = () => {
                     <path d="M9.29 16.29L13.59 12 9.29 7.71c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l5 5c.39.39.39 1.02 0 1.41l-5 5c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41z" />
                   </svg>
                 </div>
-              </div>
+              </button>
             ))
           ) : (
             <p className="text-center text-gray-500">No queries found.</p>
