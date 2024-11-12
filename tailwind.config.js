@@ -14,6 +14,7 @@ module.exports = {
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
         "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
+        "management-bg": "url('/assets/images/llleaves.svg')",
       },
       colors: {
         primary: {
@@ -21,11 +22,13 @@ module.exports = {
           red: "#e63a3a",
           grey: "#282723",
           green: "#1AC98B",
+          blue: "#000AFF",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
           green: "#00CD52",
+          blue: "#0EC5FF",
         },
         tertiary: {
           yellow: "#ffedc0",
@@ -38,6 +41,7 @@ module.exports = {
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
           green: "#C0FFE1",
+          blue: "#E5F3FF",
         },
         warning: {
           "yellow-light": "#ffdd68",
