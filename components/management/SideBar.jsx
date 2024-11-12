@@ -4,10 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useAuth } from "@providers/UserAuthProvider";
 
 const ManagementSidebar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
   const path = usePathname();
+  const { auth } = useAuth();
 
   const toggleSidebar = () => setIsOpen(!isOpen); // Toggle sidebar visibility
 
@@ -45,7 +47,7 @@ const ManagementSidebar = () => {
   ];
 
   const isActive = (href) =>
-    path === href ? "text-secondary-blue font-bold hover:none" : "";
+    path === href ? "text-danger-blue font-bold hover:none" : "";
 
   return (
     <>
@@ -89,9 +91,20 @@ const ManagementSidebar = () => {
         } lg:translate-x-0 lg:relative lg:flex lg:flex-col lg:w-64`}
       >
         <div className="">
-          <div className="pb-4">
-            <h2 className="text-2xl font-bold text-teal-600"></h2>
-            <p className=" text-grey-medium"></p>
+          <div className="py-8 flex flex-col gap-3 justify-center items-center">
+            <Image
+              src="/assets/images/snape.png"
+              width={100}
+              height={100}
+              alt="profile image"
+              className="rounded-full border-4 border-secondary-blue aspect-square object-cover object-top"
+            />
+            <p className="font-extrabold text-2xl text-danger-blue tracking-wide">
+              {auth.user.name}
+            </p>
+            <p className="font-medium text-xl text-grey-medium">
+              Management Admin
+            </p>
           </div>
           <div className="py-4 max-w-80">
             <ul className="flex flex-col gap-5 text-xl font-extralight">

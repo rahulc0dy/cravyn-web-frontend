@@ -1,12 +1,15 @@
-import Image from "next/image";
+"use client";
+
+import { useAuth } from "@providers/UserAuthProvider";
 
 export default function DashBoard() {
+  const { auth } = useAuth();
   return (
     <div className="text-center my-auto lg:py-20 py-5">
       <p className="bg-clip-text text-transparent text-6xl font-black bg-gradient-to-r from-primary-blue to-secondary-blue tracking-widest">
         WELCOME BACK
         <br />
-        REMUS
+        {auth.user.name?.split(" ")[0].toUpperCase() || "ADMIN"}
       </p>
       <p className="text-4xl font-bold text-tertiary-blue mt-28">
         Here is the current summary of the system :

@@ -18,6 +18,10 @@ const HomeNav = () => {
     "/signup",
     "/partner-with-us",
     "/restaurant/*",
+    "/management/dashboard",
+    "/management/partner-requests",
+    "/management/queries",
+    "/business",
   ];
 
   const resetLayout = noNavFooterPaths.includes(path);

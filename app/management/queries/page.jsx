@@ -47,7 +47,7 @@ const QueryPage = () => {
                 : "text-gray-500"
             }`}
           >
-            Unanswered Queries
+            Customer Queries
           </button>
           <button
             onClick={() => setActiveTab("solved")}
@@ -57,7 +57,7 @@ const QueryPage = () => {
                 : "text-gray-500"
             }`}
           >
-            Solved Queries
+            Restaurant Queries
           </button>
         </div>
 
