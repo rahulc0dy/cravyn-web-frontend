@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets",
+    "christian-kohler.path-intellisense",
+    "eamodio.gitlens",
+    "equinusocio.vsc-material-theme-icons",
+    "PKief.material-icon-theme",
+    "PKief.material-product-icons",
+    "tinkertrain.theme-panda"
+  ]
+}
