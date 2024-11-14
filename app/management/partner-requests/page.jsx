@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
+import ApprovalModal from '@components/management/ApprovalModalBox';
 
 const PartnerRequests = () => {
   const [activeTab, setActiveTab] = useState('pending');
@@ -29,6 +30,7 @@ const PartnerRequests = () => {
 
   return (
     <div className="p-6 bg-blue-50 min-h-screen flex justify-center items-center">
+      <ApprovalModal/>
       <div className="bg-white w-full max-w-2xl rounded-lg shadow-lg">
         {/* Tabs */}
         <div className="flex justify-around border-b border-gray-200">
@@ -86,7 +88,6 @@ const PartnerRequests = () => {
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#50C878" class="size-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                       </svg>
-                      <span className="text-sm font-semibold text-secondary-green">Answered</span>
                           <span className="text-sm font-semibold text-green-500">Accepted</span>
                         </div>
                       ) : (
