@@ -5,6 +5,9 @@ import ApprovalModal from '@components/management/ApprovalModalBox';
 
 const PartnerRequests = () => {
   const [activeTab, setActiveTab] = useState('pending');
+  const [restName,setRestName]=useState("");
+  const [ownerName,setOwnerName]=useState("");
+  const [showModal,setShowModal]=useState(false);
 
   const pendingRequests = [
     { name: 'Munching Meals', city: 'Kolkata', owner: 'Neerab Modi' },
@@ -30,7 +33,7 @@ const PartnerRequests = () => {
 
   return (
     <div className="p-6 bg-blue-50 min-h-screen flex justify-center items-center">
-      <ApprovalModal/>
+      <ApprovalModal visible={showModal} rest_name={restName} owner_name={ownerName} close_func={()=>{setShowModal(false)}}/>
       <div className="bg-white w-full max-w-2xl rounded-lg shadow-lg">
         {/* Tabs */}
         <div className="flex justify-around border-b border-gray-200">
@@ -52,15 +55,15 @@ const PartnerRequests = () => {
         <div className="p-4 space-y-4 max-h-[80svh] overflow-y-scroll">
           {requestsToShow.length > 0 ? (
             requestsToShow.map((request, index) => (
-              <div
+              <button onClick={()=>{setShowModal(true);setRestName(request.name);setOwnerName(request.owner)}}
                 key={index}
-                className="flex items-center justify-between p-3 bg-gray-100 rounded-lg shadow-md"
+                className="w-full flex items-center justify-between p-3 bg-gray-100 rounded-lg shadow-md"
               >
                 <div className="flex items-center space-x-3">
                   <div className="bg-blue-100 p-2 rounded-full">
                     <Image src='/assets/images/management/spoon.svg' width={35} height={30}></Image>
                   </div>
-                  <div>
+                  <div className='text-left'>
                     <p className="font-semibold text-blue-medium">{request.name}</p>
                     <p className="text-sm text-blue-dark-2">City: {request.city}</p>
                     <p className="text-sm text-blue-dark-2">Owner: {request.owner}</p>
@@ -112,7 +115,7 @@ const PartnerRequests = () => {
                     <path d="M9.29 16.29L13.59 12 9.29 7.71c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l5 5c.39.39.39 1.02 0 1.41l-5 5c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41z" />
                   </svg>
                 </div>
-              </div>
+              </button>
             ))
           ) : (
             <p className="text-center text-gray-500">No requests found.</p>

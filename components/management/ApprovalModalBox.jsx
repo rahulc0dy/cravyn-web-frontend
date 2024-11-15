@@ -1,19 +1,20 @@
 import React from "react";
 import Link from "next/link";
 
-const ApprovalModal = () => {
+const ApprovalModal = ({visible,rest_name,owner_name,close_func}) => {
+  if(!visible) return null;
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-blue-50 md:p-4 m-4 rounded-3xl shadow-lg w-full max-w-lg min-h-[70svh]">
         {/* Modal Header */}
         <div className="flex justify-between items-center px-4 pt-4 md:py-4 border-b border-gray-200">
           <h2 className="text-2xl md:text-3xl font-semibold">Waiting for approval</h2>
-          <button className="text-gray-500 text-5xl md:-translate-y-8 font-extrabold hover:text-red-500">&times;</button>
+          <button onClick={close_func} className="text-gray-500 text-5xl md:-translate-y-8 font-extrabold hover:text-red-500">&times;</button>
         </div>
 
         {/* Modal Content */}
         <div className="px-8 py-4 bg-white rounded-lg border-2 border-grey-medium mx-4">
-          <p className="text-blue-800 font-extrabold text-2xl">Banzara Restaurant</p>
+          <p className="text-blue-800 font-extrabold text-2xl">{rest_name}</p>
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Email and Phone */}
@@ -47,7 +48,7 @@ const ApprovalModal = () => {
             {/* Owner */}
             <div className="md:col-span-2 md:mb-4">
               <p className="text-gray-600">Owner</p>
-              <p className="text-blue-medium border-b-2 border-grey-light-3">Neerab Modi</p>
+              <p className="text-blue-medium border-b-2 border-grey-light-3">{owner_name}</p>
             </div>
 
             {/* Links */}
