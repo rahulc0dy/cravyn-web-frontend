@@ -1,4 +1,5 @@
 import FoodCard from "@components/FoodCard";
+import HorizontalCarousel from "@components/HorizontalScrollItems";
 import LoadingSpinner from "@components/LoadingSpinner";
 import FaqExpandableCard from "@components/restaurant/FaqExpandableCard";
 import RestaurantCard from "@components/RestaurantCard";
@@ -281,6 +282,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <section className="wrapper p-5">
         <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
           Frequently Asked Questions

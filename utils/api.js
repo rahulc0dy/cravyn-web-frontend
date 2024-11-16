@@ -20,10 +20,10 @@ async function refreshToken() {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.debug("Intercepted error response");
     const { config, response } = error;
 
     if (response?.status === 401 && !config._retry) {
+      console.debug("Intercepted error response");
       config._retry = true;
 
       try {

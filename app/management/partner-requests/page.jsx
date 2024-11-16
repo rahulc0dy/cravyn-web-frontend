@@ -1,48 +1,13 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
 
 const PartnerRequests = () => {
   const [activeTab, setActiveTab] = useState("pending");
 
-  const pendingRequests = [
-    { name: "Munching Meals", city: "Kolkata", owner: "Neerab Modi" },
-    { name: "Tasty Treats", city: "Mumbai", owner: "Anjali Kumar" },
-    { name: "Food Fiesta", city: "Delhi", owner: "Rajesh Singh" },
-    { name: "Munching Meals", city: "Kolkata", owner: "Neerab Modi" },
-    { name: "Tasty Treats", city: "Mumbai", owner: "Anjali Kumar" },
-    { name: "Food Fiesta", city: "Delhi", owner: "Rajesh Singh" },
-    { name: "Munching Meals", city: "Kolkata", owner: "Neerab Modi" },
-    { name: "Tasty Treats", city: "Mumbai", owner: "Anjali Kumar" },
-    { name: "Food Fiesta", city: "Delhi", owner: "Rajesh Singh" },
-  ];
-
-  const completedRequests = [
-    {
-      name: "Munching Meals",
-      city: "Kolkata",
-      owner: "Neerab Modi",
-      status: "Accepted",
-    },
-    {
-      name: "Tasty Treats",
-      city: "Mumbai",
-      owner: "Anjali Kumar",
-      status: "Accepted",
-    },
-    {
-      name: "Food Fiesta",
-      city: "Delhi",
-      owner: "Rajesh Singh",
-      status: "Accepted",
-    },
-    {
-      name: "Quick Bites",
-      city: "Chennai",
-      owner: "Sunita Patil",
-      status: "Accepted",
-    },
-  ];
+  const pendingRequests = [];
+  const completedRequests = [];
 
   const requestsToShow =
     activeTab === "pending" ? pendingRequests : completedRequests;

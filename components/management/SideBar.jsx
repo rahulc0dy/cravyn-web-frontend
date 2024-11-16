@@ -28,7 +28,7 @@ const ManagementSidebar = () => {
     },
     {
       name: "Delivery",
-      href: "/management/delivery",
+      href: "/management/delivery-register",
       icon: "/assets/icons/motorbike.png",
       iconActive: "/assets/icons/motorbike-active.png",
     },
@@ -97,7 +97,7 @@ const ManagementSidebar = () => {
               width={100}
               height={100}
               alt="profile image"
-              className="rounded-full border-4 border-secondary-blue aspect-square object-cover object-top"
+              className="aspect-square rounded-full border-4 border-secondary-blue object-cover object-top"
             />
             <p className="font-extrabold text-2xl text-danger-blue tracking-wide">
               {auth.user.name}
@@ -113,7 +113,7 @@ const ManagementSidebar = () => {
                   key={navItem.name}
                   className={`py-2 px-5 ${isActive(
                     navItem.href
-                  )} rounded-md font-semibold`}
+                  )} rounded-md font-semibold group`}
                 >
                   <Image
                     src={
@@ -131,7 +131,7 @@ const ManagementSidebar = () => {
                       path === navItem.href
                         ? "cursor-auto"
                         : "hover:scale-125 hover:font-bold"
-                    } transition-all transform-gpu`}
+                    } transition-all transform-gpu group-hover:`}
                     href={navItem.href}
                   >
                     {navItem.name}

@@ -14,7 +14,16 @@ const quicksand = Quicksand({
 const Footer = () => {
   const path = usePathname();
 
-  const noFooterPaths = ["/login", "/signup", "/restaurant/login"];
+  const noFooterPaths = [
+    "/login",
+    "/signup",
+    "/restaurant/login",
+    "/management/dashboard",
+    "/management/login",
+    "/management/delivery-register",
+    "/management/partner-requests",
+    "/management/queries",
+  ];
 
   const resetLayout = noFooterPaths.includes(path);
 

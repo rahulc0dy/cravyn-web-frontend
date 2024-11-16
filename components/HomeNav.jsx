@@ -21,6 +21,7 @@ const HomeNav = () => {
     "/management/dashboard",
     "/management/partner-requests",
     "/management/queries",
+    "/management/delivery-register",
     "/business",
   ];
 

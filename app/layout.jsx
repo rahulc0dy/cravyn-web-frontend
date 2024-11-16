@@ -1,4 +1,5 @@
 import { Nunito } from "next/font/google";
+import localfont from "next/font/local";
 import "@styles/globals.css";
 import Footer from "@components/Footer";
 import HomeNav from "@components/HomeNav";
@@ -8,6 +9,10 @@ const nunito = Nunito({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   preload: true,
+});
+
+const nunito_local = localfont({
+  src: "../public/fonts/Nunito-VariableFont_wght.ttf",
 });
 
 export const metadata = {
@@ -21,7 +26,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} antialiased`}>
+      <body
+        className={`${nunito_local.className ?? nunito.className} antialiased`}
+      >
         <ReactQueryProvider>
           <HomeNav />
           {children}

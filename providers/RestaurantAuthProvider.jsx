@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated: false,
     loading: true,
     user: null,
+    userType: "",
   });
 
   const router = useRouter();
@@ -23,13 +24,19 @@ export const AuthProvider = ({ children }) => {
       });
 
       const { restaurant } = response.data.data;
-      setAuth({ isAuthenticated: true, loading: false, user: restaurant });
+      setAuth({
+        isAuthenticated: true,
+        loading: false,
+        user: restaurant,
+        userType: "restaurant",
+      });
 
       localStorage.setItem(
         "auth",
         JSON.stringify({
           isAuthenticated: true,
           user: restaurant,
+          userType: "restaurant",
         })
       );
 
@@ -70,6 +77,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated: true,
         loading: false,
         user: restaurant,
+        userType: "restaurant",
       });
 
       localStorage.setItem(
@@ -94,12 +102,16 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedAuth = JSON.parse(localStorage.getItem("auth"));
 
-    if (storedAuth?.isAuthenticated) {
+    if (storedAuth?.isAuthenticated && storedAuth.userType === "restaurant") {
       setAuth({ ...storedAuth, loading: false });
     } else {
       // If no auth data in localStorage, set loading to false and redirect to login
-      setAuth({ isAuthenticated: false, loading: false, user: null });
-      router.push("/restaurant/login");
+      setAuth({
+        isAuthenticated: false,
+        loading: false,
+        user: null,
+        userType: "",
+      });
     }
   }, [router]);
 
