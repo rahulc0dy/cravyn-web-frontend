@@ -1,9 +1,22 @@
 "use client";
 
+import Popup from "@components/PopUpModal";
 import { useAuth } from "@providers/UserAuthProvider";
+import { getDashboardData } from "@services/managementTeamServices";
+import { useQuery } from "@tanstack/react-query";
 
 export default function DashBoard() {
   const { auth } = useAuth();
+
+  const { data, isLoading, isSuccess, isError, error } = useQuery({
+    queryKey: ["dashboard data", auth],
+    queryFn: getDashboardData,
+    retry: 1,
+    refetchOnWindowFocus: false,
+    refetchIntervalInBackground: true,
+    refetchInterval: 5000,
+  });
+
   return (
     <div className="text-center my-auto lg:py-20 py-5">
       <p className="bg-clip-text text-transparent text-6xl font-black bg-gradient-to-r from-primary-blue to-secondary-blue tracking-widest">
@@ -36,7 +49,11 @@ export default function DashBoard() {
           <div>
             <p className="text-3xl font-semibold pb-2">Active Queries</p>
             <p className="text-5xl font-bold tracking-widest text-blue-700 text-left">
-              67
+              {isLoading
+                ? "Loading"
+                : isSuccess
+                ? data.data.activeQueries
+                : "🤷‍♂️"}
             </p>
           </div>
         </div>
@@ -63,11 +80,18 @@ export default function DashBoard() {
           <div>
             <p className="text-3xl font-semibold pb-2">Partner Requests</p>
             <p className="text-5xl font-bold tracking-widest text-blue-700  text-left">
-              23
+              {isLoading
+                ? "Loading"
+                : isSuccess
+                ? data.data.pendingPartnerRequests
+                : "🤷‍♂️"}
             </p>
           </div>
         </div>
       </div>
+      {isError && (
+        <Popup duration={2000} message={error.message} type="failure" />
+      )}
     </div>
   );
 }

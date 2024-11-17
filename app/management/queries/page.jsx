@@ -1,7 +1,8 @@
 "use client";
+
 import QueryModal from "@components/management/QueryModal";
-import { answerQuery, getQueries } from "@services/managementTeamServices";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { getQueries } from "@services/managementTeamServices";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 const QueryPage = () => {
@@ -28,6 +29,8 @@ const QueryPage = () => {
     queryKey: ["Queries", "Customer", limit, filter],
     retry: 1,
     refetchOnWindowFocus: false,
+    refetchIntervalInBackground: true,
+    refetchInterval: 10000,
   });
 
   const {
@@ -41,6 +44,8 @@ const QueryPage = () => {
     queryKey: ["Queries", "Restaurant", limit, filter],
     retry: 1,
     refetchOnWindowFocus: false,
+    refetchIntervalInBackground: true,
+    refetchInterval: 10000,
   });
 
   const restaurantQueries = isRestaurantQueriesFetched
@@ -271,6 +276,7 @@ const QueryPage = () => {
         key={queryData.query_id}
         queryId={queryData.query_id}
         userType={activeTab}
+        answerText={queryData.answer}
       />
     </div>
   );

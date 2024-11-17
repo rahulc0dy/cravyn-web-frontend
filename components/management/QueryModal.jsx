@@ -5,8 +5,16 @@ import { answerQuery } from "@services/managementTeamServices";
 import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-const QueryModal = ({ visible, closefunc, name, text, queryId, userType }) => {
-  const [answer, setAnswer] = useState("");
+const QueryModal = ({
+  visible,
+  closefunc,
+  name,
+  text,
+  queryId,
+  userType,
+  answerText = "",
+}) => {
+  const [answer, setAnswer] = useState(answerText);
 
   const {
     mutate,
@@ -48,7 +56,7 @@ const QueryModal = ({ visible, closefunc, name, text, queryId, userType }) => {
             <span className="text-5xl font-extrabold">&times;</span>
           </button>
         </div>
-        <p className="font-extrabold text-2xl text-blue-dark-2 pb-2">
+        <p className="font-extrabold text-2xl text-tertiary-blue pb-2">
           {name + " asked:"}
         </p>
         {/* Chat Messages Area */}
@@ -58,11 +66,12 @@ const QueryModal = ({ visible, closefunc, name, text, queryId, userType }) => {
 
         {/* Message Input */}
         <textarea
-          className="w-full p-2 border-2 border-blue-medium text-blue-medium rounded-md my-8 outline-none resize-none"
+          className="w-full p-2 border-2 border-blue-300 text-tertiary-blue rounded-md my-8 outline-none resize-none"
           rows="5"
           placeholder="Write your answer"
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
+          disabled={answerText?.length > 0}
         />
 
         {/* Send Button */}

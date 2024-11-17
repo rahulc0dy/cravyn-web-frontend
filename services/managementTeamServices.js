@@ -17,11 +17,26 @@ const getQueries = async (limit = null, filter, queryUser = null) => {
   }
 };
 
-const getPartnerRequests = async (queryType = null, queryUser = null) => {
+const getPartnerRequests = async (verifyStatus) => {
   try {
-    const response = await api.get(`/management-team/queries`, {
-      params: { queryType, queryUser },
+    const response = await api.get(`/management-team/partner-requests`, {
+      params: { verifyStatus },
     });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.data);
+      throw new Error(error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
+const getDashboardData = async () => {
+  try {
+    const response = await api.get(`/management-team/dashboard`);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -67,4 +82,29 @@ const answerQuery = async (answer, queryId, userType) => {
   }
 };
 
-export { getQueries, addDeliveryPartner, answerQuery };
+const verifyRestaurant = async (restaurantId, approval) => {
+  try {
+    const response = await api.post(`/management-team/verify-partner`, {
+      restaurantId: restaurantId,
+      approval: approval,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.data);
+      throw new Error(error.response.data.message);
+    } else {
+      console.error(error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
+export {
+  getQueries,
+  addDeliveryPartner,
+  answerQuery,
+  getDashboardData,
+  getPartnerRequests,
+  verifyRestaurant,
+};
