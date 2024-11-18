@@ -15,6 +15,7 @@ module.exports = {
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
         "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
         "management-bg": "url('/assets/images/llleaves.svg')",
+        "rose-wave": "url(/assets/images/waves 1.svg)",
       },
       colors: {
         primary: {
@@ -23,6 +24,7 @@ module.exports = {
           grey: "#282723",
           green: "#1AC98B",
           blue: "#000AFF",
+          rose: "#FF1E46",
         },
         secondary: {
           red: "#960a0a",

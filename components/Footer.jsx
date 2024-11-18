@@ -197,9 +197,9 @@ const Footer = () => {
             <Link href="/login">Sign in</Link>
             <Link href="/orders">Your Orders</Link>
             <Link href="/">Track Your Order</Link>
-            <Link href="/">Help Tickets</Link>
-            <Link href="/">Your Addresses</Link>
-            <Link href="/">Compare Products</Link>
+            <Link href="/support">Help Tickets</Link>
+            <Link href="/restaurant/login">Restaurant Login</Link>
+            <Link href="/admin-login">Admin Login</Link>
           </div>
         </div>
 

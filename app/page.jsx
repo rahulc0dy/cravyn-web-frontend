@@ -1,40 +1,40 @@
+"use client";
+
 import FoodCard from "@components/FoodCard";
-import HorizontalCarousel from "@components/HorizontalScrollItems";
-import LoadingSpinner from "@components/LoadingSpinner";
 import FaqExpandableCard from "@components/restaurant/FaqExpandableCard";
 import RestaurantCard from "@components/RestaurantCard";
 import Image from "next/image";
+import { Onest } from "next/font/google";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-export const metadata = {
-  title: "Cravyn",
-  description:
-    "Cravyn is an online food ordering system that delivers your food fresh and warm to you withing minutes so your hunger no longer waits.",
-};
+const onest = Onest({ subsets: ["latin", "latin-ext"] });
 
 const foodCardData = [
   {
     image: "/assets/images/Sandwich.png",
-    item: "Sandwich",
-    description: "Delicious sandwich from Dash Restaurant.",
+    item: "Sandwiches",
+    description: "Sandwiches made from fresh farm picked items.",
     stars: "4.5",
   },
   {
     image: "/assets/images/Burger.png",
-    item: "Burger",
-    description: "Delicious Burger from Dash Restaurant.",
-    stars: "4.5",
+    item: "Burgers",
+    description:
+      "A burst of flavours and textures with the tastiest burgers you have ever had.",
+    stars: "4",
   },
   {
     image: "/assets/images/Ramen.png",
-    item: "Sandwich",
-    description: "Delicious ramen from Dash Restaurant.",
-    stars: "4.5",
+    item: "Ramen",
+    description: "Delicious ramen filled with umami straight from japan.",
+    stars: "4.8",
   },
   {
     image: "/assets/images/Strawberry-Cake.png",
-    item: "Sandwich",
-    description: "Delicious strawberry cake from Dash Restaurant.",
-    stars: "4.5",
+    item: "Strawberry Cake",
+    description: "Delicious strawberry cake that melts in your mouth.",
+    stars: "4.6",
   },
 ];
 
@@ -43,7 +43,7 @@ const restaurantCardData = [
     image: "/assets/images/Bukhara.png",
     restaurant: "Bukhara Dining",
     description:
-      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+      "Discover the art of fine dining at Bukhara, where exquisite flavors and elegant ambiance meet. Our globally-inspired menu is crafted with premium ingredients to offer a fusion of traditional and modern culinary delights.",
     stars: "4.5",
     distance: "35-40",
   },
@@ -51,7 +51,7 @@ const restaurantCardData = [
     image: "/assets/images/Banzara.png",
     restaurant: "Banzara Restaurant",
     description:
-      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+      "Step into Banzara, where the charm of rustic decor meets a menu filled with hearty, flavorful dishes. Whether you're craving comfort food or bold new tastes, our kitchen is ready to delight your senses.",
     stars: "4",
     distance: "40-45",
   },
@@ -59,7 +59,7 @@ const restaurantCardData = [
     image: "/assets/images/Mehico.png",
     restaurant: "Mehico Restaurant",
     description:
-      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+      "Embark on a culinary journey at Mehico, where vibrant Mexican flavors come alive. Savor our handcrafted dishes, made with fresh ingredients and authentic spices, in a lively and welcoming atmosphere.",
     stars: "4.3",
     distance: "25-30",
   },
@@ -67,7 +67,7 @@ const restaurantCardData = [
     image: "/assets/images/Maharaja.png",
     restaurant: "Maharaja Meals",
     description:
-      "Join us for a dining experience that celebrates global fusion cuisine. Our expertly crafted dishes use fresh, high-quality ingredients to blend diverse flavors into vibrant, bold creations. Perfect for adventurous palates seeking something new.",
+      "Experience a royal feast at Maharaja Meals, featuring rich, aromatic dishes inspired by traditional Indian cuisine. Each bite is a tribute to timeless flavors and exceptional hospitality.",
     stars: "4.7",
     distance: "15-20",
   },
@@ -123,164 +123,229 @@ const faqs = [
 
 const HomePage = () => {
   return (
-    <main className="max-w-screen-2xl m-auto">
+    <main className="">
       {/* Hero Section */}
-      <section className="relative py-36 px-6 2xl:px-0">
-        <div className="hidden lg:block absolute origin-center right-52 bottom-24 overflow-y-hidden">
+      <section className="wrapper lg:grid grid-cols-[1fr_1fr] ">
+        <div className="lg:px-20 py-28 ">
+          <div className="grid grid-cols-[auto_auto] place-items-center gap-5 w-max">
+            <svg
+              width="19"
+              height="246"
+              viewBox="0 0 19 246"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-44 sm:h-full"
+            >
+              <path
+                d="M10 3L9.00001 243"
+                stroke="#363636"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeDasharray="10 10"
+              />
+              <circle cx="9.5" cy="40.5" r="9.5" fill="#363636" />
+              <circle cx="9.5" cy="124.5" r="9.5" fill="#363636" />
+              <circle cx="9.5" cy="207.5" r="9.5" fill="#363636" />
+            </svg>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    bounce: 1,
+                    type: "spring",
+                    stiffness: 0.1,
+                    staggerChildren: 0.3,
+                  },
+                },
+              }}
+              className={`${onest.className} flex flex-col gap-4`}
+            >
+              <motion.h1
+                variants={{
+                  hidden: { opacity: 0, x: 200 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-gray-800"
+              >
+                Crave.
+              </motion.h1>
+              <motion.h1
+                variants={{
+                  hidden: { opacity: 0, x: 200 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-gray-800"
+              >
+                Click.
+              </motion.h1>
+              <motion.h1
+                variants={{
+                  hidden: { opacity: 0, x: 200 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-primary-rose"
+              >
+                Delivered.
+              </motion.h1>
+            </motion.div>
+          </div>
+          <p className="text-lg lg:text-xl font-medium text-gray-500 my-5">
+            Get fresh foods and other treats at the convenience of your home.
+            Order with us and enjoy exclusive discounts on your first order!
+          </p>
+          <motion.button
+            initial={{ y: 50, opacity: 0 }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                bounce: 0.8,
+                type: "spring",
+              },
+            }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 0 5rem 1rem #ffda7f",
+            }}
+            id="download-customer-app"
+            className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
+          >
+            <div className="bg-accent-yellow rounded-full p-2">
+              <Image
+                src="/assets/icons/order-now.png"
+                width={25}
+                height={25}
+                alt="order now"
+              />
+            </div>
+            Download App
+          </motion.button>
+        </div>
+
+        <div className="hidden relative lg:flex justify-center items-center">
           <Image
             src="/assets/images/hero-food-image.png"
             alt="hero food image"
             width={600}
             height={500}
-            className="bottom-10 -translate-y-10"
+            className="z-10 h-auto w-full"
           />
-          <div className="max-w-52 bg-primary-red absolute bottom-0 -z-10 right-1/3 p-5 rounded-xl pt-24 flex flex-col items-center gap-3">
-            <h2 className="text-2xl font-bold text-white text-center">
-              At Your Doorstep
-            </h2>
-            <div className="flex justify-between gap-2">
-              <Image
-                src="/assets/images/star-white.png"
-                alt="star white"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="/assets/images/star-white.png"
-                width={20}
-                height={20}
-                alt="star white"
-              />
-              <Image
-                src="/assets/images/star-white.png"
-                width={20}
-                height={20}
-                alt="star white"
-              />
-              <Image
-                src="/assets/images/star-white.png"
-                width={20}
-                height={20}
-                alt="star white"
-              />
-              <Image
-                src="/assets/images/star-white.png"
-                width={20}
-                height={20}
-                alt="star white"
-              />
-            </div>
-            <button className="bg-accent-yellow text-secondary-red text-md px-5 py-2 rounded-full font-bold transition-all ease-in-out flex place-items-center hover:shadow-2xl">
-              Order Now
-            </button>
-          </div>
+          <motion.div className="absolute w-1/2 bg-gradient-to-b from-primary-rose to-white right-0 top-0 bottom-0 rounded-2xl -z-10">
+            <Image
+              src="/assets/images/zigzagsvg.svg"
+              height={2000}
+              width={1000}
+              alt="decorative image"
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
         </div>
-        <Image
-          src="/assets/images/vertical-closeup-wooden-plank-wall-background.jpg"
-          width={600}
-          height={500}
-          alt=""
-          className="absolute hidden lg:block -z-50 right-0 -top-24 rounded-l-full overflow-y-hidden"
-        />
-        <div className="flex flex-row gap-5">
+      </section>
+
+      <Image
+        src="/assets/images/waves 1.svg"
+        width={1920}
+        height={120}
+        className="h-auto w-full"
+        alt="wave bg"
+      />
+      <div className=" w-full bg-gradient-to-b from-primary-rose to-white">
+        {/* Food Showcase */}
+        <section className="py-12 wrapper">
+          <div className="container mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-6">Top Choices</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 lg:p-10">
+              {
+                /* Product Cards */
+                foodCardData.map(
+                  ({ image, item, description, stars }, index) => (
+                    <FoodCard
+                      key={index}
+                      image={image}
+                      item={item}
+                      description={description}
+                      stars={stars}
+                    />
+                  )
+                )
+              }
+            </div>
+          </div>
+        </section>
+
+        {/* Restaurants Section */}
+        <section className="py-12 wrapper">
+          <div className="container mx-auto text-center w-full">
+            <h2 className="text-3xl font-bold text-rose-800 mb-6">
+              Top Offers For You
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:p-10">
+              {
+                /* Restaurant Cards */
+                restaurantCardData.map(
+                  (
+                    { image, restaurant, description, stars, distance },
+                    index
+                  ) => (
+                    <RestaurantCard
+                      key={index}
+                      image={image}
+                      restaurant={restaurant}
+                      description={description}
+                      stars={stars}
+                      distance={distance}
+                    />
+                  )
+                )
+              }
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section className="wrapper py-10 lg:py-20 flex flex-col justify-center items-center">
+        <motion.h4
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`${onest.className} text-6xl font-bold text-center`}
+        >
+          Want to deliver cravings with us?
+        </motion.h4>
+        <motion.h3
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className={`text-grey-medium py-5 text-3xl text-center`}
+        >
+          Get out delivery partner app and start your journey now.
+        </motion.h3>
+        <Link
+          href="#"
+          className="tracking-wide text-xl py-3 px-8 rounded-full bg-gradient-to-r from-[#FFE0E0] to-white text-primary-rose font-bold my-8"
+        >
+          Download delivery partner app
           <svg
-            width="19"
-            height="246"
-            viewBox="0 0 19 246"
+            width="35"
+            height="35"
+            viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="inline-block px-2"
           >
             <path
-              d="M10 3L9.00001 243"
-              stroke="#363636"
-              strokeWidth="5"
+              d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20M9.33333 13.3333L16 20M16 20L22.6667 13.3333M16 20V4"
+              stroke="#FF1E46"
+              strokeWidth="4"
               strokeLinecap="round"
-              strokeDasharray="10 10"
+              strokeLinejoin="round"
             />
-            <circle cx="9.5" cy="40.5" r="9.5" fill="#363636" />
-            <circle cx="9.5" cy="124.5" r="9.5" fill="#363636" />
-            <circle cx="9.5" cy="207.5" r="9.5" fill="#363636" />
           </svg>
-
-          <div className="w-50">
-            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
-              Crave.
-            </h1>
-            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
-              Click.
-            </h1>
-            <h1 className="text-2xl sm:text-7xl font-bold text-gray-800 mb-4">
-              Delivered.
-            </h1>
-          </div>
-        </div>
-        <p className="text-xl font-medium text-gray-500 mb-8 lg:w-1/3 ">
-          Get fresh foods and other treats at the convenience of your home.
-          Order with us and enjoy exclusive discounts on your first order!
-        </p>
-        <button className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold transition-all ease-in-out flex items-center gap-4 pr-7 hover:shadow-2xl">
-          <div className="bg-accent-yellow rounded-full p-2">
-            <Image
-              src="/assets/icons/order-now.png"
-              width={25}
-              height={25}
-              alt="order now"
-            />
-          </div>
-          Order Now
-        </button>
-      </section>
-
-      {/* Product Showcase */}
-      <section className="py-12">
-        <div className="container mx-auto text-center mb-12">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-            Top Choices
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 p-10">
-            {
-              /* Product Cards */
-              foodCardData.map(({ image, item, description, stars }, index) => (
-                <FoodCard
-                  key={index}
-                  image={image}
-                  item={item}
-                  description={description}
-                  stars={stars}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </section>
-
-      {/* Restaurants Section */}
-      <section className="py-12">
-        <div className="container mx-auto text-center w-full">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-            Top Offers For You
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 p-10">
-            {
-              /* Restaurant Cards */
-              restaurantCardData.map(
-                (
-                  { image, restaurant, description, stars, distance },
-                  index
-                ) => (
-                  <RestaurantCard
-                    key={index}
-                    image={image}
-                    restaurant={restaurant}
-                    description={description}
-                    stars={stars}
-                    distance={distance}
-                  />
-                )
-              )
-            }
-          </div>
-        </div>
+        </Link>
       </section>
 
       <section className="wrapper p-5">

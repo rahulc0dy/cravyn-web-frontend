@@ -71,3 +71,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #222222a6;
 }
+
+.free-delivery-clip-path {
+  clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0 0);
+}

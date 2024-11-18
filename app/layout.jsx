@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${nunito_local.className ?? nunito.className} antialiased`}
+        className={`${
+          nunito_local.className ?? nunito.className
+        } antialiased scroll-smooth`}
       >
         <ReactQueryProvider>
           <HomeNav />

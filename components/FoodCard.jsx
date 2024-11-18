@@ -1,8 +1,22 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const FoodCard = ({ image, item, description, stars }) => {
   return (
-    <div className="mt-10 min-w-fit box-border pb-4 rounded-xl px-4 shadow-xl  transform transition-transform hover:scale-105 hover:shadow-2xl bg-white">
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 100,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.1 }}
+      className="mt-10 min-w-fit box-border pb-4 rounded-xl px-4 shadow-xl bg-white"
+    >
       <div className=" w-full -translate-y-10">
         <Image
           src={image}
@@ -14,49 +28,26 @@ const FoodCard = ({ image, item, description, stars }) => {
       </div>
 
       <div className="px-8 text-left">
-        <div className="font-bold text-2xl mb-1">{item}</div>
-        <p className="text-">{description}</p>
-        <div className="flex items-center gap-1 py-3">
-          <Image
-            src="/assets/icons/card-star.png"
-            width={200}
-            height={200}
-            className=" max-w-6"
-          />
-          <Image
-            src="/assets/icons/card-star.png"
-            width={200}
-            height={200}
-            className=" max-w-6"
-          />
-          <Image
-            src="/assets/icons/card-star.png"
-            width={200}
-            height={200}
-            className=" max-w-6"
-          />
-          <Image
-            src="/assets/icons/card-star.png"
-            width={200}
-            height={200}
-            className=" max-w-6"
-          />
-          <span className="text-gray-700 text-lg font-bold pl-1">{stars}</span>
-        </div>
+        <div className="font-bold text-3xl mb-1 text-primary-grey">{item}</div>
+        <p className="text-gray-400 text-lg font-medium">{description}</p>
 
-        <div className="flex items-center justify-between pb-2 gap-4">
-          <div className="text-lg font-semibold text-secondary-orange">
-            ₹40.00
-          </div>
-          <button className="min-w-fit bg-accent-yellow-light hover:bg-accent-yellow text-primary-grey border-2 border-primary-grey  font-semibold py-1 px-3 rounded-full transition-colors ">
-            Order Now
-          </button>
-          <div className="flex items-center max-w-10">
-            <Image src="/assets/icons/heart.png" width={100} height={100} />
-          </div>
-        </div>
+        <motion.div
+          whileInView={{
+            scale: [0.9, 1, 0.9],
+            repeatCount: Infinity,
+            transition: { duration: 0.5 },
+          }}
+          className="flex flex-col justify-between py-2 gap-4"
+        >
+          <Link
+            href="#download-customer-app"
+            className="text-lg min-w-fit font-semibold py-1 text-rose-500"
+          >
+            Love it 😍 ? Get yours Now
+          </Link>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
