@@ -23,6 +23,7 @@ const HomeNav = () => {
     "/management/queries",
     "/management/delivery-register",
     "/business",
+    "/admin-login",
   ];
 
   const resetLayout = noNavFooterPaths.includes(path);

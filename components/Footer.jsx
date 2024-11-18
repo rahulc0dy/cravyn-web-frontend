@@ -23,6 +23,7 @@ const Footer = () => {
     "/management/delivery-register",
     "/management/partner-requests",
     "/management/queries",
+    "/admin-login",
   ];
 
   const resetLayout = noFooterPaths.includes(path);
