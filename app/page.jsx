@@ -123,7 +123,7 @@ const faqs = [
 
 const HomePage = () => {
   return (
-    <main className="bg-food-pattern bg-repeat">
+    <main className="bg-food-pattern bg-repeat selection:bg-rose-200">
       {/* Hero Section */}
       <section className="wrapper lg:grid grid-cols-[1fr_1fr]">
         <div className="lg:px-20 py-28 ">
@@ -306,6 +306,7 @@ const HomePage = () => {
         </section>
       </div>
 
+      {/* Deliver With Us */}
       <section className="py-10 lg:py-20 bg-white">
         <div className="wapper flex flex-col justify-center items-center">
           <motion.h4
@@ -325,11 +326,30 @@ const HomePage = () => {
           >
             Get out delivery partner app and start your journey now.
           </motion.h3>
-          <Link
-            href="#"
-            className="tracking-wide text-xl py-3 px-8 rounded-full bg-gradient-to-r from-[#FFE0E0] to-white text-primary-rose font-bold my-8"
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 100,
+              background: "linear-gradient(to right, #FFE0E0, #FFFFFF)",
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: 0.7,
+                bounce: 1,
+                stiffness: 100,
+                type: "spring",
+              },
+            }}
+            viewport={{ once: true }}
+            whileHover={{
+              scale: 1.1,
+              background: "linear-gradient(to right, #FFFFFF, #FFE0E0)",
+            }}
+            className="tracking-wide text-xl py-3 px-8 rounded-full text-primary-rose font-bold my-8"
           >
-            Download delivery partner app
+            <Link href="#">Download delivery partner app</Link>
             <svg
               width="35"
               height="35"
@@ -346,7 +366,7 @@ const HomePage = () => {
                 strokeLinejoin="round"
               />
             </svg>
-          </Link>
+          </motion.div>
         </div>
       </section>
 
