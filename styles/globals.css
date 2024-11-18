@@ -75,3 +75,12 @@
 .free-delivery-clip-path {
   clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0 0);
 }
+
+.text-shadow-blur {
+  text-shadow: #fff 1px 0 10px, 0 0 2rem 1rem white;
+  filter: drop-shadow(0 0 2px white);
+}
+
+.bg-food-pattern {
+  background-size: 50svh;
+}

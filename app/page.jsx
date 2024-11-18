@@ -123,9 +123,9 @@ const faqs = [
 
 const HomePage = () => {
   return (
-    <main className="">
+    <main className="bg-food-pattern bg-repeat">
       {/* Hero Section */}
-      <section className="wrapper lg:grid grid-cols-[1fr_1fr] ">
+      <section className="wrapper lg:grid grid-cols-[1fr_1fr]">
         <div className="lg:px-20 py-28 ">
           <div className="grid grid-cols-[auto_auto] place-items-center gap-5 w-max">
             <svg
@@ -134,7 +134,7 @@ const HomePage = () => {
               viewBox="0 0 19 246"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-44 sm:h-full"
+              className="h-44 sm:h-full z-50"
             >
               <path
                 d="M10 3L9.00001 243"
@@ -168,7 +168,7 @@ const HomePage = () => {
                   hidden: { opacity: 0, x: 200 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-gray-800"
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold w-max text-gray-800 text-shadow-blur"
               >
                 Crave.
               </motion.h1>
@@ -177,7 +177,7 @@ const HomePage = () => {
                   hidden: { opacity: 0, x: 200 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-gray-800"
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold w-max text-gray-800 text-shadow-blur"
               >
                 Click.
               </motion.h1>
@@ -186,13 +186,13 @@ const HomePage = () => {
                   hidden: { opacity: 0, x: 200 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                className="text-4xl sm:text-6xl lg:text-8xl font-bold text-primary-rose"
+                className="text-4xl sm:text-6xl lg:text-8xl font-bold w-max text-primary-rose text-shadow-blur"
               >
                 Delivered.
               </motion.h1>
             </motion.div>
           </div>
-          <p className="text-lg lg:text-xl font-medium text-gray-500 my-5">
+          <p className="text-lg lg:text-2xl font-medium text-gray-600 my-5 text-shadow-blur">
             Get fresh foods and other treats at the convenience of your home.
             Order with us and enjoy exclusive discounts on your first order!
           </p>
@@ -233,7 +233,7 @@ const HomePage = () => {
             height={500}
             className="z-10 h-auto w-full"
           />
-          <motion.div className="absolute w-1/2 bg-gradient-to-b from-primary-rose to-white right-0 top-0 bottom-0 rounded-2xl -z-10">
+          <motion.div className="absolute w-1/2 bg-gradient-to-b from-primary-rose to-[#ffffffa2] right-0 top-5 bottom-0 rounded-2xl">
             <Image
               src="/assets/images/zigzagsvg.svg"
               height={2000}
@@ -306,55 +306,63 @@ const HomePage = () => {
         </section>
       </div>
 
-      <section className="wrapper py-10 lg:py-20 flex flex-col justify-center items-center">
-        <motion.h4
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={`${onest.className} text-6xl font-bold text-center`}
-        >
-          Want to deliver cravings with us?
-        </motion.h4>
-        <motion.h3
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className={`text-grey-medium py-5 text-3xl text-center`}
-        >
-          Get out delivery partner app and start your journey now.
-        </motion.h3>
-        <Link
-          href="#"
-          className="tracking-wide text-xl py-3 px-8 rounded-full bg-gradient-to-r from-[#FFE0E0] to-white text-primary-rose font-bold my-8"
-        >
-          Download delivery partner app
-          <svg
-            width="35"
-            height="35"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="inline-block px-2"
+      <section className="py-10 lg:py-20 bg-white">
+        <div className="wapper flex flex-col justify-center items-center">
+          <motion.h4
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={`${onest.className} text-6xl font-bold text-center`}
           >
-            <path
-              d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20M9.33333 13.3333L16 20M16 20L22.6667 13.3333M16 20V4"
-              stroke="#FF1E46"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
+            Want to deliver cravings with us?
+          </motion.h4>
+          <motion.h3
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className={`text-grey-medium py-5 text-3xl text-center`}
+          >
+            Get out delivery partner app and start your journey now.
+          </motion.h3>
+          <Link
+            href="#"
+            className="tracking-wide text-xl py-3 px-8 rounded-full bg-gradient-to-r from-[#FFE0E0] to-white text-primary-rose font-bold my-8"
+          >
+            Download delivery partner app
+            <svg
+              width="35"
+              height="35"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="inline-block px-2"
+            >
+              <path
+                d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20M9.33333 13.3333L16 20M16 20L22.6667 13.3333M16 20V4"
+                stroke="#FF1E46"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </div>
       </section>
 
-      <section className="wrapper p-5">
-        <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
-          Frequently Asked Questions
-        </h2>
-        {faqs.map(({ question, answer }, index) => (
-          <FaqExpandableCard question={question} answer={answer} key={index} />
-        ))}
+      <section className="w-full p-5 bg-white">
+        <div className="wrapper">
+          <h2 className="text-2xl font-bold text-tertiary-grey text-center py-7">
+            Frequently Asked Questions
+          </h2>
+          {faqs.map(({ question, answer }, index) => (
+            <FaqExpandableCard
+              question={question}
+              answer={answer}
+              key={index}
+            />
+          ))}
+        </div>
       </section>
     </main>
   );
