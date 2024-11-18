@@ -12,6 +12,7 @@ const FoodCard = ({ image, item, description, stars }) => {
       whileInView={{
         opacity: 1,
         y: 0,
+        transition: { delay: 0.2 },
       }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.1 }}

@@ -17,6 +17,7 @@ const RestaurantCard = ({
       whileInView={{
         opacity: 1,
         y: 0,
+        transition: { delay: 0.3 },
       }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.1 }}
