@@ -2,16 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@providers/UserAuthProvider";
 
 const ManagementSidebar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
-  const { auth } = useAuth();
+  const { auth, logout } = useAuth();
 
-  const toggleSidebar = () => setIsOpen(!isOpen); // Toggle sidebar visibility
+  const handleLogout = () => {
+    logout(false);
+    router.push("/admin-login");
+  };
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
   const navs = [
     {
@@ -86,7 +92,7 @@ const ManagementSidebar = () => {
 
       {/* Sidebar Container */}
       <div
-        className={`fixed top-0 left-0 h-full lg:min-w-max bg-white z-50 w-80 p-6 transform transition-transform pb-10 ${
+        className={`fixed top-0 left-0 h-full lg:h-max lg:min-w-max bg-white z-50 w-80 p-6 transform transition-transform pb-10 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:relative lg:flex lg:flex-col lg:w-64`}
       >
@@ -106,6 +112,7 @@ const ManagementSidebar = () => {
               Management Admin
             </p>
           </div>
+          <hr />
           <div className="py-4 max-w-80">
             <ul className="flex flex-col gap-5 text-xl font-extralight">
               {navs.map((navItem) => (
@@ -161,6 +168,19 @@ const ManagementSidebar = () => {
               </svg>
             </button>
           )}
+          <hr />
+          <button
+            className="text-red-600 font-bold text-lg flex justify-center items-center gap-4 w-full p-4 lg:mt-8"
+            onClick={handleLogout}
+          >
+            <Image
+              src="/assets/icons/logout.png"
+              width={20}
+              height={20}
+              alt="logout image"
+            />
+            Log Out
+          </button>
         </div>
       </div>
     </>

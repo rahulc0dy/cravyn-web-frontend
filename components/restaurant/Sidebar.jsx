@@ -2,18 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@providers/RestaurantAuthProvider";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to manage sidebar visibility
   const path = usePathname();
-  const { auth } = useAuth();
+  const { auth, logout } = useAuth();
+  const router = useRouter();
 
   const { name: restaurantName, restaurant_id } = auth.user ?? {
     name: null,
     restaurant_id: null,
+  };
+
+  const handleLogout = () => {
+    logout(true);
   };
 
   const toggleSidebar = () => setIsOpen(!isOpen); // Toggle sidebar visibility
@@ -82,11 +87,23 @@ const Sidebar = () => {
         } lg:translate-x-0 lg:relative lg:flex lg:flex-col lg:w-64`}
       >
         <div className="">
-          <div className="pb-4">
+          <div className="py-4">
             <h2 className="text-2xl font-bold text-teal-600">
               {restaurantName}
             </h2>
             <p className=" text-grey-medium">{restaurant_id}</p>
+            <button
+              className="flex justify-center items-center gap-4 text-red-600 font-bold rounded-md py-2 hover:font-extrabold hover:scale-105 transition-all"
+              onClick={handleLogout}
+            >
+              <Image
+                src="/assets/icons/logout.png"
+                width={20}
+                height={20}
+                alt="logout"
+              />
+              Log Out
+            </button>
           </div>
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">

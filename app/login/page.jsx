@@ -107,11 +107,17 @@ const LoginPage = () => {
             <button className="w-full bg-red-500 text-white py-2 rounded-md font-semibold transition duration-300 hover:bg-red-600">
               Login
             </button>
-            <Link href="#" className=" py-4 font-bold text-primary-red">
+            <Link href="#" className=" py-2 font-bold text-primary-red">
               Forgot Password?
             </Link>
-            <Link href="#" className=" py-4 font-bold text-primary-red">
+            <Link href="#" className=" py-2 font-bold text-primary-red">
               Need Help?
+            </Link>
+            <Link
+              href="/restaurant/login"
+              className=" py-2 font-bold text-primary-red"
+            >
+              Restaurant Login?
             </Link>
           </motion.div>
         </div>

@@ -105,6 +105,7 @@ const RestaurantLoginPage = () => {
                 value="management-team"
                 onChange={(e) => setUserRole(e.target.value)}
                 className="accent-blue-500 form-radio peer h-4 w-4"
+                checked={userRole === "management-team"}
               />
               <span className="ml-2 text-gray-700 peer-checked:text-blue-700">
                 Management Team
@@ -121,6 +122,7 @@ const RestaurantLoginPage = () => {
                 value="business-team"
                 onChange={(e) => setUserRole(e.target.value)}
                 className="accent-purple-500 form-radio text-red-500 h-4 w-4 peer"
+                checked={userRole === "business-team"}
               />
               <span className="ml-2 text-gray-700 peer-checked:text-purple-700">
                 Business Team
@@ -146,6 +148,13 @@ const RestaurantLoginPage = () => {
         <div className="text-center text-primary-red py-2 h-5 w-max">
           {isError && error.message}
         </div>
+
+        <Link
+          href="/"
+          className="text-center font-bold text-blue-400 hover:underline transition-all transform-gpu"
+        >
+          Go to Home Page
+        </Link>
       </form>
     </div>
   );

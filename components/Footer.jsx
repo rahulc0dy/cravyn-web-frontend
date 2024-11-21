@@ -44,7 +44,9 @@ const Footer = () => {
               width={80}
               height={80}
             />
-            <h2 className=" font-black text-3xl">CRAVYN</h2>
+            <Link href="/" className="font-black text-3xl">
+              CRAVYN
+            </Link>
           </div>
 
           <p className=" text-sm font-light py-2">

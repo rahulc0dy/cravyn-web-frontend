@@ -123,15 +123,21 @@ const RestaurantLoginPage = () => {
           </div>
           <Link
             href="#"
-            className="w-max py-4 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
+            className="w-max py-1 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
           >
             Forgot Password?
           </Link>
           <Link
             href="#"
-            className="w-max py-4 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
+            className="w-max py-1 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
           >
             Need Help?
+          </Link>
+          <Link
+            href="/login"
+            className="w-max py-1 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
+          >
+            Login as a Customer
           </Link>
         </form>
       </div>

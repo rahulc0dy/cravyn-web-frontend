@@ -48,22 +48,22 @@ const ApprovalModal = ({ visible, reqData = {}, closeFunc }) => {
         {/* Modal Content */}
         <div className="px-8 py-4 bg-white rounded-lg border-2 border-grey-medium mx-4">
           <p className="text-blue-800 font-extrabold text-2xl">
-            {reqData.name}
+            {reqData.restaurant_name}
           </p>
 
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* <div className="md:col-span-2 md:mb-2">
+            <div className="md:col-span-2 md:mb-2">
               <p className="text-gray-600">reqdata.email</p>
               <p className="text-black border-b-2 border-grey-light-3 text-wrap">
-                banzara@restaurant.com
+                {reqData.email}
               </p>
             </div>
             <div className="md:col-span-2 md:mb-2">
               <p className="text-gray-600">Phone Number</p>
               <p className="text-black border-b-2 border-grey-light-3">
-                9658745123
+                {reqData.phone_number}
               </p>
-            </div> */}
+            </div>
 
             {/* Address */}
             <div className="md:col-span-2 md:mb-2">
@@ -94,7 +94,7 @@ const ApprovalModal = ({ visible, reqData = {}, closeFunc }) => {
             <div className="md:col-span-2 md:mb-4">
               <p className="text-gray-600">Owner</p>
               <p className="text-blue-medium border-b-2 border-grey-light-3">
-                {"Unknown"}
+                {reqData.restaurant_owner_name}
               </p>
             </div>
 
