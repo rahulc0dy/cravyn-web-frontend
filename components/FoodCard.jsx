@@ -16,7 +16,7 @@ const FoodCard = ({ image, item, description, stars }) => {
       }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.1 }}
-      className="mt-10 min-w-fit box-border pb-4 rounded-xl px-4 shadow-xl bg-white"
+      className="mt-10 lg:min-w-fit box-border pb-4 rounded-xl px-4 shadow-xl bg-white"
     >
       <div className=" w-full -translate-y-10">
         <Image

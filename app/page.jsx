@@ -258,7 +258,7 @@ const HomePage = () => {
         <section className="py-12 wrapper">
           <div className="container mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-6">Top Choices</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 lg:p-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 p-10 ">
               {
                 /* Product Cards */
                 foodCardData.map(
