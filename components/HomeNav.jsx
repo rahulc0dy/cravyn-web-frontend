@@ -38,9 +38,11 @@ const HomeNav = () => {
   return resetLayout ? (
     <></>
   ) : (
-    <nav className={`w-full lg:shadow-none ${path == "/about" && "absolute"}`}>
+    <nav
+      className={`w-full lg:shadow-none ${path == "/about" && "absolute"} z-50`}
+    >
       <div
-        className={`wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ${
+        className={`wrapper mx-auto py-5 transition-all duration-1000 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ${
           isOpen && "backdrop-blur-xl"
         }`}
       >

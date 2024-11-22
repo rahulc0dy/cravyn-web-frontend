@@ -210,6 +210,7 @@ const HomePage = () => {
               scale: 1.1,
               boxShadow: "0 0 5rem 1rem #ffda7f",
             }}
+            whileTap={{ scale: 0.95 }}
             id="download-customer-app"
             className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
           >
@@ -347,6 +348,7 @@ const HomePage = () => {
               scale: 1.1,
               background: "linear-gradient(to right, #FFFFFF, #FFE0E0)",
             }}
+            whileTap={{ scale: 0.95 }}
             className="tracking-wide text-xl py-3 px-8 rounded-full text-primary-rose font-bold my-8"
           >
             <Link href="#">Download delivery partner app</Link>

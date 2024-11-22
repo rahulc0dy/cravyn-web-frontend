@@ -16,7 +16,7 @@
 
 ### What was Changed?
 
-Please include a detailed description of what has been changed, including any new features, bug fixes, or structural changes.
+<!-- Please include a detailed description of what has been changed, including any new features, bug fixes, or structural changes. -->
 
 ### How to Test?
 
