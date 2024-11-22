@@ -134,10 +134,10 @@ const RestaurantLoginPage = () => {
             Need Help?
           </Link>
           <Link
-            href="/login"
+            href="/"
             className="w-max py-1 font-bold text-primary-green hover:scale-105 hover:font-extrabold transition-all"
           >
-            Login as a Customer
+            Return to Home Page
           </Link>
         </form>
       </div>

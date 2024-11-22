@@ -89,6 +89,7 @@ const RestaurantOwnerHomepage = () => {
           ) : isDashboardFetchSuccess ? (
             dashboardData.data.restaurants.map((restaurant) => (
               <RestaurantCard
+                key={restaurant.restaurant_id}
                 image="/assets/images/Banzara.png"
                 name={restaurant.name}
                 address={`${restaurant.street}, ${restaurant.city}, ${

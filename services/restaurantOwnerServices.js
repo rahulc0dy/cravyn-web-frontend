@@ -1,16 +1,8 @@
 import api from "@utils/api";
 
 const registerRestaurantOwner = async (restaurantOwner) => {
-  const formData = new FormData();
-
-  for (const key in restaurant) {
-    if (restaurant.hasOwnProperty(key)) {
-      formData.append(key, restaurant[key]);
-    }
-  }
-
   try {
-    const response = await api.post("/restaurant-owner", formData);
+    const response = await api.post("/restaurant-owner", restaurantOwner);
     return response.data;
   } catch (error) {
     if (error.response) {
