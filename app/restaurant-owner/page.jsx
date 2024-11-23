@@ -37,6 +37,7 @@ const RestaurantOwnerHomepage = () => {
     retry: 1,
     refetchInterval: 600000,
     refetchIntervalInBackground: true,
+    refetchOnWindowFocus: false,
   });
 
   return (
