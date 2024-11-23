@@ -6,6 +6,7 @@ import { useAuth } from "@providers/UserAuthProvider";
 import { getRestaurantOwnerDashboardData } from "@services/restaurantOwnerServices";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -40,14 +41,27 @@ const RestaurantOwnerHomepage = () => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(auth);
-
   return (
     <main className="w-full">
       <section className="wrapper">
         <h2 className="text-6xl py-5 font-extrabold bg-gradient-to-r from-secondary-orange to-accent-yellow-light bg-clip-text text-transparent">
           Welcome {auth?.user?.name}
         </h2>
+        <motion.button
+          onClick={() => logout(true)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="text-lg font-bold text-red-500 px-5 py-2 my-3 rounded-md border-red-500 border-2"
+        >
+          <Image
+            alt="logout"
+            width={20}
+            height={20}
+            src="/assets/icons/logout.png"
+            className="inline-block align-middle"
+          />{" "}
+          Logout
+        </motion.button>
         <h3 className="text-2xl">Metrics for today</h3>
         <motion.div
           variants={staggerContainer}
