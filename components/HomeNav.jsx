@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +32,10 @@ const HomeNav = () => {
     "/business",
     "/admin-login",
   ];
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [path]);
 
   const resetLayout = noNavFooterPaths.includes(path);
 

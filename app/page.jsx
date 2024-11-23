@@ -213,6 +213,12 @@ const HomePage = () => {
             whileTap={{ scale: 0.95 }}
             id="download-customer-app"
             className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/downloads/app-debug.apk";
+              link.download = "app-debug.apk";
+              link.click();
+            }}
           >
             <div className="bg-accent-yellow rounded-full p-2">
               <Image
@@ -351,7 +357,13 @@ const HomePage = () => {
             whileTap={{ scale: 0.95 }}
             className="tracking-wide text-xl py-3 px-8 rounded-full text-primary-rose font-bold my-8"
           >
-            <Link href="#">Download delivery partner app</Link>
+            <Link
+              href="/assets/animations/flying-globe.mp4"
+              target="_blank"
+              download="flying-globe.mp4"
+            >
+              Download delivery partner app
+            </Link>
             <svg
               width="35"
               height="35"
