@@ -35,7 +35,7 @@ const RestaurantOwnerHomepage = () => {
     queryKey: ["Dashboard Data"],
     queryFn: getRestaurantOwnerDashboardData,
     retry: 1,
-    refetchInterval: 60000,
+    refetchInterval: 600000,
     refetchIntervalInBackground: true,
   });
 
