@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const FileInput = ({
   classes,
@@ -11,6 +11,7 @@ const FileInput = ({
 }) => {
   const [fileName, setFileName] = useState("Choose File");
   const [file, setFile] = useState(null); // To store the selected file
+  const fileInputRef = useRef(null);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -23,13 +24,20 @@ const FileInput = ({
       }
     }
   };
+
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click(); // Programmatically click the file input
+    }
+  };
+
   return (
     <div
       className={"mt-4 flex items-center rounded-lg overflow-hidden " + classes}
     >
       <label
         htmlFor={htmlId}
-        className="py-2 px-4 flex-grow cursor-pointer text-grey-dark"
+        className="py-2 px-4 flex-grow cursor-pointer text-grey-dark line-clamp-1"
       >
         {fileName}
       </label>
@@ -61,6 +69,7 @@ const FileInput = ({
         className="hidden"
         accept={fileType}
         onChange={handleFileChange}
+        ref={fileInputRef}
       />
     </div>
   );

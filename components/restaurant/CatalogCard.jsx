@@ -42,7 +42,7 @@ const CatalogCard = ({
         width={500}
         height={500}
         alt={name}
-        className="lg:w-1/4 object-cover w-full"
+        className="lg:w-1/4 aspect-square object-cover w-full"
       />
       <div className="p-4 lg:w-2/3 grid grid-rows-[auto_1fr_auto_auto]">
         <div className="text-2xl font-bold text-gray-800 mb-3">{name}</div>

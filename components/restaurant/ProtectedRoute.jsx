@@ -9,7 +9,10 @@ const ProtectedRoute = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!auth.loading && !auth.isAuthenticated) {
+    if (
+      auth.userType !== "restaurant" ||
+      (!auth.loading && !auth.isAuthenticated)
+    ) {
       // Redirect to login if not authenticated and not loading
       router.push("/restaurant/login");
     }
