@@ -14,9 +14,19 @@ const quicksand = Quicksand({
 const Footer = () => {
   const path = usePathname();
 
-  const noNavFooterPaths = ["/about", "/login", "/signup"];
+  const noFooterPaths = [
+    "/login",
+    "/signup",
+    "/restaurant/login",
+    "/management/dashboard",
+    "/management/login",
+    "/management/delivery-register",
+    "/management/partner-requests",
+    "/management/queries",
+    "/admin-login",
+  ];
 
-  const resetLayout = noNavFooterPaths.includes(path);
+  const resetLayout = noFooterPaths.includes(path);
 
   return resetLayout ? (
     <></>
@@ -34,7 +44,9 @@ const Footer = () => {
               width={80}
               height={80}
             />
-            <h2 className=" font-black text-3xl">CRAVYN</h2>
+            <Link href="/" className="font-black text-3xl">
+              CRAVYN
+            </Link>
           </div>
 
           <p className=" text-sm font-light py-2">
@@ -187,9 +199,9 @@ const Footer = () => {
             <Link href="/login">Sign in</Link>
             <Link href="/orders">Your Orders</Link>
             <Link href="/">Track Your Order</Link>
-            <Link href="/">Help Tickets</Link>
-            <Link href="/">Your Addresses</Link>
-            <Link href="/">Compare Products</Link>
+            <Link href="/support">Help Tickets</Link>
+            <Link href="/restaurant/login">Restaurant Login</Link>
+            <Link href="/admin-login">Admin Login</Link>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,20 +14,42 @@ const HomeNav = () => {
   const path = usePathname();
 
   const noNavFooterPaths = [
-    "/about",
     "/login",
     "/signup",
     "/partner-with-us",
-    "/restaurant/*",
+    "/restaurant/login",
+    "/restaurant/register",
+    "/restaurant/catalog",
+    "/restaurant/catalog/add",
+    "/restaurant/catalog/discounts",
+    "/restaurant/catalog/update",
+    "/restaurant/orders",
+    "/restaurant/orders/pending",
+    "/management/dashboard",
+    "/management/partner-requests",
+    "/management/queries",
+    "/management/delivery-register",
+    "/business",
+    "/admin-login",
   ];
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [path]);
 
   const resetLayout = noNavFooterPaths.includes(path);
 
   return resetLayout ? (
     <></>
   ) : (
-    <nav className="w-full lg:shadow-none">
-      <div className="wrapper mx-auto py-5 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ">
+    <nav
+      className={`w-full lg:shadow-none ${path == "/about" && "absolute"} z-50`}
+    >
+      <div
+        className={`wrapper mx-auto py-5 transition-all duration-1000 flex flex-wrap flex-col lg:flex-row justify-between items-center gap-8 lg:border-none ${
+          isOpen && "backdrop-blur-xl"
+        }`}
+      >
         <div className="flex justify-between w-full lg:w-auto items-center">
           <h1 className="font-black text-primary-grey text-2xl">CRAVYN</h1>
           <button
@@ -90,7 +112,7 @@ const HomeNav = () => {
               animate={{ y: 0, height: "auto" }}
               exit={{ y: -500, height: 0 }}
               transition={{ ease: "linear" }}
-              className={`lg:hidden lg:w-auto lg:flex-row flex-col lg:items-center gap-8`}
+              className={`lg:hidden lg:w-auto lg:flex-row flex-col lg:items-center gap-8 backdrop-blur-xl`}
             >
               <div className="flex lg:flex-row flex-col gap-10 text-lg font-bold text-grey-dark-2 text-center">
                 <Link

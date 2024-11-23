@@ -1,14 +1,6 @@
-import { motion } from "framer-motion";
-
 const TeamCard = ({ image, name, role, desc1, desc2, desc3, delay }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
-      viewport={{ once: true }}
-      className="max-w-xs p-6 bg-white rounded-lg shadow-md border-2 border- border-black m-10"
-    >
+    <div className="max-w-xs p-6 bg-white rounded-lg shadow-md border-2 border- border-black m-10">
       <div className="flex flex-col items-center">
         <img src={image} className="w-40 h-45 rounded-full mb-4" />
         <h2 className="text-2xl font-semibold">{name}</h2>
@@ -44,7 +36,7 @@ const TeamCard = ({ image, name, role, desc1, desc2, desc3, delay }) => {
           </li>
         </ul>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

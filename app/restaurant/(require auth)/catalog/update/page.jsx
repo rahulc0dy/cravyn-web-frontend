@@ -22,8 +22,6 @@ const RestaurantUpdateCatalogue = () => {
 
   const foodItem = isSuccess ? data.data.foodItem : {};
 
-  console.log(foodItem);
-
   return isError ? (
     <h3>Could not fetch</h3>
   ) : isLoading ? (

@@ -14,6 +14,8 @@ module.exports = {
         card2_bg: "url('/assets/images/about/card2_bg.jpg')",
         card3_bg: "url('/assets/images/about/card3_bg.jpg')",
         "restaurant-login-bg": "url('/assets/images/oooscillate.svg')",
+        "management-bg": "url('/assets/images/llleaves.svg')",
+        "food-pattern": "url('/assets/images/food line drawings.png')",
       },
       colors: {
         primary: {
@@ -21,11 +23,14 @@ module.exports = {
           red: "#e63a3a",
           grey: "#282723",
           green: "#1AC98B",
+          blue: "#000AFF",
+          rose: "#FF1E46",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
           green: "#00CD52",
+          blue: "#0EC5FF",
         },
         tertiary: {
           yellow: "#ffedc0",
@@ -38,6 +43,7 @@ module.exports = {
           "yellow-light": "#fff1bd",
           "red-dark": "#df3d3d",
           green: "#C0FFE1",
+          blue: "#E5F3FF",
         },
         warning: {
           "yellow-light": "#ffdd68",
@@ -46,6 +52,7 @@ module.exports = {
           red: "#ff324b",
           "red-dark": "#f80407",
           green: "#385145",
+          blue: "#326BFF",
         },
         grey: {
           "light-1": "#dbdbdb",

@@ -23,7 +23,7 @@ const FoodItemForm = ({
   const { data, mutate, isSuccess, isError, isPending, error } = useMutation({
     mutationFn: (formData) => onSubmit(formData),
     onSuccess: () => {
-      alert("Successfully added food item.");
+      alert(`Successfully ${foodName ? "updated" : "added"} food item.`);
     },
     onError: (error) => {},
   });
@@ -58,7 +58,7 @@ const FoodItemForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className=" grid my-10 grid-rows-[1fr_auto] m-5 lg:mx-auto p-8 border-2 border-secondary-blue rounded-lg self-start"
+      className=" grid my-10 grid-rows-[1fr_auto] m-5 lg:mx-auto p-8 border-2 border-emerald-200 rounded-lg self-start"
     >
       <div className="grid md:grid-cols-[1.5fr_3fr] gap-8 md:my-8">
         <div className="flex flex-col items-center gap-2">
@@ -72,7 +72,7 @@ const FoodItemForm = ({
                 src={imagePreview || foodImage}
                 width={200}
                 height={200}
-                className="w-full h-full object-cover border-2"
+                className="w-full h-full object-cover border-2 max-w-[90svw]"
                 alt="image preview"
               />
             ) : (
@@ -119,7 +119,7 @@ const FoodItemForm = ({
             >
               Item Type:
             </label>
-            <div className="flex gap-8 w-full flex-wrap">
+            <div className="flex gap-8 w-full flex-wrap justify-evenly">
               <label className="flex items-center  font-medium text-md cursor-pointer">
                 <input
                   type="radio"
@@ -236,7 +236,7 @@ const FoodItemForm = ({
           className="md:w-2/3 px-6 py-2 bg-primary-green text-white font-semibold rounded-md hover:bg-emerald-600 cursor-pointer"
         />
         <Link
-          href="/restaurants/catalog"
+          href="/restaurant/catalog"
           className="font-semibold md:w-1/3 px-6 py-2 bg-danger-red text-white rounded-md hover:bg-primary-red text-center"
         >
           Cancel

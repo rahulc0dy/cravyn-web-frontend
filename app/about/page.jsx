@@ -5,8 +5,6 @@ import TeamCard from "@components/TeamCard";
 import Steps from "@components/Steps";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import HomeNav from "@components/HomeNav";
-import Footer from "@components/Footer";
 
 const TeamData = [
   {
@@ -47,18 +45,55 @@ const TeamData = [
   },
 ];
 
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5, // Stagger effect between cards
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const aboutus = () => {
   return (
     <>
       <div>
         <div className="bg-about-background bg-cover min-h-screen flex flex-col">
-          <HomeNav />
           <section className="p-8 lg:p-0 flex flex-grow items-center justify-center  shadow-[0_-5rem_5rem_white_inset]">
             <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-6xl lg:text-8xl font-bold text-gray-900 mb-9">
+              <motion.h1
+                initial={{
+                  opacity: 0,
+                  y: 100,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                className="text-6xl lg:text-8xl font-bold text-gray-900 mb-9"
+              >
                 Who Are We?
-              </h1>
-              <p className="text-lg md:text-2xl md:font-normal font-semibold text-gray-600 leading-relaxed">
+              </motion.h1>
+              <motion.p
+                initial={{
+                  opacity: 0,
+                  y: 100,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.5,
+                }}
+                className="text-lg md:text-2xl md:font-normal font-semibold text-gray-600 leading-relaxed"
+              >
                 We are a dynamic food delivery company dedicated to bringing
                 your favorite meals right to your doorstep with speed and
                 convenience. We partner with top restaurants and local eateries
@@ -66,28 +101,36 @@ const aboutus = () => {
                 something for everyone. Our mission is to create a seamless and
                 enjoyable ordering experience, driven by our passion for great
                 food and exceptional customer service.
-              </p>
+              </motion.p>
             </div>
           </section>
         </div>
         <Description />
         <p className="text-center text-5xl font-bold mt-24 mb-10">Our Team</p>
         <div className="flex justify-center items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={gridVariants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          >
             {TeamData.map(
               ({ image, name, role, desc1, desc2, desc3 }, index) => (
-                <TeamCard
-                  key={index}
-                  image={image}
-                  name={name}
-                  role={role}
-                  desc1={desc1}
-                  desc2={desc2}
-                  desc3={desc3}
-                />
+                <motion.div key={index} variants={cardVariants}>
+                  <TeamCard
+                    key={index}
+                    image={image}
+                    name={name}
+                    role={role}
+                    desc1={desc1}
+                    desc2={desc2}
+                    desc3={desc3}
+                  />
+                </motion.div>
               )
             )}
-          </div>
+          </motion.div>
         </div>
         <p className="text-center text-5xl font-bold mt-24 mx-4 md:mx-0">
           From Phone to Door
@@ -181,7 +224,6 @@ const aboutus = () => {
           </div>
         </motion.div>
       </div>
-      <Footer />
     </>
   );
 };

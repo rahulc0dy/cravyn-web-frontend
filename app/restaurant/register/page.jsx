@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import FileInput from "@components/restaurant/FileInput";
@@ -10,11 +9,16 @@ import { useMutation } from "@tanstack/react-query";
 import { registerRestaurant } from "@services/restaurantServices";
 import { useAuth } from "@providers/RestaurantAuthProvider";
 import { useRouter } from "next/navigation";
+import { useAuth as useUserAuth } from "@providers/UserAuthProvider";
+import Popup from "@components/PopUpModal";
 
 const RegisterRestaurant = () => {
   const { login, auth } = useAuth();
+  const { auth: userAuth } = useUserAuth();
 
   const router = useRouter();
+
+  !userAuth.isAuthenticated ? router.push("/login") : "";
 
   const [showDocumentModal, setShowDocumentModal] = useState(false);
 
@@ -50,17 +54,6 @@ const RegisterRestaurant = () => {
     mutationFn: (formData) => registerRestaurant(formData),
     onSuccess: async (data) => {
       console.log("Registration successful:", data);
-
-      await login({
-        registrationNumber: registrationNo,
-        password,
-      });
-
-      console.log("Loginsss");
-
-      if (auth.isAuthenticated) {
-        router.push("/restaurant/catalog"); // Redirect if login is successful
-      }
     },
     onError: (error) => {
       console.error("Registration failed:", error);
@@ -73,7 +66,7 @@ const RegisterRestaurant = () => {
     const restaurant = {
       name: restaurantName,
       registrationNo,
-      ownerId: "db8829a3-cc1a-4958-9d8b-9175f4fde63d",
+      ownerId: userAuth.user.id,
       email,
       phoneNumber,
       lat,
@@ -486,6 +479,12 @@ const RegisterRestaurant = () => {
           setShowDocumentModal(false);
         }}
       />
+      {isError && (
+        <Popup duration={1000} type="failure" message={error.message} />
+      )}
+      {isSuccess && (
+        <Popup duration={1000} type="success" message={data.message} />
+      )}
     </>
   );
 };
