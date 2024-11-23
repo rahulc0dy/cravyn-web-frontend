@@ -57,9 +57,9 @@ const getFoodItem = async (itemId) => {
   }
 };
 
-const getPendingOrders = async () => {
+const getOrders = async (status) => {
   try {
-    const response = await api.get(`/restaurants/orders/pending`, {});
+    const response = await api.get(`/restaurants/orders/${status}`, {});
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -121,7 +121,7 @@ const updateFooditem = async (foodItem) => {
 export {
   registerRestaurant,
   getCatalog,
-  getPendingOrders,
+  getOrders,
   addFoodItem,
   getFoodItem,
   updateFooditem,
