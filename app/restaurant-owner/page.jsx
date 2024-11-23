@@ -40,11 +40,13 @@ const RestaurantOwnerHomepage = () => {
     refetchOnWindowFocus: false,
   });
 
+  console.log(auth);
+
   return (
     <main className="w-full">
       <section className="wrapper">
         <h2 className="text-6xl py-5 font-extrabold bg-gradient-to-r from-secondary-orange to-accent-yellow-light bg-clip-text text-transparent">
-          Welcome {auth?.user.name}
+          Welcome {auth?.user?.name}
         </h2>
         <h3 className="text-2xl">Metrics for today</h3>
         <motion.div
@@ -99,6 +101,7 @@ const RestaurantOwnerHomepage = () => {
                 stars={restaurant.rating}
                 sales={Math.ceil(Math.random() * 100000 + 10000)}
                 ordersPerDay={Math.ceil(Math.random() * 1000)}
+                verification={restaurant.verify_status}
               />
             ))
           ) : (
