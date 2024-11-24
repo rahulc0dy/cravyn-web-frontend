@@ -27,8 +27,8 @@ const QueriesPage = () => {
           <div>Loading...</div>
         ) : (
           isSuccess &&
-          data.data.restaurantQueries.map((query) => (
-            <div className="flex flex-col gap-4">
+          data.data.restaurantQueries.map((query, index) => (
+            <div className="flex flex-col gap-4" key={query.query_id || index}>
               <p className="bg-gradient-to-r md:text-xl from-accent-green to-accent-yellow-light p-4 self-start rounded-xl rounded-tl-none">
                 <span className="font-bold mr-2 block md:text-lg">You:</span>
                 {query.question}
