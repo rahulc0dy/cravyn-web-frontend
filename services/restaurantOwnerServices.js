@@ -30,4 +30,25 @@ const getRestaurantOwnerDashboardData = async () => {
   }
 };
 
-export { registerRestaurantOwner, getRestaurantOwnerDashboardData };
+const getRestaurantFoodSalesData = async (restaurantId) => {
+  try {
+    const response = await api.get(`/restaurant-owner/food-sales`, {
+      params: { restaurantId: restaurantId },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error getting catalog:", error.response.data);
+      throw new Error("Catalog fetch failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
+export {
+  registerRestaurantOwner,
+  getRestaurantOwnerDashboardData,
+  getRestaurantFoodSalesData,
+};

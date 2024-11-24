@@ -41,8 +41,6 @@ const RestaurantOwnerHomepage = () => {
     refetchOnWindowFocus: false,
   });
 
-  isDashboardFetchSuccess && console.log(dashboardData);
-
   return (
     <main className="w-full">
       <section className="wrapper">
@@ -109,6 +107,7 @@ const RestaurantOwnerHomepage = () => {
             dashboardData.data.restaurants.map((restaurant) => (
               <RestaurantCard
                 key={restaurant.restaurant_id}
+                id={restaurant.restaurant_id}
                 image="/assets/images/Banzara.png"
                 name={restaurant.name}
                 address={`${restaurant.street}, ${restaurant.city}, ${
