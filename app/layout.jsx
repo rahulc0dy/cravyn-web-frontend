@@ -32,7 +32,6 @@ export default function RootLayout({ children }) {
         } antialiased scroll-smooth`}
       >
         <ReactQueryProvider>
-          <HomeNav />
           {children}
           <Footer />
         </ReactQueryProvider>

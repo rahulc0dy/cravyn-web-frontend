@@ -5,6 +5,8 @@ import TeamCard from "@components/TeamCard";
 import Steps from "@components/Steps";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import HomeNav from "@components/HomeNav";
+import { UserAuthProvider } from "@providers/UserAuthProvider";
 
 const TeamData = [
   {
@@ -63,6 +65,9 @@ const cardVariants = {
 const aboutus = () => {
   return (
     <>
+      <UserAuthProvider>
+        <HomeNav />
+      </UserAuthProvider>
       <div>
         <div className="bg-about-background bg-cover min-h-screen flex flex-col">
           <section className="p-8 lg:p-0 flex flex-grow items-center justify-center  shadow-[0_-5rem_5rem_white_inset]">

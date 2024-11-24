@@ -15,22 +15,6 @@ const OrderDetailsDialog = ({
   visible,
   closefunc,
 }) => {
-  console.table({
-    orderId,
-    time,
-    customerName,
-    orderItems,
-    totalPrice,
-    instructions,
-    address,
-    deliveryPartnerName,
-    deliveryPartnerPhone,
-    deliveryPartnerVehicle,
-    status,
-    visible,
-    closefunc,
-  });
-
   if (!visible) return null;
   return (
     <div className=" fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 px-4 z-50">

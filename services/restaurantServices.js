@@ -118,6 +118,21 @@ const updateFooditem = async (foodItem) => {
   }
 };
 
+const raiseQuery = async (question) => {
+  try {
+    const response = await api.post("/restaurants/query", { question });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
 export {
   registerRestaurant,
   getCatalog,
@@ -125,4 +140,5 @@ export {
   addFoodItem,
   getFoodItem,
   updateFooditem,
+  raiseQuery,
 };

@@ -27,12 +27,12 @@ const Sidebar = () => {
     { name: "Pending", href: "/restaurant/orders/pending" },
     { name: "Cancelled", href: "/restaurant/orders/cancelled" },
     { name: "Packed", href: "/restaurant/orders/packed" },
+    { name: "Delivered", href: "/restaurant/orders/delivered" },
   ];
 
-  const statsNavs = [
-    { name: "Orders", href: "/restaurant/order-stats" },
+  const options = [
+    { name: "Raise Query", href: "/restaurant/raise-query" },
     { name: "Reviews", href: "/restaurant/reviews" },
-    { name: "Customers", href: "/restaurant/customers" },
   ];
 
   const catalogNavs = [
@@ -132,10 +132,10 @@ const Sidebar = () => {
 
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">
-              Your Stats
+              Catalog
             </h4>
             <ul className="flex flex-col gap-2 text-lg font-extralight">
-              {statsNavs.map((navItem) => (
+              {catalogNavs.map((navItem) => (
                 <li
                   key={navItem.name}
                   className={`py-2 px-5 ${isActive(navItem.href)} rounded-md`}
@@ -157,10 +157,10 @@ const Sidebar = () => {
 
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">
-              Catalog
+              Your Stats
             </h4>
             <ul className="flex flex-col gap-2 text-lg font-extralight">
-              {catalogNavs.map((navItem) => (
+              {options.map((navItem) => (
                 <li
                   key={navItem.name}
                   className={`py-2 px-5 ${isActive(navItem.href)} rounded-md`}

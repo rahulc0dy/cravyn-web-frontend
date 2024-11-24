@@ -41,6 +41,8 @@ const RestaurantOwnerHomepage = () => {
     refetchOnWindowFocus: false,
   });
 
+  isDashboardFetchSuccess && console.log(dashboardData);
+
   return (
     <main className="w-full">
       <section className="wrapper">
@@ -113,8 +115,8 @@ const RestaurantOwnerHomepage = () => {
                   restaurant.landmark ? restaurant.landmark + ", " : ""
                 }${restaurant.pin_code} `}
                 stars={restaurant.rating}
-                sales={Math.ceil(Math.random() * 100000 + 10000)}
-                ordersPerDay={Math.ceil(Math.random() * 1000)}
+                sales={restaurant.sales}
+                ordersPerDay={restaurant.orders}
                 verification={restaurant.verify_status}
               />
             ))
@@ -125,7 +127,7 @@ const RestaurantOwnerHomepage = () => {
       </section>
       {isDashboardFetchError && (
         <Popup
-          duration={1000}
+          duration={3000}
           message={dashboardFetchError.message}
           type="failure"
         />
