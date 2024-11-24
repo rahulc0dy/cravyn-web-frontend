@@ -31,14 +31,13 @@ const Sidebar = () => {
   ];
 
   const options = [
-    { name: "Raise Query", href: "/restaurant/raise-query" },
-    { name: "Reviews", href: "/restaurant/reviews" },
+    { name: "Raise Query", href: "/restaurant/support/raise-query" },
+    { name: "Your Queries", href: "/restaurant/support/queries" },
   ];
 
   const catalogNavs = [
     { name: "Current Catalog", href: "/restaurant/catalog" },
     { name: "Add New Item", href: "/restaurant/catalog/add" },
-    { name: "Update Existing Item", href: "/restaurant/catalog/update" },
     { name: "Discounts", href: "/restaurant/catalog/discounts" },
   ];
 
@@ -157,7 +156,7 @@ const Sidebar = () => {
 
           <div className="py-4 max-w-80">
             <h4 className="text-xl font-semibold pb-2 border-b-2 border-grey-light-3 mb-2">
-              Your Stats
+              Support
             </h4>
             <ul className="flex flex-col gap-2 text-lg font-extralight">
               {options.map((navItem) => (

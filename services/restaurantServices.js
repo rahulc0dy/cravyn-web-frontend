@@ -133,6 +133,21 @@ const raiseQuery = async (question) => {
   }
 };
 
+const getQueries = async () => {
+  try {
+    const response = await api.get(`/restaurants/query`, {});
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.data);
+      throw new Error(error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
 export {
   registerRestaurant,
   getCatalog,
@@ -141,4 +156,5 @@ export {
   getFoodItem,
   updateFooditem,
   raiseQuery,
+  getQueries,
 };

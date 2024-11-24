@@ -114,7 +114,7 @@ const RestaurantCard = ({
           </span>
         </p>
         <p className="font-medium text-lg">
-          Orders / day:{" "}
+          Total orders:{" "}
           <span className="font-bold text-secondary-green text-lg tracking-widest px-2">
             {ordersPerDay}
           </span>
