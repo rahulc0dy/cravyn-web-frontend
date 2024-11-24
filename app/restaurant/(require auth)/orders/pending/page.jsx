@@ -41,8 +41,6 @@ const PendingOrdersPage = () => {
 
   const orders = data?.data?.orders || [];
 
-  isSuccess && console.log(data.data);
-
   const handleClickedOrder = (order) => {
     setClickedOrder(order);
     setShowModal(true);

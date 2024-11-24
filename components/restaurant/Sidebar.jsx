@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   const orderNavs = [
     { name: "Pending", href: "/restaurant/orders/pending" },
-    { name: "Completed", href: "/restaurant/orders/completed" },
+    { name: "Cancelled", href: "/restaurant/orders/cancelled" },
     { name: "Packed", href: "/restaurant/orders/packed" },
   ];
 

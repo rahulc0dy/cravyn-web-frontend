@@ -15,7 +15,7 @@ const PendingOrdersPage = () => {
   const { data, isLoading, isSuccess, isError, error } = useQuery({
     queryKey: ["orders"],
     enabled: true,
-    queryFn: () => getOrders("packed"),
+    queryFn: () => getOrders("cancelled"),
     retry: 1,
     refetchOnWindowFocus: false,
     refetchInterval: 10000,
