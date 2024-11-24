@@ -1,11 +1,73 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Chart from "react-apexcharts";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+
+const doughnutOptions = {
+  labels: ["Vegetarian", "Non Vegetarian", "Beverages"],
+  colors: ["#7C3AED", "#6366F1", "#A78BFA"],
+  legend: {
+    position: "top",
+    fontSize: "16px",
+    markers: {
+      shape: "square",
+    },
+  },
+  title: { text: "Orders", align: "left" },
+  dataLabels: { enabled: false },
+  plotOptions: { pie: { donut: { size: "45%" } } },
+};
+const doughnutSeries = [26, 18, 19];
+
+const lineOptions1 = {
+  chart: { toolbar: { show: false } },
+  stroke: { curve: "smooth" },
+  colors: ["#7C3AED"],
+  xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
+  title: { text: "Performance", align: "left" },
+};
+const lineSeries1 = [
+  { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
+];
+
+const lineOptions2 = {
+  chart: { toolbar: { show: false } },
+  stroke: { curve: "smooth" },
+  colors: ["#7C3AED"],
+  xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
+  dataLabels: { enabled: false },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shadeIntensity: 1,
+      inverseColors: false,
+      opacityFrom: 0.5,
+      opacityTo: 0,
+      stops: [0, 90, 100],
+    },
+  },
+};
+const lineSeries2 = [
+  { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
+];
+
+const mixedOptions = {
+  chart: { toolbar: { show: false } },
+  xaxis: { categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+  stroke: { width: [0, 2] },
+  colors: ["#7C3AED", "#6366F1"],
+};
+const mixedSeries = [
+  {
+    name: "Active Customers",
+    type: "column",
+    data: [4400, 5000, 6500, 7000, 6300, 3700, 4700],
+  },
+  { name: "Conversion Rate", type: "line", data: [14, 16, 18, 20, 22, 24] },
+];
 export default function BusinessDashboard() {
   const [isClient, setIsClient] = useState(false);
   const dashboardRef = useRef();
@@ -18,98 +80,18 @@ export default function BusinessDashboard() {
     return null;
   }
 
-  const doughnutOptions = {
-    labels: ["Vegetarian", "Non Vegetarian", "Beverages"],
-    colors: ["#7C3AED", "#6366F1", "#A78BFA"],
-    legend: {
-      position: "top",
-      fontSize: "16px",
-      markers: {
-        shape: "square",
-      },
-    },
-    title: { text: "Orders", align: "left" },
-    dataLabels: { enabled: false },
-    plotOptions: { pie: { donut: { size: "45%" } } },
-  };
-  const doughnutSeries = [26, 18, 19];
+  const handlePrint = () => {
+    const originalContent = document.body.innerHTML;
 
-  const lineOptions1 = {
-    chart: { toolbar: { show: false } },
-    stroke: { curve: "smooth" },
-    colors: ["#7C3AED"],
-    xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
-    title: { text: "Performance", align: "left" },
-  };
-  const lineSeries1 = [
-    { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
-  ];
+    const printableContent = dashboardRef.current.innerHTML;
+    document.body.innerHTML = printableContent;
 
-  const lineOptions2 = {
-    chart: { toolbar: { show: false } },
-    stroke: { curve: "smooth" },
-    colors: ["#7C3AED"],
-    xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
-    dataLabels: { enabled: false },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        inverseColors: false,
-        opacityFrom: 0.5,
-        opacityTo: 0,
-        stops: [0, 90, 100],
-      },
-    },
-  };
-  const lineSeries2 = [
-    { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
-  ];
+    window.print();
 
-  const mixedOptions = {
-    chart: { toolbar: { show: false } },
-    xaxis: { categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
-    stroke: { width: [0, 2] },
-    colors: ["#7C3AED", "#6366F1"],
-  };
-  const mixedSeries = [
-    {
-      name: "Active Customers",
-      type: "column",
-      data: [4400, 5000, 6500, 7000, 6300, 3700, 4700],
-    },
-    { name: "Conversion Rate", type: "line", data: [14, 16, 18, 20, 22, 24] },
-  ];
+    document.body.innerHTML = originalContent;
 
-  const downloadPDF = () => {
-    const input = dashboardRef.current;
-
-    const originalOverflow = input.style.overflow;
-    input.style.overflow = "visible";
-    const contentHeight = input.scrollHeight;
-    input.style.height = `${contentHeight}px`;
-
-    html2canvas(input, {
-      scale: 2,
-      scrollX: 0,
-      scrollY: 0,
-      windowWidth: input.scrollWidth,
-      windowHeight: contentHeight,
-      useCORS: true,
-    }).then((canvas) => {
-      input.style.overflow = originalOverflow;
-      input.style.height = "auto";
-
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("landscape", "mm", "a5");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-
-      // Set image to fill the full PDF page
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-
-      pdf.save("dashboard-report.pdf");
-    });
+    // Reload the page to reattach event listeners and scripts
+    window.location.reload();
   };
 
   return (
@@ -177,7 +159,7 @@ export default function BusinessDashboard() {
           </div>
 
           <button
-            onClick={downloadPDF}
+            onClick={handlePrint}
             className="px-5 lg:py-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-medium flex justify-center gap-2 text-left"
           >
             <svg
@@ -203,7 +185,7 @@ export default function BusinessDashboard() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1.5fr] lg:grid-rows-[1fr_1.2]">
-          <div className="relative row-span-2 lg:min-h-max min-h-[30rem] ">
+          <div className="relative row-span-2 lg:min-h-max min-h-[50rem]  ">
             <p className="text-3xl font-bold text-center mt-10 lg:mt-56">
               Annual Increments
             </p>
@@ -291,13 +273,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="green"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
                     />
                   </svg>
@@ -306,13 +288,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="m8.25 4.5 7.5 7.5-7.5 7.5"
                     />
                   </svg>
@@ -326,13 +308,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="red"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181"
                     />
                   </svg>
@@ -341,13 +323,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="m8.25 4.5 7.5 7.5-7.5 7.5"
                     />
                   </svg>
@@ -361,13 +343,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="red"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181"
                     />
                   </svg>
@@ -376,13 +358,13 @@ export default function BusinessDashboard() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
-                    class="size-6"
+                    className="size-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="m8.25 4.5 7.5 7.5-7.5 7.5"
                     />
                   </svg>
