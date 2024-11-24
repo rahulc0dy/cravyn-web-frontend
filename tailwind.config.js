@@ -25,18 +25,21 @@ module.exports = {
           green: "#1AC98B",
           blue: "#000AFF",
           rose: "#FF1E46",
+          purple: "#7500BC",
         },
         secondary: {
           red: "#960a0a",
           orange: "#ED7E00",
           green: "#00CD52",
           blue: "#0EC5FF",
+          purple: "#7D5CFF",
         },
         tertiary: {
           yellow: "#ffedc0",
           grey: "#232323",
           green: "#0A964A",
           blue: "#1D3E73",
+          purple: "#A383FF",
         },
         accent: {
           yellow: "#ffda7f",
@@ -44,6 +47,7 @@ module.exports = {
           "red-dark": "#df3d3d",
           green: "#C0FFE1",
           blue: "#E5F3FF",
+          purple: "#EEDDFF",
         },
         warning: {
           "yellow-light": "#ffdd68",
