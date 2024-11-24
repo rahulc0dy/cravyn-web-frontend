@@ -2,16 +2,8 @@
 
 import { getQueries } from "@services/restaurantServices";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 
 const QueriesPage = () => {
-  const query = {
-    query_id: 234,
-    name: "skdfj",
-    question: "asdfsdfsdf",
-    answer: null,
-  };
-
   const { data, isSuccess, isError, isLoading, error } = useQuery({
     queryKey: ["data"],
     queryFn: getQueries,
