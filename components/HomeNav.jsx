@@ -5,43 +5,33 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useAuth } from "@providers/UserAuthProvider";
 
 const HomeNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const [isProfileDialogShown, setIsProfileDialogShown] = useState(false);
+
+  const { auth, logout } = useAuth();
+
+  const user = auth?.user;
+
   const path = usePathname();
 
-  const noNavFooterPaths = [
-    "/login",
-    "/signup",
-    "/partner-with-us",
-    "/restaurant/login",
-    "/restaurant/register",
-    "/restaurant/catalog",
-    "/restaurant/catalog/add",
-    "/restaurant/catalog/discounts",
-    "/restaurant/catalog/update",
-    "/restaurant/orders",
-    "/restaurant/orders/pending",
-    "/management/dashboard",
-    "/management/partner-requests",
-    "/management/queries",
-    "/management/delivery-register",
-    "/business",
-    "/admin-login",
-  ];
+  const dialogVariants = {
+    hidden: { height: 0, padding: 0 },
+    visible: { height: "auto", padding: "1.5rem" },
+    exit: { height: 0, padding: 0 },
+  };
 
   useEffect(() => {
     setIsOpen(false);
   }, [path]);
 
-  const resetLayout = noNavFooterPaths.includes(path);
-
-  return resetLayout ? (
-    <></>
-  ) : (
+  return (
     <nav
       className={`w-full lg:shadow-none ${path == "/about" && "absolute"} z-50`}
     >
@@ -164,26 +154,47 @@ const HomeNav = () => {
                   </svg>
                 </Link>
               </div>
-              <div className="w-50 flex lg:flex-row flex-col gap-7 font-semibold">
-                <Link
-                  className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
-                  href="/signup"
-                >
-                  <Image
-                    src="/assets/icons/signup.png"
-                    width={20}
-                    height={20}
-                    alt="Signup icon"
-                  />
-                  <p>Sign Up</p>
-                </Link>
-                <Link
-                  href="/login"
-                  className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110 hover:bg-opacity-85 hover:shadow-lg transition-all"
-                >
-                  Login
-                </Link>
-              </div>
+              {auth.isAuthenticated ? (
+                <>
+                  <div className="p-2 text-xl font-bold overflow-clip flex justify-center items-center">
+                    {auth.user.name}
+                  </div>
+                  <button
+                    className="font-bold text-red-500 text-lg p-5"
+                    onClick={() => logout(path !== "/" && path !== "/about")}
+                  >
+                    <Image
+                      src="/assets/icons/logout.png"
+                      width={20}
+                      height={20}
+                      className="inline-block mr-2"
+                      alt="logout"
+                    />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <div className="w-50 flex lg:flex-row flex-col gap-7 font-semibold">
+                  <Link
+                    className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
+                    href="/signup"
+                  >
+                    <Image
+                      src="/assets/icons/signup.png"
+                      width={20}
+                      height={20}
+                      alt="Signup icon"
+                    />
+                    <p>Sign Up</p>
+                  </Link>
+                  <Link
+                    href="/login"
+                    className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110 hover:bg-opacity-85 hover:shadow-lg transition-all"
+                  >
+                    Login
+                  </Link>
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -241,26 +252,69 @@ const HomeNav = () => {
               </svg>
             </Link>
           </div>
-          <div className="w-50 flex lg:flex-row flex-col gap-7 font-semibold">
-            <Link
-              className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
-              href="/signup"
-            >
-              <Image
-                src="/assets/icons/signup.png"
-                width={20}
-                height={20}
-                alt="Signup icon"
-              />
-              <p>Sign Up</p>
-            </Link>
-            <Link
-              href="/login"
-              className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110 hover:bg-opacity-85 hover:shadow-lg transition-all"
-            >
-              Login
-            </Link>
-          </div>
+          {auth.isAuthenticated ? (
+            <div className="relative">
+              <div
+                className="p-2 text-xl font-black bg-rose-400 rounded-full aspect-square h-10 text-white flex justify-center items-center border-grey-dark-3 border-2 cursor-pointer"
+                onClick={() => setIsProfileDialogShown(!isProfileDialogShown)}
+              >
+                {auth.user.name.charAt(0)}
+              </div>
+
+              <AnimatePresence>
+                {isProfileDialogShown && (
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={dialogVariants}
+                    transition={{ duration: 0.2 }}
+                    className="hidden lg:block absolute z-50 bg-white w-max right-0 rounded-lg shadow-lg overflow-hidden"
+                  >
+                    <p className="py-2 font-bold text-rose-600">{user.name}</p>
+                    <hr />
+                    <p className="py-2 text-grey-medium">Profile</p>
+                    <hr />
+                    <p className="py-2 text-grey-medium">Help</p>
+                    <hr />
+                    <button
+                      className="font-bold text-red-500 text-lg py-2"
+                      onClick={() => logout(path !== "/" && path !== "/about")}
+                    >
+                      <Image
+                        src="/assets/icons/logout.png"
+                        width={20}
+                        height={20}
+                        className="inline-block mr-2"
+                      />
+                      Logout
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ) : (
+            <div className="w-50 flex lg:flex-row flex-col gap-7 font-semibold">
+              <Link
+                className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-accent-yellow rounded-full text-base hover:scale-110 hover:bg-opacity-65 hover:shadow-lg transition-all"
+                href="/signup"
+              >
+                <Image
+                  src="/assets/icons/signup.png"
+                  width={20}
+                  height={20}
+                  alt="Signup icon"
+                />
+                <p>Sign Up</p>
+              </Link>
+              <Link
+                href="/login"
+                className="w-[8rem] flex items-center justify-center py-2 gap-3 bg-primary-red rounded-full text-base text-white hover:scale-110 hover:bg-opacity-85 hover:shadow-lg transition-all"
+              >
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>

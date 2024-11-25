@@ -107,14 +107,15 @@ const RestaurantOwnerHomepage = () => {
             dashboardData.data.restaurants.map((restaurant) => (
               <RestaurantCard
                 key={restaurant.restaurant_id}
+                id={restaurant.restaurant_id}
                 image="/assets/images/Banzara.png"
                 name={restaurant.name}
                 address={`${restaurant.street}, ${restaurant.city}, ${
                   restaurant.landmark ? restaurant.landmark + ", " : ""
                 }${restaurant.pin_code} `}
                 stars={restaurant.rating}
-                sales={Math.ceil(Math.random() * 100000 + 10000)}
-                ordersPerDay={Math.ceil(Math.random() * 1000)}
+                sales={restaurant.sales}
+                ordersPerDay={restaurant.orders}
                 verification={restaurant.verify_status}
               />
             ))
@@ -125,7 +126,7 @@ const RestaurantOwnerHomepage = () => {
       </section>
       {isDashboardFetchError && (
         <Popup
-          duration={1000}
+          duration={3000}
           message={dashboardFetchError.message}
           type="failure"
         />

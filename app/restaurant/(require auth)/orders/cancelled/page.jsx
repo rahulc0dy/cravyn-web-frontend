@@ -15,7 +15,7 @@ const PendingOrdersPage = () => {
   const { data, isLoading, isSuccess, isError, error } = useQuery({
     queryKey: ["orders"],
     enabled: true,
-    queryFn: () => getOrders("pending"),
+    queryFn: () => getOrders("cancelled"),
     retry: 1,
     refetchOnWindowFocus: false,
     refetchInterval: 10000,
@@ -48,7 +48,7 @@ const PendingOrdersPage = () => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-12 justify-center h-screen max-h-screen overflow-y-scroll py-10">
+      <div className="flex flex-wrap gap-10 justify-evenly max-h-screen overflow-y-scroll py-10">
         {isLoading ? (
           <LoadingSpinner />
         ) : isError ? (

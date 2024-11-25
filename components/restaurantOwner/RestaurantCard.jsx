@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const RestaurantCard = ({
+  id,
   image,
   name,
   address,
@@ -88,7 +90,12 @@ const RestaurantCard = ({
       </div>
 
       <div className="px-5 py-4">
-        <h4 className="font-bold text-primary-orange text-3xl">{name}</h4>
+        <Link
+          href={`/restaurant-owner/${id}`}
+          className="font-bold text-primary-orange text-3xl"
+        >
+          {name}
+        </Link>
         <p className="font-base text-grey-medium text-lg mb-2 text-wrap min-h-12">
           {address}
         </p>
@@ -114,7 +121,7 @@ const RestaurantCard = ({
           </span>
         </p>
         <p className="font-medium text-lg">
-          Orders / day:{" "}
+          Total orders:{" "}
           <span className="font-bold text-secondary-green text-lg tracking-widest px-2">
             {ordersPerDay}
           </span>
