@@ -15,7 +15,7 @@ const FoodSalesPage = () => {
     refetchIntervalInBackground: true,
   });
 
-  return (
+  return isSuccess ? (
     <main className="wrapper">
       <div className="p-5 mx-auto lg:max-w-4xl border-8 border-accent-yellow-light my-4 mb-8 rounded-lg">
         <h1 className="text-2xl font-bold">
@@ -122,6 +122,10 @@ const FoodSalesPage = () => {
         )}
       </div>
     </main>
+  ) : (
+    <h1 className="text-2xl text-red-500 font-bold min-h-screen text-center">
+      {isLoading ? "Loading..." : isError ? error.message : "No data to show!"}
+    </h1>
   );
 };
 
