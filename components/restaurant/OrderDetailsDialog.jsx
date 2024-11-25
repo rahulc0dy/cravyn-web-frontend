@@ -8,7 +8,9 @@ const OrderDetailsDialog = ({
   totalPrice,
   instructions,
   address,
-  deliveryPartner,
+  deliveryPartnerName,
+  deliveryPartnerPhone,
+  deliveryPartnerVehicle,
   status,
   visible,
   closefunc,
@@ -50,13 +52,13 @@ const OrderDetailsDialog = ({
               {orderItems.map((item, index) => (
                 <tr key={index}>
                   <td className="py-1 px-5 text-lg font-semibold text-gray-500">
-                    {item.name}
+                    {item.food_name}
                   </td>
                   <td className="py-1 px-2 text-lg font-semibold text-gray-500">
-                    {item.qty}
+                    {item.quantity}
                   </td>
                   <td className="py-1 px-2 text-lg font-semibold text-gray-500">
-                    ₹ {item.price.toFixed(2)}
+                    ₹ {item.item_price.toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -66,7 +68,7 @@ const OrderDetailsDialog = ({
                 </td>
                 <td className="py-1 px-2 text-lg font-semibold text-gray-500 border-t-4 border-gray-300"></td>
                 <td className="py-1 px-2 text-primary-green font-bold text-lg mb-4 border-t-4 border-gray-300 pt-4 pr-8">
-                  ₹ {totalPrice.toFixed(2)}
+                  ₹ {totalPrice}
                 </td>
               </tr>
             </tbody>
@@ -85,21 +87,18 @@ const OrderDetailsDialog = ({
             <h3 className="font-bold text-tertiary-green text-xl mb-3">
               Delivery Address:
             </h3>
-            <p>{address.line1}</p>
-            <p>{address.line2}</p>
-            <p>
-              {address.city}, {address.zipCode}
-            </p>
-            <p>Landmark: {address.landmark}</p>
+            <p>VCS Street, Rajabajar</p>
+            <p>2nd floor</p>
+            <p>Kolkata, 722153</p>
+            <p>Landmark: N/A</p>
           </div>
           <div>
             <h3 className="font-bold text-tertiary-green text-xl mb-3">
               Delivery Partner:
             </h3>
-            <p>{deliveryPartner.name}</p>
-            <p>Age: {deliveryPartner.age}</p>
-            <p>Gender: {deliveryPartner.gender}</p>
-            <p>Vehicle: {deliveryPartner.vehicle}</p>
+            <p>{deliveryPartnerName}</p>
+            <p>Phone: {deliveryPartnerPhone}</p>
+            <p>Vehicle: {deliveryPartnerVehicle}</p>
           </div>
         </div>
 

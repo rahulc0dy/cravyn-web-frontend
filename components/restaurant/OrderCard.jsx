@@ -1,6 +1,13 @@
 import React from "react";
 
-const OrderCard = ({ orderId, time, items, total, handleClickedOrder }) => {
+const OrderCard = ({
+  orderId,
+  listId,
+  time,
+  items,
+  total,
+  handleClickedOrder,
+}) => {
   return (
     <div className="border-2 border-gray-300 rounded-lg shadow-xl w-64 h-72 overflow-clip">
       <div className="bg-accent-green flex justify-between items-center p-5 border-b-2">
@@ -33,7 +40,7 @@ const OrderCard = ({ orderId, time, items, total, handleClickedOrder }) => {
       <div className="py-4 px-4">
         {items.slice(0, 3).map((item, index) => (
           <div key={index} className="flex justify-between font-light">
-            <span>{item.name}</span>
+            <span>{item.food_name}</span>
             <span className="font-semibold">×{item.quantity}</span>
           </div>
         ))}
@@ -50,7 +57,7 @@ const OrderCard = ({ orderId, time, items, total, handleClickedOrder }) => {
         </div>
       </div>
       <button
-        onClick={() => handleClickedOrder(orderId)}
+        onClick={() => handleClickedOrder(listId)}
         className="mt-4 text-secondary-green hover:scale-105 hover:underline hover:text-tertiary-green font-semibold px-4 transition-all"
       >
         View Details

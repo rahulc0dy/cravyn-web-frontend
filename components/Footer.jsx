@@ -32,7 +32,7 @@ const Footer = () => {
     <></>
   ) : (
     <footer
-      className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center`}
+      className={`${quicksand.className} w-full py-9 text-white bg-primary-grey flex flex-row justify-center print:hidden`}
     >
       <div className="wrapper grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  justify-between gap-x-24 gap-y-10">
         <div className="flex flex-col justify-between">

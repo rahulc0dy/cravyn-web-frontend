@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const RestaurantCard = ({
+  id,
   image,
   name,
   address,
