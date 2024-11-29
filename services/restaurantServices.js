@@ -57,6 +57,23 @@ const getFoodItem = async (itemId) => {
   }
 };
 
+const deleteFoodItem = async (itemId) => {
+  try {
+    const response = await api.delete(`/foods`, {
+      params: { foodItemId: itemId },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error getting foodItem:", error.response.data);
+      throw new Error("Food item fetch failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
 const getOrders = async (status) => {
   try {
     const response = await api.get(`/restaurants/orders/${status}`, {});
@@ -118,6 +135,29 @@ const updateFooditem = async (foodItem) => {
   }
 };
 
+const updateFooditemDiscount = async (
+  foodItemId,
+  discountPercent,
+  discountCap
+) => {
+  try {
+    const response = await api.patch("/foods/discount", {
+      foodItemId,
+      discountPercent,
+      discountCap,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
 const raiseQuery = async (question) => {
   try {
     const response = await api.post("/restaurants/query", { question });
@@ -157,4 +197,6 @@ export {
   updateFooditem,
   raiseQuery,
   getQueries,
+  deleteFoodItem,
+  updateFooditemDiscount,
 };

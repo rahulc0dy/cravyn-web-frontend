@@ -38,7 +38,6 @@ const Sidebar = () => {
   const catalogNavs = [
     { name: "Current Catalog", href: "/restaurant/catalog" },
     { name: "Add New Item", href: "/restaurant/catalog/add" },
-    { name: "Discounts", href: "/restaurant/catalog/discounts" },
   ];
 
   const isActive = (href) =>
@@ -81,7 +80,7 @@ const Sidebar = () => {
 
       {/* Sidebar Container */}
       <div
-        className={`fixed top-0 left-0 h-full lg:min-w-full bg-white z-50 w-72 p-6 transform transition-transform ${
+        className={`fixed top-0 left-0 h-full overflow-y-scroll lg:overflow-y-auto lg:min-w-full bg-white z-50 w-72 p-6 transform transition-transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:relative lg:flex lg:flex-col lg:w-64`}
       >
