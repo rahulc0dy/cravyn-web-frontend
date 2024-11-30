@@ -80,7 +80,10 @@ const CatalogCard = ({
       <div className="flex flex-col lg:flex-row bg-white border-t border-r border-grey-light-3 rounded-xl lg:pr-6 relative shadow-xl overflow-hidden">
         <Link
           className="absolute rounded-full bg-tertiary-blue p-2 right-6 top-6"
-          href={{ pathname: "/restaurant/catalog/update", query: { itemId } }}
+          href={{
+            pathname: "/restaurant/catalog/update",
+            query: { itemId, dependency: Math.random() * 1000 },
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
