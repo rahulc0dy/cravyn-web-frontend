@@ -1,6 +1,7 @@
 "use client";
 
 import Sidebar from "@components/restaurant/Sidebar";
+import { PopupProvider } from "@providers/PopupProvider";
 import { AuthProvider, useAuth } from "@providers/RestaurantAuthProvider";
 import { usePathname } from "next/navigation";
 

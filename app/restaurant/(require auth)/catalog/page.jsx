@@ -11,8 +11,15 @@ const RestaurantCatalogue = () => {
   const { auth } = useAuth();
   const restaurant = auth.user;
 
-  const { data, isError, isLoading, isSuccess, error } = useQuery({
-    queryKey: ["catalog", restaurant],
+  const {
+    data,
+    isError,
+    isLoading,
+    isSuccess,
+    error,
+    refetch: refetchCatalog,
+  } = useQuery({
+    queryKey: ["catalog", restaurant, CatalogCard],
     queryFn: () => getCatalog(),
     enabled: !!restaurant,
     retry: 1,
@@ -40,9 +47,12 @@ const RestaurantCatalogue = () => {
               name={item.food_name}
               description={item.description}
               price={item.price}
-              discount={item.discount}
+              discount={item.discount_percent}
+              discountCap={item.discount_cap}
               orders={item.orders}
               rating={item.rating}
+              currentAvailabilityStatus={item.is_available}
+              onSuccessFn={refetchCatalog}
             />
           ))
         )}
