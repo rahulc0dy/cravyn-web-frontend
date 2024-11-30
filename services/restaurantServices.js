@@ -158,6 +158,24 @@ const updateFooditemDiscount = async (
   }
 };
 
+const updateFooditemAvailability = async (foodItemId, availabilityStatus) => {
+  try {
+    const response = await api.patch("/foods/availability", {
+      foodItemId,
+      availabilityStatus,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error("Error Response:", error.response.data);
+      throw new Error("Failed: " + error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error("An unexpected error occurred.");
+    }
+  }
+};
+
 const raiseQuery = async (question) => {
   try {
     const response = await api.post("/restaurants/query", { question });
@@ -199,4 +217,5 @@ export {
   getQueries,
   deleteFoodItem,
   updateFooditemDiscount,
+  updateFooditemAvailability,
 };

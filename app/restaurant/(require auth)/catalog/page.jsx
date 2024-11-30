@@ -51,6 +51,7 @@ const RestaurantCatalogue = () => {
               discountCap={item.discount_cap}
               orders={item.orders}
               rating={item.rating}
+              currentAvailabilityStatus={item.is_available}
               onSuccessFn={refetchCatalog}
             />
           ))

@@ -1,12 +1,15 @@
 "use client";
 
-import Popup from "@components/PopUpModal";
-import { deleteFoodItem } from "@services/restaurantServices";
+import {
+  deleteFoodItem,
+  updateFooditemAvailability,
+} from "@services/restaurantServices";
 import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import DiscountDialog from "./DiscountDialog";
 import { useState } from "react";
+import { usePopup } from "@providers/PopupProvider";
 
 const CatalogCard = ({
   itemId,
@@ -16,26 +19,59 @@ const CatalogCard = ({
   price,
   discount,
   discountCap,
+  currentAvailabilityStatus = true,
   orders,
   rating,
   onSuccessFn,
 }) => {
   const [showDiscountModal, setShowDiscountModal] = useState(false);
+  const [availabilityStatus, setAvailabilityStatus] = useState(
+    currentAvailabilityStatus
+  );
+
+  const { showPopup } = usePopup();
 
   const {
     mutate: deleteItem,
-    data,
-    isSuccess,
-    isError,
-    isPending,
-    error,
-    reset,
+    data: deleteItemData,
+    isSuccess: isDeleteSuccess,
+    isError: isDeleteError,
+    isPending: isDeletePending,
+    error: deletionError,
+    reset: resetDeletionState,
   } = useMutation({
     mutationKey: ["food-item", itemId],
     mutationFn: ({ itemId }) => deleteFoodItem(itemId),
     retry: 1,
-    onSuccess: () => {
+    onSuccess: (data) => {
       onSuccessFn();
+      showPopup({ message: data.message, duration: 2000, type: "success" });
+    },
+    onError: (error) => {
+      showPopup({ message: error.message, duration: 2000, type: "failure" });
+    },
+  });
+
+  const {
+    mutate: updateAvailability,
+    data: updateAvailabilityData,
+    isSuccess: isAvailabilityUpdateSuccess,
+    isError: isAvailabilityUpdateError,
+    isPending: isAvailabilityUpdatePending,
+    error: updationError,
+    reset: resetUpdationState,
+  } = useMutation({
+    mutationKey: ["food-item", itemId, availabilityStatus],
+    mutationFn: ({ itemId, availabilityStatus }) =>
+      updateFooditemAvailability(itemId, availabilityStatus),
+    retry: 1,
+    onSuccess: (data) => {
+      setAvailabilityStatus(!availabilityStatus);
+      showPopup({ message: data.message, duration: 2000, type: "success" });
+    },
+    onError: (error) => {
+      setAvailabilityStatus(!availabilityStatus);
+      showPopup({ message: error.message, duration: 2000, type: "failure" });
     },
   });
 
@@ -65,10 +101,12 @@ const CatalogCard = ({
           className="absolute rounded-full bg-white p-2 right-20 top-6"
           onClick={() => {
             deleteItem({ itemId });
-            reset();
+            setTimeout(() => {
+              resetDeletionState();
+            }, 4000);
           }}
         >
-          {isPending ? (
+          {isDeletePending ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,8 +181,21 @@ const CatalogCard = ({
             <span>
               <label className="inline-flex items-center cursor-pointer">
                 <span className="mr-2">Available:</span>
-                <input type="checkbox" value="" className="sr-only peer" />
-                <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none  rounded-full peer dark:bg-grey-light-3 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary-green"></div>
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  checked={availabilityStatus}
+                  onChange={() => {
+                    updateAvailability({
+                      itemId,
+                      availabilityStatus: !availabilityStatus,
+                    });
+                  }}
+                  disabled={isAvailabilityUpdatePending}
+                />
+                <div
+                  className={`relative w-11 h-6 bg-gray-200 peer-focus:outline-none  rounded-full peer dark:bg-grey-light-3 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary-green peer-disabled:bg-yellow-400`}
+                ></div>
               </label>
             </span>
           </div>
@@ -160,13 +211,6 @@ const CatalogCard = ({
         currentDiscountCap={discountCap}
         successFunc={onSuccessFn}
       />
-
-      {isError && (
-        <Popup duration={2000} message={error.message} type="failure" />
-      )}
-      {isSuccess && (
-        <Popup duration={2000} message={data.message} type="success" />
-      )}
     </>
   );
 };

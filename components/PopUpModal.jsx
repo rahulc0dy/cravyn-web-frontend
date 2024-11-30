@@ -19,7 +19,7 @@ const Popup = ({ message, duration, type = "info" }) => {
           : type === "info"
           ? "bg-grey-medium"
           : "bg-green-500"
-      } px-6  text-white py-3 rounded-lg shadow-lg transition-opacity duration-500 ease-in-out flex gap-3 lg:max-w-sm max-w-screen-sm`}
+      } px-6 z-[100] text-white py-3 rounded-lg shadow-lg transition-opacity duration-500 ease-in-out flex gap-3 lg:max-w-sm max-w-screen-sm`}
     >
       <p className="">{message}</p>
       <button onClick={() => setVisible(false)}>
