@@ -1,12 +1,17 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 const PopupContext = createContext();
 
 export const PopupProvider = ({ children }) => {
   const [popups, setPopups] = useState([]); // Array of active popups
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const showPopup = ({ message, type = "info", duration = 3000 }) => {
     const id = Date.now();
@@ -20,14 +25,15 @@ export const PopupProvider = ({ children }) => {
   return (
     <PopupContext.Provider value={{ showPopup }}>
       {children}
-      {ReactDOM.createPortal(
-        <div className="fixed top-4 right-4 z-50 space-y-2">
-          {popups.map((popup) => (
-            <Popup key={popup.id} {...popup} />
-          ))}
-        </div>,
-        document.body
-      )}
+      {isClient &&
+        ReactDOM.createPortal(
+          <div className="fixed top-4 right-4 z-50 space-y-2">
+            {popups.map((popup) => (
+              <Popup key={popup.id} {...popup} />
+            ))}
+          </div>,
+          document.body
+        )}
     </PopupContext.Provider>
   );
 };
