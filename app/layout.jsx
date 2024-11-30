@@ -3,6 +3,7 @@ import localfont from "next/font/local";
 import "@styles/globals.css";
 import Footer from "@components/Footer";
 import ReactQueryProvider from "@providers/ReactQueryProvider";
+import { PopupProvider } from "@providers/PopupProvider";
 
 const nunito = Nunito({
   subsets: ["latin", "latin-ext"],
@@ -30,10 +31,12 @@ export default function RootLayout({ children }) {
           nunito_local.className ?? nunito.className
         } antialiased scroll-smooth`}
       >
-        <ReactQueryProvider>
-          {children}
-          <Footer />
-        </ReactQueryProvider>
+        <PopupProvider>
+          <ReactQueryProvider>
+            {children}
+            <Footer />
+          </ReactQueryProvider>
+        </PopupProvider>
       </body>
     </html>
   );

@@ -11,17 +11,15 @@ export default function RestaurantLayout({ children }) {
   const resetLayoutRoutes = ["/restaurant/register", "/restaurant/login"];
 
   return (
-    <PopupProvider>
-      <AuthProvider>
-        {resetLayoutRoutes.includes(path) ? (
-          <main>{children}</main>
-        ) : (
-          <main className="wrapper lg:grid grid-cols-[1fr_3fr] relative gap-4">
-            <Sidebar />
-            {children}
-          </main>
-        )}
-      </AuthProvider>
-    </PopupProvider>
+    <AuthProvider>
+      {resetLayoutRoutes.includes(path) ? (
+        <main>{children}</main>
+      ) : (
+        <main className="wrapper lg:grid grid-cols-[1fr_3fr] relative gap-4">
+          <Sidebar />
+          {children}
+        </main>
+      )}
+    </AuthProvider>
   );
 }
