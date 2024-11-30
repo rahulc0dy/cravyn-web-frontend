@@ -1,18 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import FoodItemForm from "@components/restaurant/FoodItemForm";
 import { getFoodItem, updateFooditem } from "@services/restaurantServices";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 
 const RestaurantUpdateCatalogue = () => {
   const searchParams = useSearchParams();
-  const router = useRouter();
+  const path = usePathname();
   const itemId = searchParams.get("itemId");
+  const dependency = searchParams.get("dependency");
 
-  const { data, isSuccess, isError, isLoading, error } = useQuery({
-    queryKey: ["food-item", itemId],
+  const { data, isSuccess, isError, isLoading, error, refetch } = useQuery({
+    queryKey: ["food-item", itemId, path, dependency],
 
     queryFn: () => getFoodItem(itemId),
     enabled: !!itemId,

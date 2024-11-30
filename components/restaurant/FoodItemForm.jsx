@@ -22,6 +22,7 @@ const FoodItemForm = ({
   const [imagePreview, setImagePreview] = useState(null); // URL for image preview
 
   const { data, mutate, isSuccess, isError, isPending, error } = useMutation({
+    mutationKey: ["food-form", foodName, foodDescription, foodPrice],
     mutationFn: (formData) => onSubmit(formData),
     onSuccess: () => {},
     onError: (error) => {},
