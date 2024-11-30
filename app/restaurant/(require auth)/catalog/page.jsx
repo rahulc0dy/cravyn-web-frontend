@@ -26,8 +26,6 @@ const RestaurantCatalogue = () => {
     refetchOnWindowFocus: false,
   });
 
-  isSuccess && console.log(data);
-
   const menuItems = isSuccess ? data.data.catalog : [];
 
   return (

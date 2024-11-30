@@ -170,7 +170,7 @@ const CatalogCard = ({
             >
               <span className="font-semibold text-gray-700">Discount: </span>
               <span className="text-orange-500 font-extrabold">
-                {discount ? `${discount} %` : "None"}
+                {discount ? `${discount} % (upto ₹${discountCap})` : "None"}
               </span>
             </div>
           </div>
