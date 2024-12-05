@@ -72,13 +72,14 @@ const PendingOrdersPage = () => {
       <div className="p-8">
         {isSuccess && showModal && (
           <OrderDetailsDialog
+            uuid={clickedOrder.order_id}
             orderId={clickedOrder.list_id}
             time={parseTime(clickedOrder.order_timestamp)}
             customerName={clickedOrder.customer_name}
             orderItems={clickedOrder.items}
             totalPrice={clickedOrder.checkout_price}
             instructions={clickedOrder.specifications}
-            address={clickedOrder.address}
+            address={clickedOrder.display_address}
             deliveryPartnerName={clickedOrder.delivery_partner_name}
             deliveryPartnerPhone={clickedOrder.phone_number}
             deliveryPartnerVehicle={clickedOrder.vehicle_type}
