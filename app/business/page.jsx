@@ -8,17 +8,6 @@ import { getDashboard } from "@services/businessTeamServices";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const lineOptions1 = {
-  chart: { toolbar: { show: false } },
-  stroke: { curve: "smooth" },
-  colors: ["#7C3AED"],
-  xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
-  title: { text: "Performance", align: "left" },
-};
-const lineSeries1 = [
-  { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
-];
-
 const mixedOptions = {
   chart: { toolbar: { show: false } },
   xaxis: { categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
@@ -49,7 +38,7 @@ export default function BusinessDashboard() {
     isLoading,
     error: dashboardFetchError,
   } = useQuery({
-    queryKey: ["business-dashboard"],
+    queryKey: ["business-dashboard", year, month, day],
     queryFn: () => getDashboard(year, month, day),
     refetchIntervalInBackground: false,
   });
@@ -76,6 +65,7 @@ export default function BusinessDashboard() {
     window.location.reload();
   };
 
+  //Restaurant Wise Sales
   const restaurantNames =
     isSuccess &&
     dashboardData.data.totalSalesData.map((item) => item.restaurant_name);
@@ -117,6 +107,7 @@ export default function BusinessDashboard() {
     },
   ];
 
+  // Monthly Sales
   const monthlyChartOptions = {
     chart: { toolbar: { show: false } },
     stroke: { curve: "smooth" },
@@ -150,6 +141,23 @@ export default function BusinessDashboard() {
     },
   ];
 
+  // Daily Sales
+  const days =
+    isSuccess && dashboardData.data.dailySales.map((item) => item.day);
+  const dailySales =
+    isSuccess &&
+    dashboardData.data.dailySales.map((item) => item.daily_total_sales);
+
+  const dailySalesChartOptions = {
+    chart: { toolbar: { show: false } },
+    stroke: { curve: "smooth" },
+    colors: ["#7C3AED"],
+    xaxis: { categories: days },
+    title: { text: "Performance", align: "left" },
+  };
+  const dailySalesChartSeries = [{ name: "Daily Sales", data: dailySales }];
+
+  // Category Wise Sales
   const doughnutOptions = {
     chart: {
       type: "donut",
@@ -318,19 +326,33 @@ export default function BusinessDashboard() {
             </div>
           </div>
           <div className="border-b-2 lg:border-r-2">
-            <Chart
-              className="mt-4"
-              options={doughnutOptions}
-              series={doughnutSeries}
-              type="donut"
-              width="375px"
-            />
+            {isLoading ? (
+              "Loading"
+            ) : (
+              <Chart
+                className="mt-4"
+                options={doughnutOptions}
+                series={doughnutSeries}
+                type="donut"
+                width="375px"
+              />
+            )}
           </div>
           <div className="border-b-2 py-5">
-            <div className="text-xl font-extrabold text-center">$120,544</div>
+            <div className="text-xl font-extrabold text-center">
+              {isSuccess &&
+                Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "INR",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(dashboardData.data.monthlySales[0].total_sales)}
+            </div>
             <div className="grid lg:grid-cols-[1fr_3.5fr] gap-x-6 m-3">
               <div className="grid lg:grid-rows-4 grid-cols-2 lg:grid-cols-1">
-                <button className="text-md font-semibold">Monthly</button>
+                <button className="text-md font-semibold text-tertiary-purple">
+                  Monthly
+                </button>
                 <button className="text-md font-semibold">Yearly</button>
                 <button className="text-md font-semibold">Weekly</button>
                 <button className="text-md font-semibold bg-purple-light-1 rounded-md">
@@ -338,23 +360,33 @@ export default function BusinessDashboard() {
                 </button>
               </div>
               <div>
-                <Chart
-                  className=""
-                  options={monthlyChartOptions}
-                  series={monthlyChartSeries}
-                  type="area"
-                  width="100%"
-                />
+                {isSuccess ? (
+                  <Chart
+                    className=""
+                    options={monthlyChartOptions}
+                    series={monthlyChartSeries}
+                    type="area"
+                    width="100%"
+                  />
+                ) : (
+                  isLoading && "Loading"
+                )}
               </div>
             </div>
           </div>
           <div className="mt-6">
-            <Chart
-              options={lineOptions1}
-              series={lineSeries1}
-              type="line"
-              width="400px"
-            />
+            {isSuccess ? (
+              <Chart
+                options={dailySalesChartOptions}
+                series={dailySalesChartSeries}
+                type="line"
+                width="400px"
+              />
+            ) : isLoading ? (
+              "Loading..."
+            ) : (
+              "Error"
+            )}
           </div>
           <div>
             <p className="text-xl font-extrabold pl-6 pt-4">$965,000</p>
@@ -369,7 +401,10 @@ export default function BusinessDashboard() {
         </div>
 
         <div className=" px-2 lg:px-16 py-8 border-t-2">
-          <h5 className="text-4xl font-extrabold">Customer Metrics</h5>
+          <h5 className="text-4xl font-extrabold">
+            Customer Metrics{" "}
+            <span className="font-light text-gray-400 text-xl"> ( dummy )</span>
+          </h5>
           <div className="grid lg:grid-cols-[auto_1fr_auto] pt-4">
             <div className="grid grid-rows-3 text-xl">
               <button className="text-md font-semibold px-2">
@@ -530,6 +565,105 @@ export default function BusinessDashboard() {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className=" px-2 lg:px-16 py-8 border-t-2">
+          <select
+            name="day"
+            id="day-select"
+            className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+            onChange={(e) => setDay(e.target.value)}
+          >
+            <option value="none">None</option>
+            {[...Array(31)].map((_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          <select
+            name="month"
+            id="month-select"
+            className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+            onChange={(e) => setMonth(e.target.value)}
+          >
+            <option value="none">None</option>
+            {[
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ].map((month, index) => (
+              <option key={index + 1} value={index + 1}>
+                {month}
+              </option>
+            ))}
+          </select>
+          <select
+            name="year"
+            id="year-select"
+            className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+            onChange={(e) => setYear(e.target.value)}
+          >
+            <option value="none">None</option>
+            {[2023, 2024, 2025].map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+
+          <table className="table-auto w-full my-3 md:text-xl bg-purple-50 rounded-md overflow-clip">
+            <thead className=" bg-secondary-purple text-white">
+              <tr className="table-row">
+                <th className="px-2 py-2">Restaurant</th>
+                <th className="px-2 py-2">Total Orders</th>
+                <th className="px-2 py-2">Total Sales</th>
+              </tr>
+            </thead>
+            <tbody className="">
+              {isSuccess && dashboardData.data.rangedSalesData.length > 0 ? (
+                dashboardData.data.rangedSalesData.map((restaurant) => (
+                  <tr
+                    key={restaurant.restaurant_id}
+                    className="table-row text-grey-dark-3"
+                  >
+                    <td className="text-left border-2 border-accent-purple">
+                      {restaurant.restaurant_name}
+                    </td>
+                    <td className="text-right border-2 border-accent-purple">
+                      {restaurant.total_orders}
+                    </td>
+                    <td className="text-right border-2 border-accent-purple">
+                      {Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "INR",
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      }).format(restaurant.total_sales)}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan="3"
+                    className="text-center border-2 border-accent-purple"
+                  >
+                    No data available
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
