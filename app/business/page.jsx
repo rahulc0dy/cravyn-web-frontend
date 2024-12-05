@@ -3,24 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useQuery } from "@tanstack/react-query";
+import { getDashboard } from "@services/businessTeamServices";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-
-const doughnutOptions = {
-  labels: ["Vegetarian", "Non Vegetarian", "Beverages"],
-  colors: ["#7C3AED", "#6366F1", "#A78BFA"],
-  legend: {
-    position: "top",
-    fontSize: "16px",
-    markers: {
-      shape: "square",
-    },
-  },
-  title: { text: "Orders", align: "left" },
-  dataLabels: { enabled: false },
-  plotOptions: { pie: { donut: { size: "45%" } } },
-};
-const doughnutSeries = [26, 18, 19];
 
 const lineOptions1 = {
   chart: { toolbar: { show: false } },
@@ -30,27 +16,6 @@ const lineOptions1 = {
   title: { text: "Performance", align: "left" },
 };
 const lineSeries1 = [
-  { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
-];
-
-const lineOptions2 = {
-  chart: { toolbar: { show: false } },
-  stroke: { curve: "smooth" },
-  colors: ["#7C3AED"],
-  xaxis: { categories: ["01", "02", "03", "04", "05", "06", "07"] },
-  dataLabels: { enabled: false },
-  fill: {
-    type: "gradient",
-    gradient: {
-      shadeIntensity: 1,
-      inverseColors: false,
-      opacityFrom: 0.5,
-      opacityTo: 0,
-      stops: [0, 90, 100],
-    },
-  },
-};
-const lineSeries2 = [
   { name: "Daily Sales", data: [620, 500, 600, 430, 480, 580, 470] },
 ];
 
@@ -68,9 +33,26 @@ const mixedSeries = [
   },
   { name: "Conversion Rate", type: "line", data: [14, 16, 18, 20, 22, 24] },
 ];
+
 export default function BusinessDashboard() {
   const [isClient, setIsClient] = useState(false);
+  const [year, setYear] = useState(null);
+  const [month, setMonth] = useState(null);
+  const [day, setDay] = useState(null);
+
   const dashboardRef = useRef();
+
+  const {
+    data: dashboardData,
+    isSuccess,
+    isError,
+    isLoading,
+    error: dashboardFetchError,
+  } = useQuery({
+    queryKey: ["business-dashboard"],
+    queryFn: () => getDashboard(year, month, day),
+    refetchIntervalInBackground: false,
+  });
 
   useEffect(() => {
     setIsClient(true);
@@ -94,6 +76,117 @@ export default function BusinessDashboard() {
     window.location.reload();
   };
 
+  const restaurantNames =
+    isSuccess &&
+    dashboardData.data.totalSalesData.map((item) => item.restaurant_name);
+  const totalSales =
+    isSuccess &&
+    dashboardData.data.totalSalesData.map((item) =>
+      parseFloat(item.total_sales)
+    );
+
+  const restaurantSalesChartOptions = {
+    chart: {
+      type: "bar",
+      toolbar: { show: false },
+    },
+    stroke: { width: [0, 2] },
+    colors: ["#7C3AED", "#6366F1"],
+    xaxis: {
+      categories: restaurantNames,
+      title: {
+        text: "Restaurants",
+      },
+    },
+    yaxis: {
+      title: {
+        text: "Total Sales (in Rs.)",
+      },
+    },
+    tooltip: {
+      y: {
+        formatter: (value) => value.toFixed(2), // Format tooltip values
+      },
+    },
+  };
+
+  const restaurantSalesSeries = [
+    {
+      name: "Total Sales",
+      data: totalSales,
+    },
+  ];
+
+  const monthlyChartOptions = {
+    chart: { toolbar: { show: false } },
+    stroke: { curve: "smooth" },
+    colors: ["#7C3AED"],
+    xaxis: {
+      categories: isSuccess
+        ? dashboardData.data.monthlySales.map((item) => item.month)
+        : ["01", "02", "03", "04", "05", "06", "07"],
+    },
+    dataLabels: { enabled: false },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        inverseColors: false,
+        opacityFrom: 0.5,
+        opacityTo: 0,
+        stops: [0, 90, 100],
+      },
+    },
+  };
+
+  const monthlyChartSeries = [
+    {
+      name: "Monthly Sales",
+      data: isSuccess
+        ? dashboardData.data.monthlySales.map(
+            (item) => item.monthly_total_sales
+          )
+        : [620, 500, 600, 430, 480, 580, 470],
+    },
+  ];
+
+  const doughnutOptions = {
+    chart: {
+      type: "donut",
+    },
+    labels: isSuccess
+      ? dashboardData.data.categorySales.map((item) => item.category)
+      : ["Vegetarian", "Non Vegetarian", "Beverages"],
+    colors: ["#7C3AED", "#6366F1", "#A78BFA"],
+    legend: {
+      position: "top",
+      fontSize: "16px",
+      markers: {
+        shape: "square",
+      },
+    },
+    title: {
+      text: "Orders",
+      align: "left",
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: "45%",
+        },
+      },
+    },
+  };
+
+  const doughnutSeries = isSuccess
+    ? dashboardData.data.categorySales.map((item) => item.total_items_sold)
+    : [26, 18, 19];
+
+  isSuccess && console.log(dashboardData);
+
   return (
     <div className="bg-accent-purple py-16" ref={dashboardRef}>
       <div className="wrapper rounded-2xl bg-white mx-auto transform">
@@ -111,13 +204,17 @@ export default function BusinessDashboard() {
                   height={50}
                   alt="customers"
                   className="w-auto h-5"
-                ></Image>
+                />
                 <p className="text-grey-medium opacity-60 font-extrabold tracking-wide">
                   Customers
                 </p>
               </div>
               <p className="text-secondary-purple text-xl md:text-3xl font-bold pl-6 tracking-widest">
-                1,26,496
+                {isLoading
+                  ? "Loading..."
+                  : isSuccess
+                  ? dashboardData.data.totalUsers.total_customers
+                  : "Unknown"}
               </p>
             </div>
 
@@ -135,7 +232,11 @@ export default function BusinessDashboard() {
                 </p>
               </div>
               <p className="text-secondary-purple text-xl md:text-3xl font-bold pl-6 tracking-widest">
-                1,956
+                {isLoading
+                  ? "Loading..."
+                  : isSuccess
+                  ? dashboardData.data.totalUsers.total_restaurants
+                  : "Unknown"}
               </p>
             </div>
 
@@ -153,7 +254,11 @@ export default function BusinessDashboard() {
                 </p>
               </div>
               <p className="text-secondary-purple text-xl md:text-3xl font-bold pl-6 tracking-widest">
-                12,649
+                {isLoading
+                  ? "Loading..."
+                  : isSuccess
+                  ? dashboardData.data.totalUsers.total_delivery_partners
+                  : "Unknown"}
               </p>
             </div>
           </div>
@@ -235,8 +340,8 @@ export default function BusinessDashboard() {
               <div>
                 <Chart
                   className=""
-                  options={lineOptions2}
-                  series={lineSeries2}
+                  options={monthlyChartOptions}
+                  series={monthlyChartSeries}
                   type="area"
                   width="100%"
                 />
@@ -262,8 +367,9 @@ export default function BusinessDashboard() {
             />
           </div>
         </div>
+
         <div className=" px-2 lg:px-16 py-8 border-t-2">
-          <div className="text-4xl font-extrabold">Customer Metrics</div>
+          <h5 className="text-4xl font-extrabold">Customer Metrics</h5>
           <div className="grid lg:grid-cols-[auto_1fr_auto] pt-4">
             <div className="grid grid-rows-3 text-xl">
               <button className="text-md font-semibold px-2">
@@ -383,11 +489,44 @@ export default function BusinessDashboard() {
             <div className="my-auto text-center lg:text-left py-4">
               <p className="text-xl font-bold">Active Customers</p>
               <p className="text-3xl text-secondary-purple font-bold tracking-widest">
-                14,264
+                {isLoading
+                  ? "Loading..."
+                  : isSuccess
+                  ? dashboardData.data.totalUsers.total_customers
+                  : "Unknown"}
               </p>
               <p className="text-xl font-bold mt-4">Ongoing Orders</p>
               <p className="text-3xl text-secondary-purple font-bold tracking-widest">
-                1,784
+                235
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className=" px-2 lg:px-16 py-8 border-t-2">
+          <h5 className="text-4xl font-extrabold">Restaurant Sales</h5>
+          <div className="grid lg:grid-cols-[auto_1fr_auto] pt-4">
+            <div className="flex justify-center items-center">
+              {isSuccess ? (
+                <Chart
+                  options={restaurantSalesChartOptions}
+                  series={restaurantSalesSeries}
+                  type="bar"
+                  width="300%"
+                  height="300%"
+                />
+              ) : (
+                isLoading && "Loading"
+              )}
+            </div>
+            <div className="my-auto text-center lg:text-left py-4 mx-auto">
+              <p className="text-xl font-bold">Total Restaurants</p>
+              <p className="text-3xl text-secondary-purple font-bold tracking-widest">
+                {isLoading
+                  ? "Loading..."
+                  : isSuccess
+                  ? dashboardData.data.totalUsers.total_restaurants
+                  : "Unknown"}
               </p>
             </div>
           </div>
