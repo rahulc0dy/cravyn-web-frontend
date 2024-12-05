@@ -193,8 +193,6 @@ export default function BusinessDashboard() {
     ? dashboardData.data.categorySales.map((item) => item.total_items_sold)
     : [26, 18, 19];
 
-  isSuccess && console.log(dashboardData);
-
   return (
     <div className="bg-accent-purple py-16" ref={dashboardRef}>
       <div className="wrapper rounded-2xl bg-white mx-auto transform">
