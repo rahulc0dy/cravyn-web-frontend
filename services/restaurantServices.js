@@ -206,6 +206,24 @@ const getQueries = async () => {
   }
 };
 
+const updateOrderStatus = async (orderId, status) => {
+  try {
+    const response = await api.patch(`/restaurants/orders`, {
+      orderId,
+      status,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.data);
+      throw new Error(error.response.data.message);
+    } else {
+      console.error("Unexpected Error:", error);
+      throw new Error(error.message);
+    }
+  }
+};
+
 export {
   registerRestaurant,
   getCatalog,
@@ -218,4 +236,5 @@ export {
   deleteFoodItem,
   updateFooditemDiscount,
   updateFooditemAvailability,
+  updateOrderStatus,
 };

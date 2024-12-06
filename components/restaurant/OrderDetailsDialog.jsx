@@ -1,6 +1,10 @@
-import React from "react";
+import { usePopup } from "@providers/PopupProvider";
+import { updateOrderStatus } from "@services/restaurantServices";
+import { useMutation } from "@tanstack/react-query";
+import React, { useState } from "react";
 
 const OrderDetailsDialog = ({
+  uuid,
   orderId,
   time,
   customerName,
@@ -15,6 +19,28 @@ const OrderDetailsDialog = ({
   visible,
   closefunc,
 }) => {
+  const { showPopup } = usePopup();
+  const [orderStatus, setOrderStatus] = useState(status);
+
+  const {
+    mutate: updateStatus,
+    isSuccess,
+    isPending,
+    isError,
+    error,
+    data,
+  } = useMutation({
+    mutationKey: [orderId],
+    mutationFn: ({ orderId, status }) => updateOrderStatus(orderId, status),
+    retry: 1,
+    onSuccess: (data) => {
+      showPopup({ message: "Status updated", duration: 2000, type: "success" });
+    },
+    onError: (err) => {
+      showPopup({ message: err.message, duration: 2000, type: "failure" });
+    },
+  });
+
   if (!visible) return null;
   return (
     <div className=" fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 px-4 z-50">
@@ -87,10 +113,7 @@ const OrderDetailsDialog = ({
             <h3 className="font-bold text-tertiary-green text-xl mb-3">
               Delivery Address:
             </h3>
-            <p>VCS Street, Rajabajar</p>
-            <p>2nd floor</p>
-            <p>Kolkata, 722153</p>
-            <p>Landmark: N/A</p>
+            <p className="max-w-40">{address}</p>
           </div>
           <div>
             <h3 className="font-bold text-tertiary-green text-xl mb-3">
@@ -106,14 +129,24 @@ const OrderDetailsDialog = ({
           <label className="font-bold text-tertiary-green text-xl mr-4">
             Order Status:
           </label>
-          <select className="border-2 border-grey-light-3 px-12 py-1 rounded-md">
+          <select
+            className="border-2 border-grey-light-3 px-12 py-1 rounded-md"
+            onChange={(e) => setOrderStatus(e.target.value)}
+          >
             <option value="Preparing">Preparing</option>
             <option value="Packed">Packed</option>
-            <option value="In Transit">In Transit</option>
+            <option value="Cancelled">Cancelled</option>
             <option value="Delivered">Delivered</option>
           </select>
-          <button className="bg-green-500 text-white px-4 py-2 rounded-md ml-4 hover:bg-green-600">
-            Update Status
+          <button
+            className={`${
+              isPending ? "bg-yellow-500" : "bg-green-500"
+            } text-white px-4 py-2 rounded-md ml-4 ${
+              isPending ? "bg-yellow-600" : "bg-green-600"
+            }`}
+            onClick={() => updateStatus({ orderId: uuid, status: orderStatus })}
+          >
+            {isPending ? "Updating" : "Update Status"}
           </button>
         </div>
       </div>
