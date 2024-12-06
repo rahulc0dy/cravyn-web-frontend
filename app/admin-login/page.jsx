@@ -17,7 +17,9 @@ const RestaurantLoginPage = () => {
   const { mutate, isPending, isError, error, isSuccess, data } = useMutation({
     mutationFn: ({ credentials, userRole }) => login(credentials, userRole),
     onSuccess: () => {
-      router.push("/management/dashboard");
+      router.push(
+        userRole === "management-team" ? "/management/dashboard" : "/business"
+      );
     },
 
     onError: (error) => {
