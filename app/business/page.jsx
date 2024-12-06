@@ -385,27 +385,27 @@ export default function BusinessDashboard() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1.5fr] lg:grid-rows-[1fr_1.2]">
-            <div className="relative row-span-2 lg:min-h-max min-h-[50rem]  ">
-              <p className="text-3xl font-bold text-center mt-10 lg:mt-56">
+            <div className="relative row-span-2 py-5 self-center">
+              <p className="text-3xl font-bold text-center">
                 Annual Increments
               </p>
-              <div className="flex justify-center">
-                <div className="bg-tertiary-purple bg-opacity-80 w-1/5 z-30 absolute bottom-10 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
+              <div className="flex justify-center relative my-10">
+                <div className="bg-tertiary-purple bg-opacity-80 w-1/5 z-30 absolute bottom-0 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
                   <p className="text-black font-bold lg:text-lg mt-5 tracking-wide">
                     <span className="text-danger-blue pr-1">₹</span>19K
                   </p>
                 </div>
-                <div className="bg-tertiary-purple bg-opacity-40 w-2/5 z-20 absolute bottom-10 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
+                <div className="bg-tertiary-purple bg-opacity-40 w-2/5 z-20 absolute bottom-0 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
                   <p className="text-black font-bold lg:text-lg mt-5 tracking-wide">
                     <span className="text-danger-blue pr-1">₹</span>12K
                   </p>
                 </div>
-                <div className="bg-tertiary-purple bg-opacity-20 w-3/5 z-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
+                <div className="bg-tertiary-purple bg-opacity-20 w-3/5 z-10 absolute bottom-0 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
                   <p className="text-black font-bold lg:text-lg mt-5 tracking-wide">
                     <span className="text-danger-blue pr-1">₹</span>9K
                   </p>
                 </div>
-                <div className="bg-tertiary-purple bg-opacity-10 w-4/5 z-0 absolute bottom-10 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
+                <div className="bg-tertiary-purple bg-opacity-10 w-4/5 z-0 aspect-square rounded-full flex justify-center">
                   <p className="text-black font-bold lg:text-lg mt-5 tracking-wide">
                     <span className="text-danger-blue pr-1">₹</span>7K
                   </p>
