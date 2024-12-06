@@ -1,7 +1,11 @@
+"use client";
+
 import { getRestaurantSales } from "@services/businessTeamServices";
 import { useQuery } from "@tanstack/react-query";
+import dynamic from "next/dynamic";
 import { useState } from "react";
-import Chart from "react-apexcharts";
+
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const RestaurantSalesCharts = ({
   restaurantId,
@@ -40,8 +44,12 @@ const RestaurantSalesCharts = ({
   ];
 
   return !visible ? null : (
-    <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-      <div className="bg-white p-10 rounded-xl">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div
+        className="absolute inset-0 bg-black bg-opacity-90 z-0"
+        onClick={closeFunction}
+      />
+      <div className="bg-white p-10 rounded-xl z-10">
         {isLoading ? (
           "Loading"
         ) : isError ? (
