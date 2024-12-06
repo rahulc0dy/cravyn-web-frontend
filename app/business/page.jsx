@@ -387,7 +387,10 @@ export default function BusinessDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1.5fr] lg:grid-rows-[1fr_1.2]">
             <div className="relative row-span-2 py-5 self-center">
               <p className="text-3xl font-bold text-center">
-                Annual Increments
+                Annual Increments{" "}
+                <span className="font-light text-gray-400 text-lg">
+                  ( dummy )
+                </span>
               </p>
               <div className="flex justify-center relative my-10">
                 <div className="bg-tertiary-purple bg-opacity-80 w-1/5 z-30 absolute bottom-0 left-1/2 transform -translate-x-1/2 aspect-square rounded-full flex justify-center">
