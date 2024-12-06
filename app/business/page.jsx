@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
 import { getDashboard } from "@services/businessTeamServices";
 import RestaurantSalesCharts from "@components/business/RestaurantSalesCharts";
+import { useAuth } from "@providers/UserAuthProvider";
+import { useRouter } from "next/navigation";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -25,6 +27,8 @@ const mixedSeries = [
 ];
 
 export default function BusinessDashboard() {
+  const router = useRouter();
+
   const [isClient, setIsClient] = useState(false);
   const [year, setYear] = useState("2024");
   const [month, setMonth] = useState(null);
@@ -32,6 +36,8 @@ export default function BusinessDashboard() {
   const [restaurantId, setRestaurantId] = useState(null);
   const [restaurantName, setRestaurantName] = useState(null);
   const [showModal, setShowModal] = useState(false);
+
+  const { auth, logout } = useAuth();
 
   const dashboardRef = useRef();
 
@@ -866,6 +872,31 @@ export default function BusinessDashboard() {
               "No data to show"
             )}
           </div>
+
+          <article className="flex flex-col justify-center py-5 items-center">
+            <h2 className="text-xl font-bold">Your info:</h2>
+            <p className="font-extrabold text-3xl text-secondary-purple tracking-wide">
+              {auth.user.name}
+            </p>
+            <p className="font-medium text-xl text-grey-medium">
+              Business Admin
+            </p>
+            <button
+              className="text-red-600 font-bold text-lg flex justify-center items-center gap-4 w-full p-4 lg:mt-8"
+              onClick={() => {
+                logout(false);
+                router.push("/admin-login");
+              }}
+            >
+              <Image
+                src="/assets/icons/logout.png"
+                width={20}
+                height={20}
+                alt="logout image"
+              />
+              Log Out
+            </button>
+          </article>
         </div>
       </div>
 
