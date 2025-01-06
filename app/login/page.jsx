@@ -11,7 +11,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("customer");
+  const [userType, setUserType] = useState("restaurant-owner");
 
   const { auth, login } = useAuth();
 
@@ -119,17 +119,6 @@ const LoginPage = () => {
                     <input
                       type="radio"
                       name="role"
-                      value="customer"
-                      className="accent-red-500 form-radio text-red-500 h-4 w-4"
-                      checked={userType === "customer"}
-                      onChange={(e) => setUserType(e.target.value)}
-                    />
-                    <span className="ml-2 text-gray-700">Customer</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      name="role"
                       value="restaurant-owner"
                       className="accent-red-500 form-radio text-red-500 h-4 w-4"
                       checked={userType === "restaurant-owner"}
@@ -141,7 +130,9 @@ const LoginPage = () => {
               </div>
               <input
                 type="submit"
-                className="w-full bg-red-500 text-white py-2 rounded-md font-semibold transition duration-300 hover:bg-red-600"
+                className={`w-full ${
+                  isPending ? "bg-yellow-500" : "bg-red-500"
+                } text-white py-2 rounded-md font-semibold transition duration-300 hover:bg-red-600`}
                 value={isPending ? "Pending..." : "Login"}
               />
             </form>
