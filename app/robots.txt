@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://cravyn-web-frontend.vercel.app/sitemap.xml

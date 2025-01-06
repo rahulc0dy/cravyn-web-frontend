@@ -43,11 +43,13 @@ const FoodSalesPage = () => {
           <p className="text-3xl font-bold text-secondary-orange tracking-wider py-2  ">
             ₹{" "}
             {isSuccess
-              ? data.data.foodSales.reduce(
-                  (accumulator, currentValue) =>
-                    accumulator + parseFloat(currentValue.sum),
-                  0
-                )
+              ? data.data.foodSales
+                  .reduce(
+                    (accumulator, currentValue) =>
+                      accumulator + parseFloat(currentValue.sum),
+                    0
+                  )
+                  .toFixed(2)
               : "000"}
           </p>
         </motion.div>
