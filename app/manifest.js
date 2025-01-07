@@ -1,9 +1,10 @@
+import { DESCRIPTION, NAME, SHORT_NAME } from "@lib/constants";
+
 export default function manifest() {
   return {
-    name: "Cravyn - Crave, Click, Delivered",
-    short_name: "Cravyn",
-    description:
-      "Cravyn is an online food ordering system working to connect restaurants directly to their customer.",
+    name: NAME,
+    short_name: SHORT_NAME,
+    description: DESCRIPTION,
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
