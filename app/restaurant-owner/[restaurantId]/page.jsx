@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { getRestaurantFoodSalesData } from "@services/restaurantOwnerServices";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 const FoodSalesPage = () => {
   const { restaurantId } = useParams();
@@ -14,6 +15,8 @@ const FoodSalesPage = () => {
     refetchInterval: 100000,
     refetchIntervalInBackground: true,
   });
+
+  console.log(data);
 
   return isSuccess ? (
     <main className="wrapper">
@@ -46,7 +49,7 @@ const FoodSalesPage = () => {
               ? data.data.foodSales
                   .reduce(
                     (accumulator, currentValue) =>
-                      accumulator + parseFloat(currentValue.sum),
+                      accumulator + Number.parseFloat(currentValue.sum),
                     0
                   )
                   .toFixed(2)
@@ -70,13 +73,46 @@ const FoodSalesPage = () => {
             {isSuccess
               ? data.data.foodSales.reduce(
                   (accumulator, currentValue) =>
-                    accumulator + parseFloat(currentValue.count),
+                    accumulator + Number.parseFloat(currentValue.count),
                   0
                 )
               : "000"}
           </p>
         </motion.div>
       </div>
+
+      <div className="">
+        <h2 className="text-center text-xl font-bold mt-5">Top 3 Foods</h2>
+        <div className="flex flex-wrap gap-5 lg:max-w-4xl mx-auto p-0 lg:p-5 justify-between">
+          {isLoading ? (
+            <h2>Loading</h2>
+          ) : (
+            isSuccess &&
+            data.data.foodSales.slice(0, 3).map((food, index) => (
+              <div
+                className="relative rounded-lg overflow-clip group"
+                key={food.item_id}
+              >
+                <Image
+                  src={food.food_image_url}
+                  className="w-full aspect-square object-cover peer"
+                  width={200}
+                  height={200}
+                />
+                <h2 className="absolute top-2 left-0 bg-black text-accent-yellow-light font-bold rounded-r-lg backdrop-blur-md bg-opacity-30 pl-5 p-3">
+                  {index + 1}
+                </h2>
+                <div className="hidden group-hover:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-black/0 p-2 pt-10 transition-all duration-500">
+                  <h3 className="text-lg text-white font-semibold text-center">
+                    {food.food_name}
+                  </h3>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
       <h2 className="text-center text-xl font-bold mt-5">Top Sellers</h2>
       <div className="flex flex-wrap gap-5 lg:max-w-4xl mx-auto p-0 lg:p-5">
         {isLoading ? (

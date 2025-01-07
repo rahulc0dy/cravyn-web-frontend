@@ -107,7 +107,7 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch (`git push origin feat/new-feature`).
 5. Open a Pull Request.
 
-### Our Contributers
+### Our Contributors
 
 Thanks to all the people who contribute to this project:
 

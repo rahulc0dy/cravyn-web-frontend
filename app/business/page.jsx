@@ -756,7 +756,7 @@ export default function BusinessDashboard() {
             <select
               name="day"
               id="day-select"
-              className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+              className="px-3 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
               onChange={(e) => setDay(e.target.value)}
               value={day}
             >
@@ -770,7 +770,7 @@ export default function BusinessDashboard() {
             <select
               name="month"
               id="month-select"
-              className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+              className="px-3 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
               onChange={(e) => setMonth(e.target.value)}
               value={month}
             >
@@ -797,7 +797,7 @@ export default function BusinessDashboard() {
             <select
               name="year"
               id="year-select"
-              className="px-3 py-2 bg-gray-100 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
+              className="px-3 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-400 mr-2 rounded-md text-grey-dark-2"
               onChange={(e) => setYear(e.target.value)}
               value={year}
             >
@@ -822,7 +822,7 @@ export default function BusinessDashboard() {
                   dashboardData.data.rangedSalesData.map((restaurant) => (
                     <tr
                       key={restaurant.restaurant_id}
-                      className="table-row text-grey-dark-3 cursor-pointer"
+                      className="table-row cursor-pointer text-grey-dark-2 hover:text-purple-700 font-semibold hover:bg-purple-100"
                       onClick={() =>
                         handleRestaurantSelect(
                           restaurant.restaurant_id,
@@ -830,13 +830,13 @@ export default function BusinessDashboard() {
                         )
                       }
                     >
-                      <td className="text-left border-2 border-accent-purple">
+                      <td className="text-left border-2 border-accent-purple p-2">
                         {restaurant.restaurant_name}
                       </td>
-                      <td className="text-right border-2 border-accent-purple">
+                      <td className="text-right border-2 border-accent-purple p-2">
                         {restaurant.total_orders}
                       </td>
-                      <td className="text-right border-2 border-accent-purple">
+                      <td className="text-right border-2 border-accent-purple p-2">
                         {Intl.NumberFormat("en-US", {
                           style: "currency",
                           currency: "INR",
