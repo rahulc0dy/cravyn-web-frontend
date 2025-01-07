@@ -20,7 +20,7 @@ export const metadata = {
   description:
     "Cravyn is an online food ordering system working to connect restaurants directly to their customer.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/app-icons/favicon.ico",
   },
 };
 export default function RootLayout({ children }) {

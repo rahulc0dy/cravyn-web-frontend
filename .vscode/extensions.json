@@ -9,6 +9,7 @@
     "equinusocio.vsc-material-theme-icons",
     "PKief.material-icon-theme",
     "PKief.material-product-icons",
-    "tinkertrain.theme-panda"
+    "tinkertrain.theme-panda",
+    "esbenp.prettier-vscode"
   ]
 }
