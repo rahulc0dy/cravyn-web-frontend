@@ -52,7 +52,13 @@ const OrderDetailsDialog = ({
           <div className="text-3xl font-extrabold border-r-2 border-black pr-4 tracking-widest text-grey-dark-3">
             {orderId}
           </div>
-          <div className="text-3xl pl-4 font-bold text-grey-dark-3">{time}</div>
+          <div className="text-3xl pl-4 font-bold text-grey-dark-3">
+            {new Date(time).toLocaleTimeString("en-US", {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            })}
+          </div>
           <button onClick={closefunc} className="text-black hover:text-red-500">
             <span className="text-3xl">&times;</span>
           </button>

@@ -21,24 +21,6 @@ const PendingOrdersPage = () => {
     refetchInterval: 10000,
     refetchIntervalInBackground: true,
   });
-
-  const parseTime = (timestamp) => {
-    const date = new Date(timestamp);
-
-    let hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-    const ampm = hours >= 12 ? "PM" : "AM";
-
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-
-    const time = `${hours.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")} ${ampm}`;
-
-    return time;
-  };
-
   const orders = data?.data?.orders || [];
 
   const handleClickedOrder = (order) => {
@@ -61,7 +43,7 @@ const PendingOrdersPage = () => {
               key={index}
               items={order.items}
               orderId={order.list_id}
-              time={parseTime(order.order_timestamp)}
+              time={order.order_timestamp}
               total={order.checkout_price}
               handleClickedOrder={() => handleClickedOrder(order)}
             />
@@ -74,7 +56,7 @@ const PendingOrdersPage = () => {
           <OrderDetailsDialog
             uuid={clickedOrder.order_id}
             orderId={clickedOrder.list_id}
-            time={parseTime(clickedOrder.order_timestamp)}
+            time={clickedOrder.order_timestamp}
             customerName={clickedOrder.customer_name}
             orderItems={clickedOrder.items}
             totalPrice={clickedOrder.checkout_price}
