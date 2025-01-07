@@ -16,8 +16,6 @@ const FoodSalesPage = () => {
     refetchIntervalInBackground: true,
   });
 
-  console.log(data);
-
   return isSuccess ? (
     <main className="wrapper">
       <div className="p-5 mx-auto lg:max-w-4xl border-8 border-accent-yellow-light my-4 mb-8 rounded-lg">
@@ -85,7 +83,7 @@ const FoodSalesPage = () => {
         <h2 className="text-center text-xl font-bold mt-5">Top 3 Foods</h2>
         <div className="flex flex-wrap gap-5 lg:max-w-4xl mx-auto p-0 lg:p-5 justify-between">
           {isLoading ? (
-            <h2>Loading</h2>
+            <h2>Loading...</h2>
           ) : (
             isSuccess &&
             data.data.foodSales.slice(0, 3).map((food, index) => (
@@ -95,9 +93,13 @@ const FoodSalesPage = () => {
               >
                 <Image
                   src={food.food_image_url}
-                  className="w-full aspect-square object-cover peer"
+                  className="w-full aspect-square object-cover peer bg-red-100"
                   width={200}
                   height={200}
+                  alt={`${food.food_name} - Rank ${index + 1}`}
+                  onError={(e) => {
+                    e.target.src = "/pp-icons/icon4.png";
+                  }}
                 />
                 <h2 className="absolute top-2 left-0 bg-black text-accent-yellow-light font-bold rounded-r-lg backdrop-blur-md bg-opacity-30 pl-5 p-3">
                   {index + 1}
