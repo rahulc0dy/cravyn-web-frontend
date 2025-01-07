@@ -98,7 +98,7 @@ const FoodSalesPage = () => {
                   height={200}
                   alt={`${food.food_name} - Rank ${index + 1}`}
                   onError={(e) => {
-                    e.target.src = "/pp-icons/icon4.png";
+                    e.target.src = "/app-icons/icon4.png";
                   }}
                 />
                 <h2 className="absolute top-2 left-0 bg-black text-accent-yellow-light font-bold rounded-r-lg backdrop-blur-md bg-opacity-30 pl-5 p-3">
