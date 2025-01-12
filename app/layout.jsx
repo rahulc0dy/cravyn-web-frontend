@@ -4,6 +4,9 @@ import "@styles/globals.css";
 import Footer from "@components/Footer";
 import ReactQueryProvider from "@providers/ReactQueryProvider";
 import { PopupProvider } from "@providers/PopupProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+import { DESCRIPTION, NAME } from "@lib/constants";
 
 const nunito = Nunito({
   subsets: ["latin", "latin-ext"],
@@ -16,9 +19,8 @@ const nunito_local = localfont({
 });
 
 export const metadata = {
-  title: "Cravyn",
-  description:
-    "Cravyn is an online food ordering system working to connect restaurants directly to their customer.",
+  title: NAME || "Cravyn",
+  description: DESCRIPTION || "Cravyn is a platform for ordering food.",
   icons: {
     icon: "/app-icons/favicon.ico",
   },
@@ -35,6 +37,8 @@ export default function RootLayout({ children }) {
           <ReactQueryProvider>
             {children}
             <Footer />
+            <SpeedInsights />
+            <Analytics />
           </ReactQueryProvider>
         </PopupProvider>
       </body>
