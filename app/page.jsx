@@ -9,6 +9,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import HomeNav from "@components/HomeNav";
 import { UserAuthProvider } from "@providers/UserAuthProvider";
+import { downloadCustomerApp } from "@services/appDownloadServices";
+import { useState } from "react";
 
 const onest = Onest({ subsets: ["latin", "latin-ext"] });
 
@@ -139,47 +141,19 @@ const faqs = [
 ];
 
 const HomePage = () => {
-  const handleAppDownloadButtonClick = async () => {
-    const setLoading = (isLoading) => {
-      const button = document.getElementById('download-customer-app');
-      button.disabled = isLoading;
-      button.innerHTML = isLoading ? 'Downloading...' : 'Download App';
-    };
-
+  const [isPending, setIsPending] = useState(false);
+  const handleDownloadCustomerApp = async () => {
+    setIsPending(true);
     try {
-      setLoading(true);
-      const appRepo = process.env.APP_REPO_LINK;
-      const response = await fetch(`${appRepo}/releases/latest`);
-      
-      if (response.status === 403) {
-        throw new Error('Rate limit exceeded. Please try again later.');
-      }
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(`GitHub API Error: ${data.message}`);
-      }
-
-      const apkAsset = data.assets.find((asset) => asset.name.endsWith(".apk"));
-
-      if (!apkAsset) {
-        throw new Error("No APK found in the latest release.");
-      }
-
-      const link = document.createElement("a");
-      link.href = apkAsset.browser_download_url;
-      link.download = apkAsset.name;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      await downloadCustomerApp();
     } catch (error) {
-      console.error("Download failed:", error);
-      alert(`Download failed: ${error.message}`);
+      console.error(error);
+      alert(error.message);
     } finally {
-      setLoading(false);
+      setIsPending(false);
     }
   };
+
   return (
     <>
       <UserAuthProvider>
@@ -275,7 +249,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
               id="download-customer-app"
               className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
-              onClick={handleAppDownloadButtonClick}
+              onClick={handleDownloadCustomerApp}
             >
               <div className="bg-accent-yellow rounded-full p-2">
                 <Image
@@ -285,7 +259,7 @@ const HomePage = () => {
                   alt="order now"
                 />
               </div>
-              Download App
+              {isPending ? "Loading" : "Download App"}
             </motion.button>
           </div>
 
