@@ -337,7 +337,7 @@ const HomePage = () => {
         </div>
 
         {/* Deliver With Us */}
-        {/* 
+
         <section className="py-10 lg:py-20 bg-white">
           <div className="wrapper flex flex-col justify-center items-center">
             <motion.h4
@@ -404,59 +404,6 @@ const HomePage = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </motion.div>
-          </div>
-        </section>
-         */}
-
-        <section className="py-10 lg:py-20 bg-white">
-          <div className="wrapper flex flex-col justify-center items-center">
-            <motion.h4
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`${onest.className} text-6xl font-bold text-center`}
-            >
-              Cities We Deliver To
-            </motion.h4>
-            <motion.h3
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className={`text-grey-medium py-5 text-3xl text-center`}
-            >
-              We deliver to the following cities. If your city is not listed,
-              let us know!
-            </motion.h3>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="tracking-wide text-xl py-3 px-8 rounded-full text-primary-rose font-bold my-8 flex gap-3 flex-wrap justify-center"
-            >
-              {[
-                "Kolkata",
-                "Howrah",
-                "Durgapur",
-                "Asansol",
-                "Siliguri",
-                "Darjeeling",
-                "Bardhaman",
-                "Kharagpur",
-                "Haldia",
-                "Jalpaiguri",
-                "Barrackpore",
-                "Naihati",
-              ].map((city, index) => (
-                <motion.span
-                  key={index}
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-rose-100 to-white"
-                  variants={itemVariants}
-                >
-                  {city}
-                </motion.span>
-              ))}
             </motion.div>
           </div>
         </section>
