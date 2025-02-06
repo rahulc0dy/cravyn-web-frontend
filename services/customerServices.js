@@ -1,8 +1,6 @@
 import api from "@utils/api";
 
 const registerCustomer = async (customer) => {
-  console.log(customer);
-
   try {
     const response = await api.post("/customer/register", customer);
     return response.data;

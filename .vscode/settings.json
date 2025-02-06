@@ -2,7 +2,7 @@
   "window.autoDetectColorScheme": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "eq-material-theme-icons",
   "workbench.sideBar.location": "left",
   "explorer.confirmDelete": false,
   "editor.fontSize": 16,
@@ -75,7 +75,7 @@
   "material-icon-theme.folders.color": "#26a69a",
   "material-icon-theme.activeIconPack": "react",
   "git.enableSmartCommit": true,
-  "workbench.preferredDarkColorTheme": "Panda Syntax",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "git.confirmSync": false,
   "git.autofetch": true,
   "cSpell.words": ["apexcharts", "cravyn", "jspdf", "mnth", "xaxis", "yaxis"]

@@ -9,6 +9,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import HomeNav from "@components/HomeNav";
 import { UserAuthProvider } from "@providers/UserAuthProvider";
+import { downloadCustomerApp } from "@services/appDownloadServices";
+import { useState } from "react";
 
 const onest = Onest({ subsets: ["latin", "latin-ext"] });
 
@@ -139,6 +141,19 @@ const faqs = [
 ];
 
 const HomePage = () => {
+  const [isPending, setIsPending] = useState(false);
+  const handleDownloadCustomerApp = async () => {
+    setIsPending(true);
+    try {
+      await downloadCustomerApp();
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    } finally {
+      setIsPending(false);
+    }
+  };
+
   return (
     <>
       <UserAuthProvider>
@@ -234,12 +249,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
               id="download-customer-app"
               className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/downloads/app-debug.apk";
-                link.download = "app-debug.apk";
-                link.click();
-              }}
+              onClick={handleDownloadCustomerApp}
             >
               <div className="bg-accent-yellow rounded-full p-2">
                 <Image
@@ -249,7 +259,7 @@ const HomePage = () => {
                   alt="order now"
                 />
               </div>
-              Download App
+              {isPending ? "Loading" : "Download App"}
             </motion.button>
           </div>
 
@@ -337,7 +347,7 @@ const HomePage = () => {
         </div>
 
         {/* Deliver With Us */}
-        {/* 
+
         <section className="py-10 lg:py-20 bg-white">
           <div className="wrapper flex flex-col justify-center items-center">
             <motion.h4
@@ -404,59 +414,6 @@ const HomePage = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </motion.div>
-          </div>
-        </section>
-         */}
-
-        <section className="py-10 lg:py-20 bg-white">
-          <div className="wrapper flex flex-col justify-center items-center">
-            <motion.h4
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`${onest.className} text-6xl font-bold text-center`}
-            >
-              Cities We Deliver To
-            </motion.h4>
-            <motion.h3
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className={`text-grey-medium py-5 text-3xl text-center`}
-            >
-              We deliver to the following cities. If your city is not listed,
-              let us know!
-            </motion.h3>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="tracking-wide text-xl py-3 px-8 rounded-full text-primary-rose font-bold my-8 flex gap-3 flex-wrap justify-center"
-            >
-              {[
-                "Kolkata",
-                "Howrah",
-                "Durgapur",
-                "Asansol",
-                "Siliguri",
-                "Darjeeling",
-                "Bardhaman",
-                "Kharagpur",
-                "Haldia",
-                "Jalpaiguri",
-                "Barrackpore",
-                "Naihati",
-              ].map((city, index) => (
-                <motion.span
-                  key={index}
-                  className="px-5 py-2 rounded-full bg-gradient-to-r from-rose-100 to-white"
-                  variants={itemVariants}
-                >
-                  {city}
-                </motion.span>
-              ))}
             </motion.div>
           </div>
         </section>
