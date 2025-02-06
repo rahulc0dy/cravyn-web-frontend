@@ -139,6 +139,33 @@ const faqs = [
 ];
 
 const HomePage = () => {
+  const handleAppDownloadButtonClick = async () => {
+    try {
+      const appRepo = process.env.NEXT_PUBLIC_APP_REPO_LINK;
+      const response = await fetch(`${appRepo}/releases/latest`);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(`GitHub API Error: ${data.message}`);
+      }
+
+      const apkAsset = data.assets.find((asset) => asset.name.endsWith(".apk"));
+
+      if (!apkAsset) {
+        throw new Error("No APK found in the latest release.");
+      }
+
+      const link = document.createElement("a");
+      link.href = apkAsset.browser_download_url;
+      link.download = apkAsset.name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Download failed:", error);
+      alert("Failed to download the latest release.");
+    }
+  };
   return (
     <>
       <UserAuthProvider>
@@ -234,12 +261,7 @@ const HomePage = () => {
               whileTap={{ scale: 0.95 }}
               id="download-customer-app"
               className="bg-primary-grey text-white text-xl px-3 py-3 rounded-full font-semibold flex items-center gap-4 pr-7"
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/downloads/app-debug.apk";
-                link.download = "app-debug.apk";
-                link.click();
-              }}
+              onClick={handleAppDownloadButtonClick}
             >
               <div className="bg-accent-yellow rounded-full p-2">
                 <Image
