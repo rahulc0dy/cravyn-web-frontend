@@ -140,9 +140,21 @@ const faqs = [
 
 const HomePage = () => {
   const handleAppDownloadButtonClick = async () => {
+    const setLoading = (isLoading) => {
+      const button = document.getElementById('download-customer-app');
+      button.disabled = isLoading;
+      button.innerHTML = isLoading ? 'Downloading...' : 'Download App';
+    };
+
     try {
-      const appRepo = process.env.NEXT_PUBLIC_APP_REPO_LINK;
+      setLoading(true);
+      const appRepo = process.env.APP_REPO_LINK;
       const response = await fetch(`${appRepo}/releases/latest`);
+      
+      if (response.status === 403) {
+        throw new Error('Rate limit exceeded. Please try again later.');
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -163,7 +175,9 @@ const HomePage = () => {
       document.body.removeChild(link);
     } catch (error) {
       console.error("Download failed:", error);
-      alert("Failed to download the latest release.");
+      alert(`Download failed: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
   return (
