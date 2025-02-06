@@ -4,6 +4,7 @@ import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ServerStatus from "./ServerStatus";
 
 const quicksand = Quicksand({
   subsets: ["latin", "latin-ext"],
@@ -302,7 +303,10 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <h3 className="text-md font-extralight">© 2024 Copyright Group 3</h3>
+        <div>
+          <ServerStatus />
+          <h3 className="text-md font-extralight">© 2024 Copyright Group 3</h3>
+        </div>
       </div>
     </footer>
   );
