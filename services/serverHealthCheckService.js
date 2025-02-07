@@ -1,10 +1,9 @@
 import api from "@utils/api";
+import { wait } from "@utils/time";
 
 const getServerHealth = async () => {
-  const MAX_RETRIES = 3;
-  const RETRY_DELAY = 1000;
-
-  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const MAX_RETRIES = process.env.HEALTH_CHECK_MAX_RETRIES || 3;
+  const RETRY_DELAY = process.env.HEALTH_CHECK_RETRY_DELAY || 1000;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
