@@ -33,6 +33,7 @@ api.interceptors.response.use(
         return api(config);
       } catch (refreshError) {
         localStorage.removeItem("auth");
+        return Promise.reject(refreshError);
       }
     }
     return Promise.reject(error);
