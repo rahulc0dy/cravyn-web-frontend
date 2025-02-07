@@ -1,6 +1,6 @@
 "use client";
 
-import { getServerHealth } from "@services/serverHealtCheckService";
+import { getServerHealth } from "@services/serverHealthCheckService";
 import React, { useEffect, useState } from "react";
 
 const ServerStatus = () => {
@@ -25,10 +25,13 @@ const ServerStatus = () => {
     };
 
     fetchData();
+
+    const pollInterval = setInterval(fetchData, 30000); // Poll every 30 seconds
+    return () => clearInterval(pollInterval);
   }, []);
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" role="status" aria-live="polite">
       <div
         className={`size-3 rounded-full ${
           loading
@@ -37,7 +40,8 @@ const ServerStatus = () => {
             ? "bg-emerald-500"
             : "bg-rose-500"
         } mr-2 align-middle animate-pulse`}
-      ></div>
+        aria-hidden="true"
+      />
       <p className="font-mono text-grey-light-3 text-lg">
         <span className="">Server: </span>
         {loading ? "Loading" : isSuccess ? data?.message : "Down!"}

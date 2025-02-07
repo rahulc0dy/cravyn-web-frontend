@@ -303,9 +303,11 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-4">
           <ServerStatus />
-          <h3 className="text-md font-extralight">© 2024 Copyright Group 3</h3>
+          <p className="text-md font-extralight mt-2">
+            © 2024 Copyright Group 3
+          </p>
         </div>
       </div>
     </footer>
