@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { getServerHealth } from "@services/serverHealthCheckService";
 import React, { useEffect, useState } from "react";
 
@@ -7,6 +8,8 @@ const ServerStatus = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const path = usePathname();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,10 +28,7 @@ const ServerStatus = () => {
     };
 
     fetchData();
-
-    const pollInterval = setInterval(fetchData, 30000); // Poll every 30 seconds
-    return () => clearInterval(pollInterval);
-  }, []);
+  }, [path]);
 
   return (
     <div className="flex items-center" role="status" aria-live="polite">
